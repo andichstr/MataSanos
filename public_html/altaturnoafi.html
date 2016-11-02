@@ -1,0 +1,131 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Alta Turno de Afiliado</title>
+        <link href="./css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">MATASANOS S.A.</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">INICIO<span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">Administrativo</li>
+                                <li><a href="#">Dar de alta Médico</a></li>
+                                <li><a href="#">Buscar Médico</a></li>
+                                <li><a href="#">Buscar Afiliado</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-header">Operador</li>
+                                <li><a href="#">Dar de alta Afiliado</a></li>
+                                <li><a href="#">Buscar Afiliado</a></li>
+                                <li role="separator" class="divider"></li>	
+                                <li class="dropdown-header">Afiliado</li>
+                                <li><a href="#">Pedir turno</a></li>
+                                <li><a href="#">Visualizar turnos</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi cuenta<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"></a></li>
+                                <li><a href="#">Editar mis datos</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container theme-showcase" role="main">
+            <div class="page-header">
+                <h1>Asignación de Turnos</h1>
+            </div>
+            <div class="container-fluid">
+                <form class="form-group form-inline">
+                    <div class="row-lg-6">
+                        <div class="col-lg-6">
+                            <label for="optEspecialidad">Especialidad:</label>
+                            <select class="form-control" name="optEspecialidad" id="optEspecialidad">
+                                <option>Especialidad 1</option>
+                                <option>Especialidad 2</option>
+                                <option>Especialidad ...</option>
+                                <option>Especialidad N</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="optMedico">Medico:</label>
+                            <select class="form-control" name="optMedico" id="optMedico">
+                                <option>Médico 1</option>
+                                <option>Médico 2</option>
+                                <option>Médico ...</option>
+                                <option>Médico N</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <div class="row-lg-6">
+                        <div class="col-lg-6">
+                            <label for="optFecha">Fecha:</label>
+                            <select class="form-control" name="optFecha" id="optFecha">
+                                <option>Los</option>
+                                <option>Siguientes</option>
+                                <option>30</option>
+                                <option>Dias</option>
+                                <option>Con</option>
+                                <option>Turnos</option>
+                                <option>Disponibles</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-6">
+                            <label for="optHorario">Horario:</label>
+                            <select class="form-control" name="optHorario" id="optHorario">
+                                <option>Turnos</option>
+                                <option>Disponibles</option>
+                                <option>En</option>
+                                <option>Ese</option>
+                                <option>Día</option>
+                            </select>
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div class="text-right col-lg-6">
+                            <br/>
+                        </div>
+                        <div class="text-left col-lg-6">
+                            <input type="button" value="Volver"/>
+                            <input type="submit" value="Asignar"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!--CONTAINER -->
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="http://getbootstrap.com/assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
