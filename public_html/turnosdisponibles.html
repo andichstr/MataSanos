@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Alta Turno de Afiliado</title>
+        <title>Buscar afiliados</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="./css/bootstrap.min.css" rel="stylesheet">
         <link href="./css/estilo.css" rel="stylesheet">
@@ -62,69 +62,38 @@
         </header>
         <div class="container theme-showcase" role="main">
             <div class="page-header">
-                <h1>Asignación de Turnos</h1>
+                <h1>Turnos Reservados</h1>
             </div>
-            <div class="container-fluid">
-                <form class="form-group form-inline">
-                    <div class="row-lg-6">
-                        <div class="col-lg-6">
-                            <label for="optEspecialidad">Especialidad:</label>
-                            <select class="form-control" name="optEspecialidad" id="optEspecialidad">
-                                <option>Especialidad 1</option>
-                                <option>Especialidad 2</option>
-                                <option>Especialidad ...</option>
-                                <option>Especialidad N</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="optMedico">Medico:</label>
-                            <select class="form-control" name="optMedico" id="optMedico">
-                                <option>Médico 1</option>
-                                <option>Médico 2</option>
-                                <option>Médico ...</option>
-                                <option>Médico N</option>
-                            </select>
-                        </div>
-                    </div>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <div class="row-lg-6">
-                        <div class="col-lg-6">
-                            <label for="optFecha">Fecha:</label>
-                            <select class="form-control" name="optFecha" id="optFecha">
-                                <option>Los</option>
-                                <option>Siguientes</option>
-                                <option>30</option>
-                                <option>Dias</option>
-                                <option>Con</option>
-                                <option>Turnos</option>
-                                <option>Disponibles</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-6">
-                            <label for="optHorario">Horario:</label>
-                            <select class="form-control" name="optHorario" id="optHorario">
-                                <option>Turnos</option>
-                                <option>Disponibles</option>
-                                <option>En</option>
-                                <option>Ese</option>
-                                <option>Día</option>
-                            </select>
-                        </div>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <div class="text-right col-lg-6">
-                            <br/>
-                        </div>
-                        <div class="text-left col-lg-6">
-                            <input type="button" value="Volver"/>
-                            <input type="submit" value="Asignar"/>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Médico</th>
+                        <th>Horario</th>
+                        <th>Cancelar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fecha 1</td>
+                        <td>Médico 1</td>
+                        <td>hh:mm</td>
+                        <td><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-ban-circle"></span></button></td>
+                    </tr>
+                    <tr>
+                        <td>Fecha 2</td>
+                        <td>Médico 2</td>
+                        <td>hh:mm</td>
+                        <td><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-ban-circle"></span></button></td>
+                    </tr>
+                    <tr>
+                        <td>Fecha 3</td>
+                        <td>Médico 3</td>
+                        <td>hh:mm</td>
+                        <td><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-ban-circle"></span></button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div><!--CONTAINER -->
         <!-- Bootstrap core JavaScript
     ================================================== -->
