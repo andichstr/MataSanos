@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Alta de Médico</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="?">MATASANOS S.A.</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">INICIO<span class="sr-only">(current)</span></a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">Administrativo</li>
+                                <li><a href="#">Dar de alta Médico</a></li>
+                                <li><a href="#">Buscar Médico</a></li>
+                                <li><a href="#">Buscar Afiliado</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-header">Operador</li>
+                                <li><a href="#">Dar de alta Afiliado</a></li>
+                                <li><a href="#">Buscar Afiliado</a></li>
+                                <li role="separator" class="divider"></li>	
+                                <li class="dropdown-header">Afiliado</li>
+                                <li><a href="#">Pedir turno</a></li>
+                                <li><a href="#">Visualizar turnos</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi cuenta<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"></a></li>
+                                <li><a href="#">Editar mis datos</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container" role="main">
+            <div class="page-header">
+                <h1>Alta de Médico</h1>
+            </div>
+        </div><!--CONTAINER -->
+
+            <div class="container">
+                <form class="form-inline">
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <label for="txtNombre">Nombre: </label>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <input class="form-control" type="text" placeholder="Nombre" name="txtNombre" id="txtNombre" required/>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <label for="txtNombre">Apellido: </label>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <input class="form-control" type="text" placeholder="Apellido" name="txtApellido" id="txtApellido" required/>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <label for="numDNI">DNI: </label>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <input class="form-control" type="number" placeholder="DNI" name="numDNI" id="numDNI" required/>
+                    </div>
+
+                    <div class="form-group col-lg-3 col-sm-6 col-md-3">
+                        <label for="selGenero">Genero</label>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+
+                        <select class="form-control" name="selGenero" id="selGenero" required>
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <label for="dateNac">Fecha de Nacimiento: </label>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <input class="form-control" type="date" name="dateNac" id="dateNac" placeholder="Fecha" required/>
+                    </div>
+
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <label for="txtMail">Mail: </label>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <input class="form-control" type="email" placeholder="Mail" name="txtMail" id="txtMail" required/>
+                    </div>
+
+
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <label for="txtLocalidad">Localidad: </label>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <input class="form-control" type="text" placeholder="Localidad" name="txtLocalidad" id="txtLocalidad" required/>
+                    </div>
+
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <label for="txtDireccion">Dirección: </label>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <input class="form-control" type="text" placeholder="Dirección" name="txtDireccion" id="txtDireccion" required/>
+                    </div>
+
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <label for="txtNombre">Número de Teléfono: </label>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <input class="form-control" type="number" placeholder="Teléfono" name="numTel" id="numTel" required/>
+                    </div>
+
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <label for="numMatric">N° de Matricula: </label>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <input class="form-control" type="number" placeholder="Matricula" name="numMatric" id="numMatric"/>
+                    </div>
+
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <label for="selEspecial">Especialidades que atiende</label>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <select class="form-control" id="selEspecial" multiple>
+                            <option value="0">Especialidad 0</option>
+                            <option value="1">Especialidad 1</option>
+                            <option value="2">Especialidad 2</option>
+                            <option value="3">Especialidad 3</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="selDias">Días de turnos</label>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="selDias" id="selDias">
+                            <option value="0">Lunes</option>
+                            <option value="1">Martes</option>
+                            <option value="2">Miercoles</option>
+                            <option value="3">Jueves</option>
+                            <option value="4">Viernes</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="selHora">Horario de turnos:</label>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="selHora" id="selHora">
+                            <option value="0">Horario1</option>
+                            <option value="1">Horario2</option>
+                            <option value="2">Horario3</option>
+                            <option value="3">Horario4</option>
+                            <option value="4">Horario5</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-10 col-sm-10 col-md-10">
+                        <button type="submit" class="btn btn-default btn-block">Submit</button>
+                    </div>
+                </form>
+            </div>
+    
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- <script src="http://getbootstrap.com/assets/js/vendor/jquery.min.js"></script>-->
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+
+
+</html>
