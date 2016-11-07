@@ -2,7 +2,7 @@
     <body>
         <div class="container" role="main">
             <div class="page-header">
-                <h1>Alta de Médico</h1>
+                <h1>Modificar Datos de Médico</h1>
             </div>
         </div>
             <div class="container">
@@ -11,19 +11,19 @@
                         <label for="txtNombre">Nombre: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="text" placeholder="Nombre" name="txtNombre" id="txtNombre" required/>
+                        <input class="form-control" type="text" placeholder="Nombre" name="txtNombre" id="txtNombre" value="Medico" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtNombre">Apellido: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="text" placeholder="Apellido" name="txtApellido" id="txtApellido" required/>
+                        <input class="form-control" type="text" placeholder="Apellido" name="txtApellido" id="txtApellido" value="Anónimo" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="numDNI">DNI: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="number" placeholder="DNI" name="numDNI" id="numDNI" required/>
+                        <input class="form-control" type="number" placeholder="DNI" name="numDNI" id="numDNI" value="12345678" required/>
                     </div>
 
                     <div class="form-group col-lg-3 col-sm-6 col-md-3">
@@ -32,6 +32,7 @@
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
 
                         <select class="form-control" name="selGenero" id="selGenero" required>
+                            <option value="0">Seleccionar...</option>
                             <option value="M">Masculino</option>
                             <option value="F">Femenino</option>
                         </select>
@@ -42,82 +43,50 @@
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <input class="form-control" type="date" name="dateNac" id="dateNac" required/>
                     </div>
-
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtMail">Mail: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="email" placeholder="Mail" name="txtMail" id="txtMail" required/>
+                        <input class="form-control" type="email" placeholder="Mail" name="txtMail" id="txtMail" value="mail@falso.com.ar" required/>
                     </div>
-
-
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtLocalidad">Localidad: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="text" placeholder="Localidad" name="txtLocalidad" id="txtLocalidad" required/>
+                        <input class="form-control" type="text" placeholder="Localidad" name="txtLocalidad" id="txtLocalidad" value="Barrio Falso" required/>
                     </div>
-
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtDireccion">Dirección: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="text" placeholder="Dirección" name="txtDireccion" id="txtDireccion" required/>
+                        <input class="form-control" type="text" placeholder="Dirección" name="txtDireccion" id="txtDireccion" value="Calle Falsa 123" required/>
                     </div>
 
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtNombre">Número de Teléfono: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="number" placeholder="Teléfono" name="numTel" id="numTel" required/>
+                        <input class="form-control" type="number" placeholder="Teléfono" name="numTel" id="numTel" value="1234567890" required/>
                     </div>
-
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="numMatric">N° de Matricula: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="number" placeholder="Matricula" name="numMatric" id="numMatric"/>
+                        <input class="form-control" type="number" placeholder="Matricula" name="numMatric" id="numMatric" value="1234567890" required/>
                     </div>
-
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="selEspecial">Especialidades que atiende</label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <select class="form-control" id="selEspecial" multiple>
-                            <option value="0">Especialidad 0</option>
-                            <option value="1">Especialidad 1</option>
-                            <option value="2">Especialidad 2</option>
-                            <option value="3">Especialidad 3</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="selDias">Días de turnos</label>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" name="selDias" id="selDias">
-                            <option value="0">Lunes</option>
-                            <option value="1">Martes</option>
-                            <option value="2">Miercoles</option>
-                            <option value="3">Jueves</option>
-                            <option value="4">Viernes</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="selHora">Horario de turnos:</label>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control" name="selHora" id="selHora">
-                            <option value="0">Horario1</option>
-                            <option value="1">Horario2</option>
-                            <option value="2">Horario3</option>
-                            <option value="3">Horario4</option>
-                            <option value="4">Horario5</option>
+                            <option value="1">Especialidad 0</option>
+                            <option value="2">Especialidad 1</option>
+                            <option value="3">Especialidad 2</option>
+                            <option value="4">Especialidad 3</option>
                         </select>
                     </div>
                     <div class="form-group col-lg-10 col-sm-10 col-md-10">
-                        <button type="submit" class="btn btn-default btn-block">Submit</button>
+                        <button type="submit" class="btn btn-default btn-block">Modificar Datos</button>
                     </div>
                 </form>
             </div>

@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
         <link rel="stylesheet" href="css/estilo.css" />
+        <script src="js/jquery.js"></script>
+        <script src="js/registro.js"></script>
     </head>
     <body>
         <header>
@@ -31,7 +33,7 @@
         <div class="container">
             <p class="lead text-center">Por favor completar el siguiente formulario con sus datos:</p>
             <div class="row">
-                <form action="" method="POST" class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+                <form id="formRegistro" action="" method="POST" class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
                     <div class="form-group">
                         <label for="numDNI">DNI:</label>
                         <input type="number" class="form-control">
@@ -41,8 +43,12 @@
                         <label for="txtMail">Mail:</label>
                         <input type="email" class="form-control" placeholder="example@domain.com">
                     </div>
+                    <div class="form-group" id="divPassword">
+                        <label for="txtPassword">Contraseña:</label>
+                        <input type="password" class="form-control" placeholder="********">
+                    </div>
                     <div class="form-group">
-                        <input class="btn btn-primary" type="submit" value="Registrarse">
+                        <input id="btnEnviar" class="btn btn-primary" type="button" value="Enviar" onclick="enviarDatos();">
                     </div>
                 </form>
             </div>
