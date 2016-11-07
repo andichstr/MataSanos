@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Completar Registro</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/estilo.css" />
+
+    </head>
+    <body>
+
+
+        <header>
+            <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">MATASANOS S.A.</a>
+                    </div>
+                    <!--                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                            <ul class="nav navbar-nav">
+                                                <li class="active"><a href="#">INICIO<span class="sr-only">(current)</span></a></li>
+                                                <li class="dropdown">
+                                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi cuenta<span class="caret"></span></a>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="#"></a></li>
+                                                        <li><a href="#">Iniciar Sesión</a></li>
+                                                        <li role="separator" class="divider"></li>
+                                                        <li><a href="#">Editar mis datos</a></li>
+                                                        <li role="separator" class="divider"></li>
+                                                        <li><a href="#">Cerrar Sesión</a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>-->
+                </div>
+            </nav>
+
+        </header>
+
+        <div class="container" role="main">
+            <div class="page-header">   
+                <h1 class="text-center">Completar registro</h1>
+            </div> 
+        </div>
+
+        <div class="container">
+            <p class="lead">Por favor completar el siguiente formulario con sus datos:</p>
+            <div class="row">
+
+                <form action="" method="POST" class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+                    <div class="form-group">
+                        <label for="numDNI">DNI:</label>
+                        <input type="number" class="form-control">
+                        <span id="helpBlock" class="help-block">(DNI: Ingrese sólo números sin espacios, guiones ni puntos.) </span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="txtMail">Mail:</label>
+                        <input type="email" class="form-control" placeholder="example@domain.com">
+                    </div>
+
+
+                    <div class="form-group">
+                        <input class="btn btn-primary" type="submit" value="Registrarse">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="http://getbootstrap.com/assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="js/bootstrap.min.js"></script>
+
+    </body>
+</html>
