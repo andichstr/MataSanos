@@ -5,95 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Buscar afiliados</title>
+        <title>Buscar Médico</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link href="./css/bootstrap.min.css" rel="stylesheet">
         <link href="./css/estilo.css" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#">MATASANOS S.A.</a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#">INICIO<span class="sr-only">(current)</span></a></li>
-                            <li><a href="#">Link 1</a></li>
-                            <li><a href="#">Link 2</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acciones<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li class="dropdown-header">Administrativo</li>
-                                    <li><a href="#">Dar de alta Médico</a></li>
-                                    <li><a href="#">Buscar Médico</a></li>
-                                    <li><a href="#">Buscar Afiliado</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li class="dropdown-header">Operador</li>
-                                    <li><a href="#">Dar de alta Afiliado</a></li>
-                                    <li><a href="#">Buscar Afiliado</a></li>
-                                    <li role="separator" class="divider"></li>	
-                                    <li class="dropdown-header">Afiliado</li>
-                                    <li><a href="#">Pedir turno</a></li>
-                                    <li><a href="#">Visualizar turnos</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi cuenta<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#"></a></li>
-                                    <li><a href="#">Editar mis datos</a></li>
-                                    <li role="separator" class="divider"></li>
-                                    <li><a href="#">Cerrar Sesión</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
         <div class="container theme-showcase" role="main">
             <div class="page-header">
-                <h1>Buscar Afiliado</h1>
+                <h1>Buscar Médico</h1>
             </div>
             <div class="row">
                 <form class="form-inline">
                     <div class="form-group col-lg-3">
-                        <label for="numDni">Dni:</label>
+                        <label for="numDni">Especialidad:</label>
                     </div>
-                    <div class="form-group col-lg-3">
-                        <input type="number" class="form-control" id="numDni" placeholder="12345678">
-                    </div>
-                    <div class="form-group col-lg-3">
-                        <label for="txtApellido">Apellido:</label>
-                    </div>
-                    <div class="form-group col-lg-3">
-                        <input type="text" class="form-control" id="txtApellido" placeholder="Martinez">
-                    </div>
-                    <div class="form-group col-lg-3">
-                        <label for="numNAfiliado">Nº de Afiliado:</label>
-                    </div>
-                    <div class="form-group col-lg-3">
-                        <input type="number" class="form-control" id="numNAfiliado" placeholder="12345">
-                    </div>
-                    <div class="form-group col-lg-3">
-                        <label for="txtMail">Email:</label>
-                    </div>
-                    <div class="form-group col-lg-3">
-                        <input type="email" class="form-control" id="txtMail" placeholder="jane.doe@example.com">
-                    </div>
-                    <div></div>
-                    <div class="col-xs-12">
-                        <div class="text-right">
-                            <button type="submit" class="btn btn-default">Buscar</button>
-                        </div>
+                    <div class="form-group col-lg-9">
+                        <select class="form-control" id="selEspecialidad">
+                            <option value="0">Especialidad 1</option>
+                            <option value="1">Especialidad 2</option>
+                            <option value="2">Especialidad ...</option>
+                            <option value="3">Especialidad N</option>
+                        </select>
                     </div>
                 </form>
             </div>
