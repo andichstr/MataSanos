@@ -1,4 +1,15 @@
 <html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Buscar Médico</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="./css/bootstrap.min.css" rel="stylesheet">
+        <link href="./css/estilo.css" rel="stylesheet">
+    </head>
     <body>
         <div class="container theme-showcase" role="main">
             <div class="page-header">
@@ -6,9 +17,37 @@
             </div>
             <form class="form-inline">
                 <div class="container-fluid">
+
+                
+                        <div class="form-group col-lg-3">
+                            <label for="selEsp">Especialidad: </label>
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <select class="form-control" name="selEsp" id="selEsp">
+                                <option value="0">Esp 1</option>
+                                <option value="1">Esp 2</option>
+                                <option value="2">Esp ...</option>
+                                <option value="3">Esp N</option>
+                            </select>
+                        </div>
+                    
+                        <div class="form-group col-lg-3">
+                            <label for="selMedico">Médico: </label>
+                        </div>
+                        <div class="form-group col-lg-3">
+                            <select class="form-control" name="selMedico" id="selMedico">
+                                <option value="0">Médico 1</option>
+                                <option value="1">Médico 2</option>
+                                <option value="2">Médico  ...</option>
+                                <option value="3">Médico N</option>
+                            </select>
+                        </div>
+                    
+                    
+                    
                     <div class="row-lg-3">
                         <div class="form-group col-lg-3">
-                            <label for="selHora">Día del Turno: </label>
+                            <label for="selDias">Día del Turno: </label>
                         </div>
                         <div class="form-group col-lg-3">
                             <select class="form-control" name="selDias" id="selDias">
