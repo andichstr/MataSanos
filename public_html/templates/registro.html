@@ -6,8 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
         <link rel="stylesheet" href="css/estilo.css" />
-        <script src="js/jquery.js"></script>
-        <script src="js/registro.js"></script>
+<!--        <script src="js/jquery.js"></script>-->
     </head>
     <body>
         <header>
@@ -45,10 +44,14 @@
                     </div>
                     <div class="form-group" id="divPassword">
                         <label for="txtPassword">Contraseña:</label>
-                        <input type="password" class="form-control" placeholder="********">
+                        <input type="password" class="form-control" name="txtPassword" id=txtPassword" placeholder="********">
+                    </div>
+                    <div class="form-group" id="divPassword2">
+                        <label for="txtPassword2">Repita Contraseña:</label>
+                        <input type="password" id="txtPassword" name="txtPassword" class="form-control" placeholder="********">
                     </div>
                     <div class="form-group">
-                        <input id="btnEnviar" class="btn btn-primary" type="button" value="Enviar" onclick="enviarDatos();">
+                        <input id="btnEnviar" class="btn btn-primary btn-block" type="button" value="Enviar" onclick="enviarDatos();">
                     </div>
                 </form>
             </div>
@@ -56,5 +59,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="http://getbootstrap.com/assets/js/vendor/jquery.min.js"><\/script>')</script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/registro.js"></script>
+
     </body>
 </html>
