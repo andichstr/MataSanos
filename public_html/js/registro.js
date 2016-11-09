@@ -5,4 +5,5 @@ function enviarDatos(){
 
 $(document).ready(function(){
     $("#divPassword").hide();
+    $("#divPassword2").hide();
 });
