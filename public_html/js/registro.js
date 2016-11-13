@@ -1,5 +1,6 @@
 function enviarDatos(){
     $("#divPassword").show();
+    $("#divPassword2").show();
     $("#btnEnviar").val("Registrarme");
 };
 

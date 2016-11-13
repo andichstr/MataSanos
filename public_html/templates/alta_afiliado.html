@@ -1,9 +1,15 @@
-        <div class="container theme-showcase" role="main">
+<style>
+    .form-inline .form-control{
+        width: 100%;
+    }
+</style>        
+        <div class="container" role="main">
             <div class="page-header">
                 <h1>Alta de Afiliado</h1>
             </div>
-            <div class="container-fluid">
-                <form class="form-inline">
+        </div>
+            <div class="container">
+                <form class="form-inline" method="POST" id="form_afiliado" action="conexiones/persistir_afiliado.php">
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtNombre">Nombre: </label>
                     </div>
@@ -11,13 +17,13 @@
                         <input class="form-control" type="text" placeholder="Nombre" name="txtNombre" id="txtNombre" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="txtNombre">Apellido: </label>
+                        <label for="txtApellido">Apellido: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <input class="form-control" type="text" placeholder="Apellido" name="txtApellido" id="txtApellido" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="txtNombre">DNI: </label>
+                        <label for="numDNI">DNI: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <input class="form-control" type="number" placeholder="DNI" name="numDNI" id="numDNI" required/>
@@ -35,7 +41,7 @@
                         <label for="dateNac">Fecha de Nacimiento: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="date" name="dateNac" id="dateNac" required/>
+                        <input class="form-control" type="date" name="dateNac" placeholder="AAAA-MM-DD" id="dateNac" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtMail">Mail: </label>
@@ -72,32 +78,35 @@
                         <input class="form-control" type="text" placeholder="Dirección" name="txtDireccion" id="txtDireccion" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="txtNombre">Número de Teléfono: </label>
+                        <label for="numTelefono">Número de Teléfono: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="number" placeholder="Teléfono" name="numTel" id="numTel" required/>
+                        <input class="form-control" type="number" placeholder="Teléfono" name="numTelefono" id="numTelefono" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="txtNombre">Teléfono Opcional: </label>
+                        <label for="numCelular">Celular Opcional: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="number" placeholder="Teléfono Opcional" name="numTel2" id="numTel2"/>
+                        <input class="form-control" type="number" placeholder="Teléfono Opcional" name="numCelular" id="numCelular"/>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <br/>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <label for="txtComentarios">Comentarios:</label>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="form-group col-sm-12">
+                        <textarea name="txtComentarios" id="txtComentarios" class="form-control"></textarea>
+                    </div>
+
+                    <div class="col-sm-6 col-sm-offset-3">
                         <input type="button" class="btn btn-default" value="Cancelar" id="cancelBtn"/>
                         <input type="submit" class="btn btn-primary" value="Enviar Datos"/>
                     </div>
                 </form>
             </div>
-        </div><!--CONTAINER -->
-        <!-- Bootstrap core JavaScript
-    ================================================== -->
+       
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="http://getbootstrap.com/assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>-->
+        <script src="js/alta_afi.js"></script>
     </body>
 </html>
