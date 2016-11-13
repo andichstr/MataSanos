@@ -29,21 +29,61 @@
             </nav>
         </header>
         <div class="container">
+			<!-- Modal -->
+			<div class="modal fade" id="divErrores" role="dialog">
+				<div class="modal-dialog">
+
+				  <!-- Modal content-->
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <button type="button" class="close" data-dismiss="modal">&times;</button>
+					  <h4 class="modal-title">¡ATENCIÓN!</h4>
+					</div>
+					<div class="modal-body">
+					  <p>Se han encontrado errores.</p>
+					  <p>Por favor, revise el formulario. </p>
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-default" data-dismiss="modal">cerrar</button>
+					</div>
+				  </div>
+				</div>
+			</div>
+			<!-- Modal -->
+			<div class="modal fade" id="divConerr" role="dialog">
+				<div class="modal-dialog">
+
+				  <!-- Modal content-->
+				  <div class="modal-content">
+					<div class="modal-header">
+					  <button type="button" class="close" data-dismiss="modal">&times;</button>
+					  <h4 class="modal-title">¡ATENCIÓN!</h4>
+					</div>
+					<div class="modal-body">
+					  <p>No se ha podido iniciar sesion.</p>
+					  <p>Por favor, inténtelo mas tarde. </p>
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-default" data-dismiss="modal">cerrar</button>
+					</div>
+				  </div>
+				</div>
+			</div>
             <div class="row">
                 <div class="Absolute-Center is-Responsive">
                     <div id="logo-container"></div>
                     <div class="col-sm-12 col-md-10 col-md-offset-1">
-                        <form action="" id="loginForm">
+                        <form action="" id="fLogin" name="fLogin" method="POST">
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input class="form-control" type="text" name='username' placeholder="Usuario"/>          
+                                <input class="form-control" type="email" id='txtMail' name='txtMail' placeholder="mail" required/>          
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input class="form-control" type="password" name='password' placeholder="Contraseña"/>     
+                                <input class="form-control" type="password" id='txtPass' name='txtPass' placeholder="Contraseña" required/>     
                             </div>
                             <div class="form-group">
-                                <button type="button" class="btn btn-def btn-block">Login</button>
+                                <input type="submit" class="btn btn-def btn-block" value="Iniciar Sesión"/>
                             </div>
                         </form>        
                     </div>  
@@ -54,7 +94,9 @@
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="http://getbootstrap.com/assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script src="http://getbootstrap.com/assets/js/vendor/jquery.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/login.js"></script>
     </body>
 </html>
