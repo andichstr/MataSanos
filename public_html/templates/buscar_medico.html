@@ -1,74 +1,73 @@
-        <div class="container theme-showcase" role="main">
-            <div class="page-header">
-                <h1>Buscar Médico</h1>
+<div class="container theme-showcase" role="main">
+    <div class="page-header">
+        <h1>Buscar Médico</h1>
+    </div>
+    <div class="row">
+        <form class="form-inline" id="formBuscarMedicos" action="./conexiones/query_medicos.php" method="POST">
+            <div class="form-group col-lg-3">
+                <label for="selEspecialidad">Especialidad:</label>
             </div>
-            <div class="row">
-                <form class="form-inline" id="formBuscarMedicos" action="./conexiones/query_medicos.php" method="POST">
-                    <div class="form-group col-lg-3">
-                        <label for="selEspecialidad">Especialidad:</label>
-                    </div>
-                    <div class="form-group col-lg-6">
-                        <select class="form-control" id="selEspecialidad" name="selEspecialidad">
-                        </select>
-                    </div>
-                    <div class="form-group col-lg-3">
-                        <input type="submit" class="form-control btn-primary" value="Buscar"/>
-                    </div>
-                </form>
+            <div class="form-group col-lg-6">
+                <select class="form-control" id="selEspecialidad" name="selEspecialidad">
+                </select>
             </div>
-            <div class="container-fluid" id="listaresponse" style="display: none">
-                <div class="page-header">
-                    <h2>Resultados de busqueda</h2>
+            <div class="form-group col-lg-3">
+                <input type="submit" class="form-control btn-primary" value="Buscar"/>
+            </div>
+        </form>
+    </div>
+    <div class="container-fluid" id="listaresponse" style="display: none">
+        <div class="page-header">
+            <h2>Resultados de busqueda</h2>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre y apellido</th>
+                    <th>Matrícula</th>
+                    <th>Modificar</th>
+                    <th>Baja</th>
+                </tr>
+            </thead>
+            <tbody id="listado">
+            </tbody>
+        </table>
+        <div class="text-right">
+            <ul class="pagination text-right">
+                <li><a href="#">&laquo;</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal fade" id="divModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="modalTitle"></h4>
                 </div>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Nombre y apellido</th>
-                            <th>Matrícula</th>
-                            <th>Modificar</th>
-                            <th>Baja</th>
-                        </tr>
-                    </thead>
-                    <tbody id="listado">
-    <!--                    <tr>
-                            <td>Mark</td>
-                            <td>12.564.897</td>
-                            <td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                            <td><a href="#"><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-ban-circle"></span></button></a></td>
-                        </tr>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>25.235.568</td>
-                            <td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                            <td><a href="#"><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-ban-circle"></span></button></a></td>
-                        </tr>
-                        <tr>
-                            <td>Larry</td>
-                            <td>45.258.265</td>
-                            <td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></p></td>
-                            <td><a href="#"><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-ban-circle"></span></button></a></td>
-                        </tr>-->
-                    </tbody>
-                </table>
-                <div class="text-right">
-                    <ul class="pagination text-right">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
+                <div class="modal-body" id="modalDesc">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                 </div>
             </div>
-        </div><!--CONTAINER -->
-        <!-- Bootstrap core JavaScript
-    ================================================== -->
-        <script src="./js/buscar_medico.js"></script>        
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- <script src="http://getbootstrap.com/assets/js/vendor/jquery.min.js"></script>-->
-        <script src="js/bootstrap.min.js"></script>
-    </body>
+        </div>
+    </div>
+</div><!--CONTAINER -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+<script src="./js/buscar_medico.js"></script>        
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- <script src="http://getbootstrap.com/assets/js/vendor/jquery.min.js"></script>-->
+<script src="js/bootstrap.min.js"></script>
+</body>
 </html>

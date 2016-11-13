@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#selEspecialidad").change(function(){
+    $("#selEspecialidad").change(function () {
         console.log($("#selEspecialidad option:selected").val());
     });
     $.ajax({
@@ -19,18 +19,30 @@ $(document).ready(function () {
             url: this.action,
             type: this.method,
             success: function (response) {
-                console.log(response);
-                $("#listado").html(response);
-                $("#listaresponse").show();
+                if(response != '0'){
+                    $("#listado").html(response);
+                    $("#listaresponse").show();
+                }
             }
         });
     });
 });
 
-function eliminarMedico(id){
-    console.log(id)
-};
+function eliminarMedico(id) {
+    $.ajax({
+        data: {'id_medico': id},
+        url: './conexiones/baja_medico.php',
+        type: 'POST',
+        success: function (response) {
+            $("#modalTitle").html("Exito!");
+            $("#modalDesc").html(response);
+            $("#divModal").modal('show');
+        }
+    });
+}
+;
 
-function modificarMedico(id){
+function modificarMedico(id) {
     console.log(id)
-};
+}
+;
