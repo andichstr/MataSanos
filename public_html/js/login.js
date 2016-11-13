@@ -60,7 +60,15 @@ function login()
 	success: function(data){
 		dat = jQuery.parseJSON(data)
 		console.log(dat);
-		redirect(dat);
+		if (dat==1){
+			window.location.href = './turnos.php'
+			}
+		else if(dat==2){
+			window.location.href = './alta_afiliado.php'
+			}
+		else if(dat==3){
+			window.location.href = './buscar_medico.php'
+			}
 		}
 	});
 }
