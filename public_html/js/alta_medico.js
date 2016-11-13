@@ -12,16 +12,33 @@ $(document).ready(function () {
             "direccion": $("#txtDireccion").val(),
             "telefono": $("#numTel").val(),
             "matricula": $("#numMatric").val(),
-//            "especialidades": $("#selEspecial").val(),
         }
         $.ajax({
             data: parametros,
             url: this.action,
             type: this.method,
             success: function (response) {
-                $("#modalTitle").html("El mèdico fue dado de alta satisfactoriamente!");
-                $("#modalDesc").html("Presione el botón cerrar, o haga click fuera de esta ventana para salir.");
-                $("#divModal").modal('show');
+                console.log(response);
+                var especialidades = [];
+                $("#selEspecial option:selected").each(function () {
+                    especialidades.push($(this).val());
+                });
+                especialidades = JSON.stringify(especialidades);
+                var datos = {
+                    "id_medico": response,
+                    "especialidades": especialidades
+                };
+                $.ajax({
+                    data: datos,
+                    url: "./conexiones/persistir_medico_especialidad.php",
+                    type: "PUSH",
+                    success: function (response) {
+                        console.log(response);
+                        $("#modalTitle").html("El médico fue dado de alta satisfactoriamente!");
+                        $("#modalDesc").html("Presione el botón cerrar, o haga click fuera de esta ventana para salir.");
+                        $("#divModal").modal('show');
+                    }
+                });
             }
         });
     });

@@ -10,8 +10,10 @@ function cargarEspecialidades() {
     $query->execute();
     $result = $query->fetchAll();
     if (isset($result)) {
+        $i = 1;
         foreach ($result as $row) {
-            echo '<option value="' . $row[0] . '">' . $row[0] . '</option>';
+            echo '<option value="' . $i . '">' . $row[0] . '</option>';
+            $i += 1;
         }
     } else {
         echo 'No Data';

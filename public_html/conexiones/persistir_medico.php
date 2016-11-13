@@ -29,8 +29,8 @@ function persistirMedico() {
         $query->bindParam(':telefono', $telefono);
         $query->bindParam(':matricula', $matricula);
         if ($query->execute()) {
-            $result = $query->fetchAll();
-            echo $result;
+            $id = $con->lastInsertId();
+            echo $id;
         } else {
             echo '0';
         }
@@ -41,4 +41,3 @@ function persistirMedico() {
 
 persistirMedico();
 ?>
-
