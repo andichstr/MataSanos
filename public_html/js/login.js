@@ -24,13 +24,7 @@ $(document).ready(function() {
                 success: function(data){
 					dat = jQuery.parseJSON(data)
 					console.log(dat);
-					if (dat=='OK'){
-						window.location.href = './turnos.php'
-					}else{
-						$('#divErrores').modal()                      // initialized with defaults
-						$('#divErrores').modal({ keyboard: false })   // initialized with no keyboard
-						$('#divErrores').modal('show')                // initializes and invokes show immediately
-						}
+					redirect(dat);
 					}
 				});
 		}
@@ -40,6 +34,22 @@ $(document).ready(function() {
 $("#fMain").submit(function(e){
     e.preventDefault();
 });
+function redirect(dat){
+	if (dat==1){
+		window.location.href = './turnos.php'
+		}
+	else if(dat==2){
+		window.location.href = './alta_afiliado.php'
+		}
+	else if(dat==3){
+		window.location.href = './buscar_medico.php'
+		}
+	else{
+		$('#divErrores').modal()                      // initialized with defaults
+		$('#divErrores').modal({ keyboard: false })   // initialized with no keyboard
+		$('#divErrores').modal('show')                // initializes and invokes show immediately
+		}
+}
 
 function login()
 {
@@ -50,9 +60,7 @@ function login()
 	success: function(data){
 		dat = jQuery.parseJSON(data)
 		console.log(dat);
-		if (dat=='OK'){
-			window.location.href = './turnos.php'
-		}
+		redirect(dat);
 		}
 	});
 }

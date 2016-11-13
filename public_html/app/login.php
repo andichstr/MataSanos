@@ -15,7 +15,8 @@ session_start();
 // Chekear si esta logeado (antes que inicie sesion)
 function checkislogin(){
 	if (isset($_SESSION['ssid'])){
-		return True;
+		$role = $_SESSION['roleuser'];
+		return $role;
 	}else{
 		return False;
 	}	
@@ -26,7 +27,8 @@ function login($data){
 	$resultado = iniciar_sesion($data);
 	if ($resultado['mail']>""){
 		savesession($resultado);
-		return True;
+		$role = $_SESSION['roleuser'];
+		return $role;
 	}else{
 		return False;
 	}
@@ -73,14 +75,16 @@ function validar(){
 
 //---MAIN---// 
 function main(){
-	if (checkislogin()){
-		echo json_encode('OK');
+	$checkl = checkislogin();
+	if ($checkl != False){
+		echo json_encode($checkl);
 	}
 	else{
 		$res = validar();
-		if ($res !=False){
-			if (login($res)){
-				echo json_encode('OK');
+		if ($res!=False){
+			$login = login($res);
+			if ($login != False){
+				echo json_encode($login);
 			}else{
 				echo json_encode('No');
 			}
