@@ -11,17 +11,6 @@ require_once(__ROOT__.'\conexiones\sesion.php');
 
 session_start();
 
-
-// Chekear si esta logeado (antes que inicie sesion)
-function checkislogin(){
-	if (isset($_SESSION['ssid'])){
-		$role = $_SESSION['roleuser'];
-		return $role;
-	}else{
-		return False;
-	}	
-}
-
 //Logearse
 function login($data){
 	$resultado = iniciar_sesion($data);
@@ -75,22 +64,17 @@ function validar(){
 
 //---MAIN---// 
 function main(){
-	$checkl = checkislogin();
-	if ($checkl != False){
-		echo json_encode($checkl);
-	}
-	else{
-		$res = validar();
-		if ($res!=False){
-			$login = login($res);
-			if ($login != False){
-				echo json_encode($login);
+	$res = validar();
+	if ($res!=False){
+		$login = login($res);
+		if ($login != False){
+			echo json_encode($login);
 			}else{
 				echo json_encode('No');
 			}
 		}	
-	}	
-}
+}	
+
 
 main();
 ?>
