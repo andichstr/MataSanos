@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/bootstrap.min.css"/>
         <link rel="stylesheet" href="css/estilo.css" />
-<!--        <script src="js/jquery.js"></script>-->
+        <!--        <script src="js/jquery.js"></script>-->
     </head>
     <body>
         <header>
@@ -24,6 +24,49 @@
                 </div>
             </nav>
         </header>
+
+        <!-- Modal -->
+        <div class="modal fade" id="divErrores" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">¡ATENCIÓN!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>No se han encontrado coincidencias en nuestra Base de Datos.</p>
+                        <p>Por favor verifique los datos ingresados.</p>
+                        <p>Si no enuentra errores comuníquese con atención al cliente.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="divConerr" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">¡ATENCIÓN!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>No se ha podido iniciar sesion.</p>
+                        <p>Por favor, inténtelo mas tarde. </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <div class="container" role="main">
             <div class="page-header">   
                 <h1 class="text-center">Completar registro</h1>
@@ -35,23 +78,26 @@
                 <form id="formRegistro" action="" method="POST" class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
                     <div class="form-group">
                         <label for="numDNI">DNI:</label>
-                        <input type="number" class="form-control">
+                        <input type="number" class="form-control" id="numDNI" required>
                         <span id="helpBlock" class="help-block">(DNI: Ingrese sólo números sin espacios, guiones ni puntos.) </span>
                     </div>
                     <div class="form-group">
                         <label for="txtMail">Mail:</label>
-                        <input type="email" class="form-control" placeholder="example@domain.com">
+                        <input type="email" class="form-control" placeholder="example@domain.com" id="txtMail" required>
                     </div>
                     <div class="form-group" id="divPassword">
-                        <label for="txtPassword">Contraseña:</label>
+                        <label for="txtPass">Contraseña:</label>
                         <input type="password" class="form-control" name="txtPassword" id="txtPassword" placeholder="********">
                     </div>
                     <div class="form-group" id="divPassword2">
-                        <label for="txtPassword2">Repita Contraseña:</label>
+                        <label for="txtPass2">Repita Contraseña:</label>
                         <input type="password" id="txtPassword" name="txtPassword" class="form-control" placeholder="********">
                     </div>
-                    <div class="form-group">
-                        <input id="btnEnviar" class="btn btn-primary btn-block" type="button" value="Enviar" onclick="enviarDatos();">
+                    <div class="form-group" id="divComprobar">
+                        <input id="btnEnviar" class="btn btn-primary btn-block" type="submit" value="Comprobar Datos" >
+                    </div>
+                    <div class="form-group" id="divCompletar">
+                        <input id="btnRegistrar" class="btn btn-primary btn-block" type="button" value="Registrarse" >
                     </div>
                 </form>
             </div>
