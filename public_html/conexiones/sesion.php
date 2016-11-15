@@ -6,7 +6,7 @@ function iniciar_sesion($data){
 	$mail = $data[0];
 	$pass = convert_pass($data[1]);
 	$cn = new Conexion();
-	$query = $cn->prepare("SELECT * FROM usuarios where mail=? and password=?");
+	$query = $cn->prepare("SELECT * FROM " . tabla_usuarios . " where mail=? and password=?");
 	$query->execute(array($mail,$pass));
 	$datos = $query->fetch();
 	return $datos;

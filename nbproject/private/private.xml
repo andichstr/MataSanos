@@ -5,8 +5,9 @@
         <group>
             <file>file:/C:/xampp/htdocs/MataSanos/public_html/js/alta_medico.js</file>
             <file>file:/C:/xampp/htdocs/MataSanos/public_html/conexiones/persistir_medico.php</file>
+            <file>file:/C:/xampp/htdocs/MataSanos/public_html/templates/alta_medico.html</file>
+            <file>file:/C:/xampp/htdocs/MataSanos/public_html/conexiones/persistir_horarios_turnos_medicos.php</file>
             <file>file:/C:/xampp/htdocs/MataSanos/public_html/conexiones/persistir_medico_especialidad.php</file>
-            <file>file:/C:/xampp/htdocs/MataSanos/public_html/conexiones/cargar_especialidades.php</file>
         </group>
     </open-files>
 </project-private>

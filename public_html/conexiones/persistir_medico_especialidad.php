@@ -14,12 +14,12 @@ function persistirMedicoEspecialidades() {
             $query->bindParam(':id_medico', $id_medico);
             $query->bindParam(':id_especialidad', $especialidades[$i]);
             if ($query->execute()) {
-                $id = $con->lastInsertId();
-                echo $id;
+                $resp = 'Si';
             } else {
-                echo '0';
+                $resp = 'No';
             }
         }
+        echo $resp;
     } else {
         echo 'Campos no seteados';
     }
