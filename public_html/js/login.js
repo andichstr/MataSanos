@@ -1,5 +1,4 @@
 $(document).ready(function() {
-	chklogin('login');
 	$("#fLogin").submit(function(event){
 		if(!validarForm())
 		{

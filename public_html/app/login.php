@@ -25,9 +25,7 @@ function login($data){
 
 //Guardar Session
 function savesession($datos_sesion){
-	$key =  'dIifPmNOzV6pIYl8684fjfqckAwjxk9a';
-	$key2 = '8HjPYTImY96oO3l65TPz7F7TQJHUSR9y';
-	$_SESSION['ssid'] = md5($key.$datos_sesion['password'].$key2);
+	$_SESSION['ssid'] = md5(key.$datos_sesion['password'].key2);
 	$_SESSION['userid'] = $datos_sesion['id_usuario'];
 	$_SESSION['mail'] = $datos_sesion['mail'];
 	$_SESSION['nombre'] = $datos_sesion['nombre'];

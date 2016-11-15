@@ -1,12 +1,12 @@
 <?php
-session_start();
 
+session_start();
 // Chekear si esta logeado (antes que inicie sesion)
 
 //Configuracion de roles (accesos a paginas)
-$afiliado = ['turnos','solicitar_turno','modificar_afiliado'];
-$operador = ['alta_afiliado','alta_turno_afiliado','buscar_afiliado','modificar_afiliado','solicitar_turno','turnos'];
-$administrativo = ['buscar_medico','buscar_afiliado','modificar_medico','alta_medico','alta_operador'];
+$afiliado = ['turnos.php','solicitar_turno.php','modificar_afiliado.php'];
+$operador = ['alta_afiliado.php','alta_turno_afiliado.php','buscar_afiliado.php','modificar_afiliado.php','solicitar_turno.php','turnos.php'];
+$administrativo = ['buscar_medico.php','buscar_afiliado.php','modificar_medico.php','alta_medico.php','alta_operador.php'];
 $roles = [$afiliado,$operador,$administrativo];
 
 function checkislogin(){
@@ -24,34 +24,30 @@ function redirect($page,$roles){
 		foreach ($roles[$role-1] as $pag){
 			if ($page == $pag){
 				$encontrado = True;
-				echo json_encode('OK');
 				break;
 			}	
 		}
 		if ($encontrado == False){
-			echo json_encode('./'.$roles[$role-1][0].'.php');
+			header('Location: ./'.$roles[$role-1][0].'.php');
 		}	
 	}
 }
 
 function main($roles){
-	if (isset($_POST['page'])){
-		$page = $_POST['page'];
-		$checkl = checkislogin();
-		if ($page != 'login' && $checkl == False){
-			echo json_encode('./index.php');
+	$page = basename($_SERVER['PHP_SELF']);
+	$checkl = checkislogin();
+	if ($page != 'index.php' && $checkl == False){
+		header('Location: ./index.php');
+	}
+	elseif ($page=='index.php' && $checkl==False){
+		exit;
 		}
-		elseif ($page=='login' && $checkl==False){
-			echo json_encode('OK');
-			}
-		elseif ($page=='login' && $checkl==True){
-			$role = $_SESSION['roleuser'];
-			echo json_encode('./'.$roles[$role-1][0].'.php');
-		}else{
-			redirect($page,$roles);
-		}
+	elseif ($page=='index.php' && $checkl==True){
+		$role = $_SESSION['roleuser'];
+		header('Location: ./'.$roles[$role-1][0]);
+	}else{
+		redirect($page,$roles);
 	}
 }
-
 main($roles);
 ?>
