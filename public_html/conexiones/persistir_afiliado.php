@@ -67,7 +67,7 @@ function persistirAfiliado($id,$dni,$genero,$fecha,$id_obra,$num_afi,$direccion,
         $query->bindParam(':comentarios', $comentarios);
 
         if ($query->execute()) {
-            $id = $con->lastInsertId();
+            
             echo '<br><b>Afiliado Persistido con id: '.$id.'</b>';
             return $id;
         } else {

@@ -1,9 +1,16 @@
+        <style>
+            .form-inline .form-control{
+                width: 100%;
+            }
+        </style>           
         <div class="container theme-showcase" role="main">
             <div class="page-header">
                 <h1>Modificar datos de Afiliado</h1>
+
             </div>
             <div class="container-fluid">
-                <form class="form-inline">
+                <p class="lead text-center">NOTA: Al modificar sus datos deberá introducir una nueva contraseña.</p>
+                <form class="form-inline" action="conexiones/persistir_afi_modif.php" method="POST" id="form_afiliado">
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtNombre">Nombre: </label>
                     </div>
@@ -11,16 +18,16 @@
                         <input class="form-control" type="text" placeholder="Nombre" name="txtNombre" id="txtNombre" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="txtNombre">Apellido: </label>
+                        <label for="txtApellido">Apellido: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <input class="form-control" type="text" placeholder="Apellido" name="txtApellido" id="txtApellido" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="txtNombre">DNI: </label>
+                        <label for="numDNI">DNI: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="number" placeholder="DNI" name="numDNI" id="numDNI" required/>
+                        <input class="form-control" type="number" placeholder="DNI" name="numDNI" id="numDNI" required disabled/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="selGenero">Género: </label>
@@ -35,7 +42,7 @@
                         <label for="dateNac">Fecha de Nacimiento: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="date" name="dateNac" id="dateNac" required/>
+                        <input class="form-control" type="date" name="dateNac" placeholder="AAAA-MM-DD" id="dateNac" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtMail">Mail: </label>
@@ -47,14 +54,14 @@
                         <label for="selObraSocial">Obra Social: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <select class="form-control" name="selObraSocial" id="selObraSocial" required>
+                        <select class="form-control" name="selObraSocial" id="selObraSocial" required disabled>
                             <option value="0">Obras</option>
                             <option value="1">Sociales</option>
                             <option value="2">Disponibles</option>
                         </select>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="txtAfiliado">Número de Afiliado: </label>
+                        <label for="numAfiliado">Número de Afiliado: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <input class="form-control" type="number" placeholder="Número de Afiliado" name="numAfiliado" id="numAfiliado" required disabled/>
@@ -63,28 +70,37 @@
                         <label for="txtLocalidad">Localidad: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="text" placeholder="Localidad" name="txtLocalidad" id="txtLocalidad" required/>
+                        <input class="form-control" type="text" placeholder="Localidad" name="txtLocalidad" id="txtLocalidad" required disabled/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtDireccion">Dirección: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="text" placeholder="Dirección" name="txtDireccion" id="txtDireccion" required/>
+                        <input class="form-control" type="text" placeholder="Dirección" name="txtDireccion" id="txtDireccion" required disabled/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="txtNombre">Número de Teléfono: </label>
+                        <label for="numTelefono">Número de Teléfono: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="number" placeholder="Teléfono" name="numTel" id="numTel" required />
+                        <input class="form-control" type="number" placeholder="Teléfono" name="numTelefono" id="numTelefono" required disabled />
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="txtNombre">Teléfono Opcional: </label>
+                        <label for="numCelular">Celular (Opcional): </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="number" placeholder="Teléfono Opcional" name="numTel2" id="numTel2"/>
+                        <input class="form-control" type="number" placeholder="Teléfono Celular" name="numCelular" id="numCelular" disabled/>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <br/>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <label for="txtPass">Contraseña: </label>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <input class="form-control" type="password" placeholder="Password" name="txtPass" id="txtPass"/>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <label for="txtPass2">Repita la Contraseña: </label>
+                    </div>
+                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                        <input class="form-control" type="password" placeholder="Password" name="txtPass" id="txtPass2"/>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <input type="button" class="btn btn-default" value="Cancelar" id="cancelBtn"/>
@@ -93,11 +109,6 @@
                 </form>
             </div>
         </div><!--CONTAINER -->
-        <!-- Bootstrap core JavaScript
-    ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="http://getbootstrap.com/assets/js/vendor/jquery.min.js"><\/script>')</script>
-        <script src="js/bootstrap.min.js"></script>
+        <script src="js/modificar_datos_afi.js"></script>
     </body>
 </html>

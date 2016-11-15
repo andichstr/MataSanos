@@ -31,10 +31,6 @@ $(document).ready(function() {
 	});
 });
 
-$("#fMain").submit(function(e){
-    e.preventDefault();
-});
-
 function redirect(dat){
 	if (dat==1){
 		window.location.href = './turnos.php'
