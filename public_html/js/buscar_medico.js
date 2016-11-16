@@ -55,5 +55,6 @@ function eliminarMedico(id) {
 };
 
 function modificarMedico(id) {
-    console.log(id)
+    localStorage.setItem('id_medico', id);
+    document.location.href = './modificar_medico.php';
 };
