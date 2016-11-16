@@ -1,4 +1,5 @@
 <?php
+require_once('configure.php');
 
 class Conexion extends PDO {
 

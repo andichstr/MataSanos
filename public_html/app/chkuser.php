@@ -28,7 +28,7 @@ function redirect($page,$roles){
 			}	
 		}
 		if ($encontrado == False){
-			header('Location: ./'.$roles[$role-1][0].'.php');
+			header('Location: ./'.$roles[$role-1][0]);
 		}	
 	}
 }
@@ -40,7 +40,7 @@ function main($roles){
 		header('Location: ./index.php');
 	}
 	elseif ($page=='index.php' && $checkl==False){
-		exit;
+		return True;
 		}
 	elseif ($page=='index.php' && $checkl==True){
 		$role = $_SESSION['roleuser'];
