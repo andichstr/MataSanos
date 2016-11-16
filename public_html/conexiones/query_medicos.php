@@ -16,7 +16,7 @@ function buscarMedico() {
             foreach ($result as $row) {
                 echo '<tr><td>' . $row['nombre'] . ' ' . $row['apellido']. '</td><td>' . $row['numero_matricula'] . '</td>';
                 echo '<td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm" onclick="modificarMedico(' . $row['id_medico'] . ');"><span class="glyphicon glyphicon-pencil"></span></button></p></td>';
-                echo '<td><a href="#"><button class="btn btn-danger btn-sm" onclick="eliminarMedico(' . $row['id_medico'] . ');"><span class="glyphicon glyphicon-ban-circle"></span></button></a></td>';
+                echo '<td><a href="#"><button class="btn btn-danger btn-sm" onclick="confirmarEliminarMedico(' . $row['id_medico'] . ');"><span class="glyphicon glyphicon-ban-circle"></span></button></a></td>';
             }
         } else {
             echo '0';

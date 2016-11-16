@@ -33,7 +33,15 @@ $(document).ready(function () {
     });
 });
 
+function confirmarEliminarMedico(id){
+    $("#modalTitleConf").html("Confirme su acción");
+    $("#modalDescConf").html("¿Está seguro que desea eliminar al médico?");
+    $("#divModalConf").modal('show');
+    $("#modalFooterConf").html('<button type="button" class="btn btn-default" data-dismiss="modal" onclick="eliminarMedico(' + id + ');">Confirmar</button><button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>');
+};
+
 function eliminarMedico(id) {
+    
     $.ajax({
         data: {'id_medico': id},
         url: './conexiones/baja_medico.php',
@@ -44,10 +52,8 @@ function eliminarMedico(id) {
             $("#divModal").modal('show');
         }
     });
-}
-;
+};
 
 function modificarMedico(id) {
     console.log(id)
-}
-;
+};
