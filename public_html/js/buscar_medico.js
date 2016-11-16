@@ -22,6 +22,11 @@ $(document).ready(function () {
                 if(response != '0'){
                     $("#listado").html(response);
                     $("#listaresponse").show();
+                } else {
+                    $("#listaresponse").hide();
+                    $("#modalTitle").html("No se encontro ningún médico con la especialidad seleccionada");
+                    $("#modalDesc").html("Presione el botón cerrar, o haga click fuera de esta ventana para salir.");
+                    $("#divModal").modal('show');
                 }
             }
         });
