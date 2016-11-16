@@ -33,12 +33,35 @@ $(document).ready(function(){
 	});
 	
 });
+function act_bloc(id){
+	var data = {
+		'id': id,
+	};
+	$.ajax({
+		type:'post',
+		url: 'conexiones/activar_bloquear.php',
+		data: data,
+		sucess: function(data){
+			dat = jQuery.parseJSON(data);
+			if (dat=='B'){
+				}
+			else{
+				
+				}
+			}
+		});
+}
 
 function printres(dat){
 	$("#bodyres").empty();
 	$.each(dat, function(index, afiliado) {
 		console.log(afiliado);
-		document.getElementById("bodyres").insertRow(0).innerHTML = '<tr><td>'+afiliado['numAfi']+'</td><td>'+afiliado['nombre']+'</td><td>'+afiliado['dni']+'</td><td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></p></td><td><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span></button> <button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-th-list"></span></button></p></td><td><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon glyphicon-ok-circle"></span></button> <button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-ban-circle"></span></button></td></tr>';
+		if (afiliado['activo'] == 0){
+			btnAB = '<button class="btn btn-danger btn-sm" onclick="act_bloc('+afiliado['numAfi']+')"><span class="glyphicon glyphicon-ban-circle"></span></button>';
+		}else{
+			btnAB = '<button class="btn btn-success btn-sm" onclick="act_bloc('+afiliado['numAfi']+')"><span class="glyphicon glyphicon glyphicon-ok-circle"></span></button>';
+		}
+		document.getElementById("bodyres").insertRow(0).innerHTML = '<tr><td>'+afiliado['numAfi']+'</td><td>'+afiliado['nombre']+'</td><td>'+afiliado['dni']+'</td><td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></p></td><td><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span></button><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-th-list"></span></button></p></td><td>'+btnAB+'</td></tr>';
 	});
 }
 function tablepager(){
@@ -76,14 +99,14 @@ function tablepager(){
 		// also {page:input} & {startRow:input} will add a modifiable input in place of the value
 		// In v2.27.7, this can be set as a function
 		// output: function(table, pager) { return 'page ' + pager.startRow + ' - ' + pager.endRow; }
-		output: '{startRow:input} to {endRow} ({totalRows})',
+		output: '{startRow:input} a {endRow} resultados ({totalRows})',
 
 		// apply disabled classname (cssDisabled option) to the pager arrows when the rows
 		// are at either extreme is visible; default is true
 		updateArrows: true,
 
 		// starting page of the pager (zero based index)
-		page: 1,
+		page: 0,
 
 		// Number of visible rows - default is 10
 		size: 10,
@@ -129,5 +152,4 @@ function tablepager(){
 	$("table").tablesorter({theme: 'blue',widthFixed: true,sortLocaleCompare: false,widgets: ['zebra']});
 	$("table").tablesorterPager(pagerOptions);
 	$("table").trigger("updateAll");
-	return true;
 }

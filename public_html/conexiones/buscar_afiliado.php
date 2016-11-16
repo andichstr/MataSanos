@@ -32,13 +32,12 @@ function main(){
 
 function buscar_afiliado($dni,$apellido,$numafiliado,$mail){
 	$cn = new Conexion();
-	$query = $cn->prepare("SELECT afiliados.dni, usuarios.nombre ,usuarios.apellido, afiliados.numero_afiliado, usuarios.mail FROM usuarios JOIN matasanos.afiliados ON usuarios.id_usuario = afiliados.id_usuario WHERE (dni LIKE ?) and (lower(apellido) LIKE ?) and (numero_afiliado LIKE ?) and (lower(mail) LIKE ?)");
 	$query->execute(array($dni,$apellido,$numafiliado,$mail));
 	$datos = $query->fetchAll();
 	$afiliados = array();
 	$cn = NULL;
 	foreach($datos as $row){
-	array_push($afiliados,['dni' => $row['dni'],'nombre' => $row['nombre']." ".$row['apellido'],'numAfi' => $row['numero_afiliado']]);
+	array_push($afiliados,['dni' => $row['dni'],'nombre' => $row['nombre']." ".$row['apellido'],'numAfi' => $row['numero_afiliado'],'activo' => $row['activo']]);
 	}
 	echo json_encode($afiliados);
 }
