@@ -3,26 +3,26 @@ require_once('configure.php');
 require_once('conexion.php');
 
 function main(){
-	if (isset($_POST['dni'])){
+	if (isset($_POST['dni']) and ($_POST['dni'] != '')){
 		$dni = $_POST['dni'];
 	}
 	else{
-		$dni = '25349662';
+		$dni = '%';
 	}
-	if (isset($_POST['apellido'])){
-		$apellido = $_POST['apellido'];
+	if (isset($_POST['apellido']) and ($_POST['apellido'] != '')){
+		$apellido = '%'.strtolower($_POST['apellido']).'%';
 	}
 	else{
 		$apellido = '%';
 	}
-	if (isset($_POST['numafiliado'])){
+	if (isset($_POST['numafiliado']) and ($_POST['numafiliado'] != '')){
 		$numafiliado = $_POST['numafiliado'];
 	}
 	else{
-		$numafiliado = '';
+		$numafiliado = '%';
 	}
-	if (isset($_POST['mail'])){
-		$mail = $_POST['mail'];
+	if (isset($_POST['mail']) and ($_POST['mail'] != '')){
+		$mail = '%'.strtolower($_POST['mail']).'%';
 	}
 	else{
 		$mail = '%';
@@ -32,15 +32,15 @@ function main(){
 
 function buscar_afiliado($dni,$apellido,$numafiliado,$mail){
 	$cn = new Conexion();
-	$query = $cn->prepare("SELECT afiliados.dni, usuarios.apellido, afiliados.numero_afiliado, usuarios.mail FROM usuarios JOIN matasanos.afiliados ON usuarios.id_usuario = afiliados.id_usuario WHERE (lower(apellido) LIKE '%townsend%') and (lower(mail) LIKE '%vel@acturpis.org%')");
-	$query->execute(array($dni));
+	$query = $cn->prepare("SELECT afiliados.dni, usuarios.nombre ,usuarios.apellido, afiliados.numero_afiliado, usuarios.mail FROM usuarios JOIN matasanos.afiliados ON usuarios.id_usuario = afiliados.id_usuario WHERE (dni LIKE ?) and (lower(apellido) LIKE ?) and (numero_afiliado LIKE ?) and (lower(mail) LIKE ?)");
+	$query->execute(array($dni,$apellido,$numafiliado,$mail));
 	$datos = $query->fetchAll();
 	$afiliados = array();
 	$cn = NULL;
 	foreach($datos as $row){
-	array_push($afiliados,$row);
+	array_push($afiliados,['dni' => $row['dni'],'nombre' => $row['nombre']." ".$row['apellido'],'numAfi' => $row['numero_afiliado']]);
 	}
-	echo json_encode($datos);
+	echo json_encode($afiliados);
 }
 
 main();
