@@ -3,69 +3,70 @@ $(document).ready(function () {
     $("#divPassword2").hide();
     $("#divCompletar").hide();
 
-    $("#formRegistro").on("submit", function(event){
+    $("#formRegistro").on("submit", function (event) {
         event.preventDefault();
-        var usuario_encontrado=enviarDatos();
-        
-        
-        if (usuario_encontrado){
-                $("#divPassword").show();
-                $("#divPassword2").show();                
-                $("#divCompletar").show();
 
-                $("#divComprobar").hide();
-                
-                $("#btnRegistrar").click(function(){
-                    console.log(usuario_encontrado);
-                    
-                });
-        }       
+        var parametros = {
+            "dni": $("#numDNI").val(),
+            "mail": $("#txtMail").val()
+        };
+        $.ajax({
+            data: parametros,
+            url: 'conexiones/registro_final.php',
+            method: "POST",
+            success: function (response) { 
+                if (!isNaN(response)) { // si el servidor devuelve el id del mail...
+                    console.log(response);
+                  
+                        $("#divPassword").show();
+                        $("#divPassword2").show();
+                        $("#divCompletar").show();
+                        $("#divComprobar").hide();//esconder el boton de comprobar los datos
+
+                        $("#btnRegistrar").click(function () {
+                            console.log("entró al registro de pass");
+                            completarRegistro(response);
+                        });  
+                } else {
+                    $('#divNotif').modal();                      // initialized with defaults
+                    $('#divNotif').modal({keyboard: false});   // initialized with no keyboard
+                    $('#divNotif').modal('show');
+                    id_usuario = false;
+                }
+            }
+        });
     });
 });
 
 
-function enviarDatos() {
-    
+
+function completarRegistro(id) {
     var parametros = {
-        "dni": $("#numDNI").val(),
-        "mail": $("#txtMail").val()
+        "pass": $("#txtPass").val(),
+        "id_usuario": id
     };
-
     $.ajax({
-        data: parametros,
-        url: 'conexiones/registro_final.php',
-        method: "POST",
-        success: function (response) {
-            if (!isNaN(response)) {
-                var id_usuario = response;
-                return id_usuario;
-            } else {
-                $('#divErrores').modal();                      // initialized with defaults
-                $('#divErrores').modal({ keyboard: false });   // initialized with no keyboard
-                $('#divErrores').modal('show');     
-                return false;
-            }return id_usuario;
-        }
-        
-    }); 
-}
-
-function completarRegistro(id){
-    var parametros={
-        "pass":$("#txtPass").val(),
-        "id_usuario":id
-    };
-        $.ajax({
         data: parametros,
         url: 'conexiones/registro_completo.php',
         method: "POST",
         success: function (response) {
-            if (response) {
-//                console.log(response);
+            if (response==true) {
+
+                $('#divNotif div.modal-body').html("<p>Se ha registrado exitosamente!</p><p>Bienvenido a MataSanos!</p>");
+                $('#divNotif').modal({
+                    backdrop:"static"
+                });
+                setTimeout(redirigir(),10000);
+            }else{
+                
+                $('#divNotif div.modal-body').html("<p>Registro NO COMPLETADO!</p><p>Por favor introducir contraseña.</p>");
+                $('#divNotif').modal({
+                    backdrop:"static"
+                });
             }
         }
     });
-    
+
 }
 
 function validar_pass() {
@@ -75,4 +76,8 @@ function validar_pass() {
         return false;
     }
 
+}
+
+function redirigir(){
+    window.location.assign("solicitar_turno.php");
 }
