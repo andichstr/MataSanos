@@ -1,8 +1,7 @@
 $(document).ready(function(){
-	tablepager();
+	//tablepager();
 	$("#msj2").hide();
 	$(".pager").hide();
-	$("#bodyres").empty();
 	$("#fBuscar").submit(function(event){
 		event.preventDefault();
 		var data = {
@@ -22,6 +21,7 @@ $(document).ready(function(){
 						$("#msj2").hide();
 						$(".pager").show();
 						printres(dat);
+						tablepager();
 						}else{
 							$("#bodyres").empty();
 							$("#msj1").hide();
@@ -42,6 +42,9 @@ function printres(dat){
 	});
 }
 function tablepager(){
+	$("#bodyres").trigger('refreshComplete');
+	$("#bodyres").trigger('update');
+	$("#bodyres").trigger('pagerUpdate');
 	var pagerOptions = {
 
 		// target the pager markup - see the HTML block below
@@ -80,18 +83,18 @@ function tablepager(){
 		updateArrows: true,
 
 		// starting page of the pager (zero based index)
-		page: 0,
+		page: 1,
 
 		// Number of visible rows - default is 10
 		size: 10,
 
 		// Save pager page & size if the storage script is loaded (requires $.tablesorter.storage in jquery.tablesorter.widgets.js)
-		savePages : true,
+		//savePages : true,
 
 		// Saves tablesorter paging to custom key if defined.
 		// Key parameter name used by the $.tablesorter.storage function.
 		// Useful if you have multiple tables defined
-		storageKey:'tablesorter-pager',
+		//storageKey:'tablesorter-pager',
 
 		// Reset pager to this page after filtering; set to desired page number (zero-based index),
 		// or false to not change page at filter start
@@ -99,7 +102,7 @@ function tablepager(){
 
 		// if true, the table will remain the same height no matter how many records are displayed. The space is made up by an empty
 		// table row set to a height to compensate; default is false
-		fixedHeight: true,
+		fixedHeight: false,
 
 		// remove rows from the table to speed up the sort of large tables.
 		// setting this to false, only hides the non-visible rows; needed if you plan to add/remove rows with the pager enabled.
@@ -123,6 +126,8 @@ function tablepager(){
 		cssErrorRow: 'tablesorter-errorRow' // ajax error information row
 
 	};
-	$("#tbres").tablesorter({theme: 'blue',widthFixed: true,sortLocaleCompare: true,widgets: ['zebra']});
-	$("#tbres").tablesorterPager(pagerOptions);
+	$("table").tablesorter({theme: 'blue',widthFixed: true,sortLocaleCompare: false,widgets: ['zebra']});
+	$("table").tablesorterPager(pagerOptions);
+	$("table").trigger("updateAll");
+	return true;
 }

@@ -37,7 +37,7 @@
 				},
 
 				// set this to false if you want to block ajax loading on init
-				processAjaxOnInit: true,
+				processAjaxOnInit: false,
 
 				// process ajax so that the following information is returned:
 				// [ total_rows (number), rows (array of arrays), headers (array; optional) ]
@@ -76,10 +76,10 @@
 				maxOptionSize: 20,
 
 				// Save pager page & size if the storage script is loaded (requires $.tablesorter.storage in jquery.tablesorter.widgets.js)
-				savePages: true,
+				savePages: false,
 
 				// defines custom storage key
-				storageKey: 'tablesorter-pager',
+				//storageKey: 'tablesorter-pager',
 
 				// if true, the table will remain the same height no matter how many records are displayed. The space is made up by an empty
 				// table row set to a height to compensate; default is false
