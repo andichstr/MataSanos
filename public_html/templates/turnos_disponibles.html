@@ -11,27 +11,26 @@
                         <th>Cancelar</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Fecha 1</td>
-                        <td>Médico 1</td>
-                        <td>hh:mm</td>
-                        <td><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-ban-circle"></span></button></td>
-                    </tr>
-                    <tr>
-                        <td>Fecha 2</td>
-                        <td>Médico 2</td>
-                        <td>hh:mm</td>
-                        <td><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-ban-circle"></span></button></td>
-                    </tr>
-                    <tr>
-                        <td>Fecha 3</td>
-                        <td>Médico 3</td>
-                        <td>hh:mm</td>
-                        <td><button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-ban-circle"></span></button></td>
-                    </tr>
+                <tbody id="descTabla">
                 </tbody>
             </table>
         </div>
+        <div class="modal fade" id="divModal" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" id="modalTitle"></h4>
+                    </div>
+                    <div class="modal-body" id="modalDesc">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./js/turnos_disponibles.js"></script>
     </body>
 </html>
