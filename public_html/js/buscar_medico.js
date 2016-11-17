@@ -22,13 +22,26 @@ $(document).ready(function () {
                 if(response != '0'){
                     $("#listado").html(response);
                     $("#listaresponse").show();
+                } else {
+                    $("#listaresponse").hide();
+                    $("#modalTitle").html("No se encontro ningún médico con la especialidad seleccionada");
+                    $("#modalDesc").html("Presione el botón cerrar, o haga click fuera de esta ventana para salir.");
+                    $("#divModal").modal('show');
                 }
             }
         });
     });
 });
 
+function confirmarEliminarMedico(id){
+    $("#modalTitleConf").html("Confirme su acción");
+    $("#modalDescConf").html("¿Está seguro que desea eliminar al médico?");
+    $("#divModalConf").modal('show');
+    $("#modalFooterConf").html('<button type="button" class="btn btn-default" data-dismiss="modal" onclick="eliminarMedico(' + id + ');">Confirmar</button><button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>');
+};
+
 function eliminarMedico(id) {
+    
     $.ajax({
         data: {'id_medico': id},
         url: './conexiones/baja_medico.php',
@@ -39,10 +52,9 @@ function eliminarMedico(id) {
             $("#divModal").modal('show');
         }
     });
-}
-;
+};
 
 function modificarMedico(id) {
-    console.log(id)
-}
-;
+    localStorage.setItem('id_medico', id);
+    document.location.href = './modificar_medico.php';
+};

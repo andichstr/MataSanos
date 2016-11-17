@@ -78,10 +78,10 @@ $(document).ready(function () {
             str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><label>Horario de Inicio:</label></div>';
             str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><label>Horario de Fin:</label></div>';
             str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><label>Duracion del turno en minutos:</label></div></div>';
-            str += '<div class="row" style="padding-bottom: 4px"><div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-6"><select class="form-control" name="selDias' + texto + '0" id="selDias' + texto + '0"><option value="Lunes">Lunes</option><option value="Martes">Martes</option><option value="Miercoles">Miercoles</option><option value="Jueves">Jueves</option><option value="Viernes">Viernes</option><option value="Sabado">Sábado</option><option value="Domingo">Domingo</option></select></div>';
-            str += '<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-6"><input type="time" class="form-control" name="HoraInicio' + texto + '0" id="HoraInicio' + texto + '0"/></div>';
-            str += '<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-6"><input type="time" class="form-control" name="HoraFin' + texto + '0" id="HoraFin' + texto + '0"/></div>';
-            str += '<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-6"><input type="number" class="form-control" placeholder="Duracion en minutos" id="duracionTurno' + texto + '0" name="duracionTurno' + texto + '"/></div></div></div>';
+            str += '<div class="row" style="padding-bottom: 4px"><div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><select class="form-control" name="selDias' + texto + '0" id="selDias' + texto + '0"><option value="Lunes">Lunes</option><option value="Martes">Martes</option><option value="Miercoles">Miercoles</option><option value="Jueves">Jueves</option><option value="Viernes">Viernes</option><option value="Sabado">Sábado</option><option value="Domingo">Domingo</option></select></div>';
+            str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="time" class="form-control" name="HoraInicio' + texto + '0" id="HoraInicio' + texto + '0"/></div>';
+            str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="time" class="form-control" name="HoraFin' + texto + '0" id="HoraFin' + texto + '0"/></div>';
+            str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="number" class="form-control" placeholder="Duracion en minutos" id="duracionTurno' + texto + '0" name="duracionTurno' + texto + '"/></div></div></div>';
             str += '<div class="row"><div class="col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 4px"><input id="btnAgregarDia' + texto + '" type="button" value="Agregar otro día" class="btn btn-success btn-sm" onclick="agregarDia(' + texto + ');"></div></div>';
         });
         $("#turnosEspecialidades").html(str);
@@ -99,10 +99,10 @@ function agregarDia(txt) {
         str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><label>Horario de Inicio:</label></div>';
         str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><label>Horario de Fin:</label></div>';
         str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><label>Duracion del turno en minutos:</label></div></div>';
-        str += '<div class="row" style="padding-bottom: 4px"><div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-6"><select class="form-control" name="selDias' + texto + i + '0" id="selDias' + texto + i + '0"><option value="Lunes">Lunes</option><option value="Martes">Martes</option><option value="Miercoles">Miercoles</option><option value="Jueves">Jueves</option><option value="Viernes">Viernes</option><option value="Sabado">Sábado</option><option value="Domingo">Domingo</option></select></div>';
-        str += '<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-6"><input type="time" class="form-control" name="HoraInicio' + texto + i + '0" id="HoraInicio' + texto + i + '0"/></div>';
-        str += '<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-6"><input type="time" class="form-control" name="HoraFin' + texto + i + '0" id="HoraFin' + texto + i + '0"/></div>';
-        str += '<div class="form-group col-lg-3 col-md-3 col-sm-6 col-xs-6"><input type="number" class="form-control" placeholder="Duracion en minutos" id="duracionTurno' + texto + i + '0" name="duracionTurno' + texto + i + '"/></div></div></div>';
+        str += '<div class="row" style="padding-bottom: 4px"><div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><select class="form-control" name="selDias' + texto + i + '0" id="selDias' + texto + i + '0"><option value="Lunes">Lunes</option><option value="Martes">Martes</option><option value="Miercoles">Miercoles</option><option value="Jueves">Jueves</option><option value="Viernes">Viernes</option><option value="Sabado">Sábado</option><option value="Domingo">Domingo</option></select></div>';
+        str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="time" class="form-control" name="HoraInicio' + texto + i + '0" id="HoraInicio' + texto + i + '0"/></div>';
+        str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="time" class="form-control" name="HoraFin' + texto + i + '0" id="HoraFin' + texto + i + '0"/></div>';
+        str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="number" class="form-control" placeholder="Duracion en minutos" id="duracionTurno' + texto + i + '0" name="duracionTurno' + texto + i + '"/></div></div></div>';
         $(txt).append(str);
     };
 };
@@ -111,12 +111,13 @@ function llenarTurnos(arrTurnos, arrEspecialidades) {
     var a, b = 0;
     var fin = false;
     while (!fin) {
-        var dia = $("#selDias" + arrEspecialidades[b] + a).val();
+        var dia = $("#selDias" + arrEspecialidades[b] + a + "option:selected").val();
         var horarioInicio = $("#HoraInicio" + arrEspecialidades[b] + a).val();
         var horarioFin = $("#HoraFin" + arrEspecialidades[b] + a).val();
         var duracion = $("#duracionTurno" + arrEspecialidades[b] + a).val();
-        arrTurnos.push({'dia': dia, 'horarioInicio': horarioInicio, 'horarioFin': horarioFin, 'duracion': duracion})
+        arrTurnos.push({'dia': dia, 'horarioInicio': horarioInicio, 'horarioFin': horarioFin, 'duracion': duracion});
         a++;
+        console.log($("#HoraInicio" + arrEspecialidades[b] + a).val());
         if ($("#HoraInicio" + arrEspecialidades[b] + a).val() == undefined || $("#HoraInicio" + arrEspecialidades[b] + a).val() == null){
             if (b >= arrEspecialidades.length){
                 fin = true;
@@ -125,4 +126,5 @@ function llenarTurnos(arrTurnos, arrEspecialidades) {
             }
         }
     }
+    return arrTurnos;
 };

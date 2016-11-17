@@ -10,16 +10,17 @@ function buscarMedico() {
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $query = $con->prepare("SELECT " . tabla_medicos_especialidades . ".id_medico, nombre, apellido, numero_matricula FROM " . tabla_medicos_especialidades . " INNER JOIN " . tabla_medicos . " ON " . tabla_medicos_especialidades . ".id_medico = " . tabla_medicos . ".id_medico INNER JOIN " . tabla_especialidades . " ON " . tabla_medicos_especialidades . ".id_especialidad = " . tabla_especialidades . ".id_especialidad WHERE (" . tabla_medicos_especialidades . ".id_especialidad = :especialidad)");
         $query->bindParam(':especialidad', $especialiad);
-        $query->execute();
-        $result = $query->fetchAll();
-        if (isset($result) && (count($result) != 0)) {
-            foreach ($result as $row) {
-                echo '<tr><td>' . $row['nombre'] . ' ' . $row['apellido']. '</td><td>' . $row['numero_matricula'] . '</td>';
-                echo '<td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm" onclick="modificarMedico(' . $row['id_medico'] . ');"><span class="glyphicon glyphicon-pencil"></span></button></p></td>';
-                echo '<td><a href="#"><button class="btn btn-danger btn-sm" onclick="confirmarEliminarMedico(' . $row['id_medico'] . ');"><span class="glyphicon glyphicon-ban-circle"></span></button></a></td>';
+        if ($query->execute()){
+            $result = $query->fetchAll();
+            if (isset($result) && (count($result) != 0)) {
+                foreach ($result as $row) {
+                    echo '<option value=' . $row['id_medico'] . '>' . $row['nombre'] . ' ' . $row['apellido'] . '</option>';
+                }
+            } else {
+                echo '0';
             }
         } else {
-            echo '0';
+            echo 'No se ejecutó la consulta';
         }
         $con = null;
     }
@@ -28,3 +29,4 @@ function buscarMedico() {
 
 buscarMedico();
 ?>
+

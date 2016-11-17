@@ -4,24 +4,24 @@
             </div>
         </div>
             <div class="container">
-                <form class="form-inline">
+                <form class="form-inline" id="actualizarForm" action="./conexiones/actualizar_medico.php" method="POST">
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtNombre">Nombre: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="text" placeholder="Nombre" name="txtNombre" id="txtNombre" value="Medico" required/>
+                        <input class="form-control" type="text" placeholder="Nombre" name="txtNombre" id="txtNombre" value="" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtNombre">Apellido: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="text" placeholder="Apellido" name="txtApellido" id="txtApellido" value="Anónimo" required/>
+                        <input class="form-control" type="text" placeholder="Apellido" name="txtApellido" id="txtApellido" value="" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="numDNI">DNI: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="number" placeholder="DNI" name="numDNI" id="numDNI" value="12345678" required/>
+                        <input class="form-control" type="number" placeholder="DNI" name="numDNI" id="numDNI" value="" required/>
                     </div>
 
                     <div class="form-group col-lg-3 col-sm-6 col-md-3">
@@ -30,7 +30,6 @@
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
 
                         <select class="form-control" name="selGenero" id="selGenero" required>
-                            <option value="0">Seleccionar...</option>
                             <option value="M">Masculino</option>
                             <option value="F">Femenino</option>
                         </select>
@@ -45,56 +44,63 @@
                         <label for="txtMail">Mail: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="email" placeholder="Mail" name="txtMail" id="txtMail" value="mail@falso.com.ar" required/>
+                        <input class="form-control" type="email" placeholder="Mail" name="txtMail" id="txtMail" value="" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtLocalidad">Localidad: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="text" placeholder="Localidad" name="txtLocalidad" id="txtLocalidad" value="Barrio Falso" required/>
+                        <input class="form-control" type="text" placeholder="Localidad" name="txtLocalidad" id="txtLocalidad" value="" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtDireccion">Dirección: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="text" placeholder="Dirección" name="txtDireccion" id="txtDireccion" value="Calle Falsa 123" required/>
+                        <input class="form-control" type="text" placeholder="Dirección" name="txtDireccion" id="txtDireccion" value="" required/>
                     </div>
 
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="txtNombre">Número de Teléfono: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="number" placeholder="Teléfono" name="numTel" id="numTel" value="1234567890" required/>
+                        <input class="form-control" type="number" placeholder="Teléfono" name="numTel" id="numTel" value="" required/>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
                         <label for="numMatric">N° de Matricula: </label>
                     </div>
                     <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="number" placeholder="Matricula" name="numMatric" id="numMatric" value="1234567890" required/>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="selEspecial">Especialidades que atiende</label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <select class="form-control" id="selEspecial" multiple>
-                            <option value="1">Especialidad 0</option>
-                            <option value="2">Especialidad 1</option>
-                            <option value="3">Especialidad 2</option>
-                            <option value="4">Especialidad 3</option>
-                        </select>
+                        <input class="form-control" type="number" placeholder="Matricula" name="numMatric" id="numMatric" value="" required/>
                     </div>
                     <div class="form-group col-lg-10 col-sm-10 col-md-10">
-                        <button type="submit" class="btn btn-default btn-block">Modificar Datos</button>
+                        <input type="submit" class="btn btn-primary btn-block" value="Modificar Datos"/>
+                    </div>
+                    <div class="form-group col-lg-2 col-sm-2 col-md-2">
+                        <input type="reset" class="btn btn-default btn-block" value="Limpiar"/>
                     </div>
                 </form>
+                <div class="modal fade" id="divModal" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" id="modalTitle"></h4>
+                            </div>
+                            <div class="modal-body" id="modalDesc">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
     
 
 
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- <script src="http://getbootstrap.com/assets/js/vendor/jquery.min.js"></script>-->
-        <script src="js/bootstrap.min.js"></script>
+        <script src="./js/modificar_medico.js"></script>
     </body>
 
 
