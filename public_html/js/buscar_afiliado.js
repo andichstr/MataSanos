@@ -1,5 +1,4 @@
 $(document).ready(function(){
-	//tablepager();
 	$("#msj2").hide();
 	$(".pager").hide();
 	$("#fBuscar").submit(function(event){
@@ -33,20 +32,27 @@ $(document).ready(function(){
 	});
 	
 });
+
 function act_bloc(id){
+	console.log(id);
 	var data = {
-		'id': id,
+		'id':id
 	};
+	console.log(data);
 	$.ajax({
 		type:'post',
 		url: 'conexiones/activar_bloquear.php',
 		data: data,
-		sucess: function(data){
+		success:	function(data){
 			dat = jQuery.parseJSON(data);
-			if (dat=='B'){
+			console.log(dat);
+			if (dat=='0'){
+				$("button#"+id).removeClass('btn-danger').addClass('btn-success');
+				$('button#'+id+' span').removeClass('glyphicon-ban-circle').addClass('glyphicon-ok-circle');
 				}
 			else{
-				
+				$("button#"+id).removeClass('btn-success').addClass('btn-danger');
+				$('button#'+id+' span').removeClass('glyphicon-ok-circle').addClass('glyphicon-ban-circle');
 				}
 			}
 		});
@@ -56,14 +62,16 @@ function printres(dat){
 	$("#bodyres").empty();
 	$.each(dat, function(index, afiliado) {
 		console.log(afiliado);
-		if (afiliado['activo'] == 0){
-			btnAB = '<button class="btn btn-danger btn-sm" onclick="act_bloc('+afiliado['numAfi']+')"><span class="glyphicon glyphicon-ban-circle"></span></button>';
+		id = afiliado['numAfi'];
+		if (afiliado['activo'] == 1){		
+			btnAB = '<button id = '+id+' class="btn btn-danger btn-sm" onclick="act_bloc('+id+');"><span class="glyphicon glyphicon-ban-circle"></span></button>';
 		}else{
-			btnAB = '<button class="btn btn-success btn-sm" onclick="act_bloc('+afiliado['numAfi']+')"><span class="glyphicon glyphicon glyphicon-ok-circle"></span></button>';
+			btnAB = '<button id = '+id+' class="btn btn-success btn-sm" onclick="act_bloc('+id+');"><span class="glyphicon glyphicon glyphicon-ok-circle"></span></button>';
 		}
-		document.getElementById("bodyres").insertRow(0).innerHTML = '<tr><td>'+afiliado['numAfi']+'</td><td>'+afiliado['nombre']+'</td><td>'+afiliado['dni']+'</td><td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></p></td><td><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span></button><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-th-list"></span></button></p></td><td>'+btnAB+'</td></tr>';
+		document.getElementById("bodyres").insertRow(0).innerHTML = '<tr><td>'+id+'</td><td>'+afiliado['nombre']+'</td><td>'+afiliado['dni']+'</td><td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></p></td><td><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span></button><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-th-list"></span></button></p></td><td>'+btnAB+'</td></tr>';
 	});
 }
+
 function tablepager(){
 	$("#bodyres").trigger('refreshComplete');
 	$("#bodyres").trigger('update');
