@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/xampp/htdocs/MataSanos/public_html/conexiones/cargar_horarios.php</file>
+            <file>file:/C:/xampp/htdocs/MataSanos/public_html/js/solicitar_turno.js</file>
+            <file>file:/C:/xampp/htdocs/MataSanos/public_html/templates/solicitar_turno.html</file>
+            <file>file:/C:/xampp/htdocs/MataSanos/public_html/conexiones/cargar_dias.php</file>
+            <file>file:/C:/xampp/htdocs/MataSanos/public_html/conexiones/cargar_medicos.php</file>
+            <file>file:/C:/xampp/htdocs/MataSanos/public_html/app/login.php</file>
+        </group>
     </open-files>
 </project-private>

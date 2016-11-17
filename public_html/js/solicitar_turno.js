@@ -5,11 +5,10 @@ $(document).ready(function () {
         success: function (response) {
             $("#selEsp").html(response);
             $("#selEsp").val($("#selEsp option:first").val());
+            cargarMedicos();
         }
     });
-    cargarMedicos();
-    cargarDias();
-    cargarHorarios();
+
     $("#selEsp").change(function () {
         cargarMedicos();
     });
@@ -19,10 +18,15 @@ $(document).ready(function () {
     $("#selDias").change(function() {
         cargarHorarios()
     });
+    $("#reservarTurnoForm").on('submit', function(event){
+        event.preventDefault();
+        reservarTurno();
+    });
 });
 
 function cargarMedicos() {
     var especialidad = $("#selEsp option:selected").val();
+    
     var datos = {
         "especialidad": especialidad
     };
@@ -34,6 +38,8 @@ function cargarMedicos() {
             if (response != '0') {
                 $("#selMedico").html(response);
                 $("#selMedico").val($("#selMedico option:first").val());
+                cargarDias();
+                
             } else {
                 $("#modalTitle").html("No se encontro ningún médico con la especialidad seleccionada");
                 $("#modalDesc").html("Presione el botón cerrar, o haga click fuera de esta ventana para salir.");
@@ -41,9 +47,12 @@ function cargarMedicos() {
             }
         }
     });
+
+
 };
 
 function cargarDias() {
+
     var id_medico = $("#selMedico option:selected").val();
     var params = {
         "id_medico": id_medico
@@ -55,6 +64,8 @@ function cargarDias() {
         success: function (respuesta) {
             $("#selDias").html(respuesta);
             $("#selDias").val($("#selDias option:first").val());
+            cargarHorarios();            
+            
         }
     });
 };
@@ -69,8 +80,8 @@ function cargarHorarios() {
         url: './conexiones/cargar_horarios.php',
         type: 'POST',
         success: function(response){
-            console.log(response);
             $("#selHora").html(response);
+           
         }
     });
 }
@@ -92,8 +103,10 @@ function reservarTurno(){
         type: 'POST',
         success: function(response) {
             if (response!=0){
+                console.log(response);
                 //mostrar modal success
             } else {
+                console.log(response);
                 //mostrar modal error
             }
         }

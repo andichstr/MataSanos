@@ -8,7 +8,7 @@ function buscarDias() {
         $id_medico = $_POST['id_medico'];
         $con = new Conexion();
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = $con->prepare("SELECT fecha FROM " . tabla_turnos . " WHERE (id_medico = :id)");
+        $query = $con->prepare("SELECT fecha FROM " . tabla_turnos . " WHERE (id_medico = :id) AND (id_afiliado IS NULL)");
         $query->bindParam(':id', $id_medico);
         if ($query->execute()){
             $result = $query->fetchAll();

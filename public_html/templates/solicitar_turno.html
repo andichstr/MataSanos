@@ -2,7 +2,7 @@
             <div class="page-header">
                 <h2>Solicitar Turno</h2>
             </div>
-            <form class="form-inline">
+            <form class="form-inline" id="reservarTurnoForm" action="./conexiones/reservar_turno.php" method="POST">
                 <div class="container-fluid">
                         <div class="form-group col-lg-2">
                             <label for="selEsp">Especialidad: </label>
@@ -34,9 +34,9 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row-lg-3">
+                    <div class="row-lg-12">
                         <div class="form-group col-lg-12">
-                            <button type="submit" class="btn btn-primary center-block">Reservar Turno</button>
+                            <input type="submit" class="btn btn-primary center-block" value="Reservar Turno"/>
                         </div>
                     </div>
                 </div>

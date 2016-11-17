@@ -8,7 +8,7 @@ function buscarHorarios() {
         $dia = $_POST['dia'];
         $con = new Conexion();
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = $con->prepare("SELECT horario FROM " . tabla_turnos . " WHERE (fecha = :dia)");
+        $query = $con->prepare("SELECT horario FROM " . tabla_turnos . " WHERE (fecha = :dia) AND (id_afiliado IS NULL)");
         $query->bindParam(':dia', $dia);
         if ($query->execute()){
             $result = $query->fetchAll();
@@ -29,4 +29,3 @@ function buscarHorarios() {
 
 buscarHorarios();
 ?>
-
