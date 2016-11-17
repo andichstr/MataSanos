@@ -4,12 +4,14 @@ include_once 'configure.php';
 include_once 'conexion.php';
 
 function buscarDias() {
-    if (isset($_POST['id_medico'])){
+    if (isset($_POST['id_medico']) && isset($_POST['especialidad'])){
         $id_medico = $_POST['id_medico'];
+        $id_especialidad = $_POST['especialidad'];
         $con = new Conexion();
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = $con->prepare("SELECT fecha FROM " . tabla_turnos . " WHERE (id_medico = :id) AND (id_afiliado IS NULL)");
-        $query->bindParam(':id', $id_medico);
+        $query = $con->prepare("SELECT DISTINCT fecha FROM " . tabla_turnos . " WHERE (id_medico = :id_medico) AND (id_especialidad = :id_especialidad) AND (id_afiliado IS NULL)");
+        $query->bindParam(':id_medico', $id_medico);
+        $query->bindParam(':id_especialidad', $id_especialidad);
         if ($query->execute()){
             $result = $query->fetchAll();
             if (isset($result) && (count($result) != 0)) {

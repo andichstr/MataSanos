@@ -52,9 +52,10 @@ function cargarMedicos() {
 };
 
 function cargarDias() {
-
+    var especialidad = $("#selEsp option:selected").val();
     var id_medico = $("#selMedico option:selected").val();
     var params = {
+        "especialidad": especialidad,
         "id_medico": id_medico
     };
     $.ajax({
@@ -71,8 +72,12 @@ function cargarDias() {
 };
 
 function cargarHorarios() {
+    var especialidad = $("#selEsp option:selected").val();
+    var id_medico = $("#selMedico option:selected").val();
     var dia = $("#selDias option:selected").val();
     var info = {
+        "especialidad": especialidad,
+        "id_medico": id_medico,
         "dia": dia
     };
     $.ajax({
@@ -104,11 +109,23 @@ function reservarTurno(){
         success: function(response) {
             if (response!=0){
                 console.log(response);
-                //mostrar modal success
+                $("#modalTitle").html("El turno fue reservado satisfactoriamente!");
+                $("#modalDesc").html("Presione el botón cerrar, o haga click fuera de esta ventana para salir.");
+                $("#divModal").modal('show');
+                $("#divModal").on("hidden.bs.modal", function () {
+                    redirigir()
+                });
             } else {
                 console.log(response);
-                //mostrar modal error
+                $("#modalTitle").html("El turno no pudo ser reservado");
+                $("#modalDesc").html("Por favor, intente nuevamente, o llame telefónicamente al número 011-4545-4545.");
+                $("#divModal").modal('show');
             }
         }
     })
 }
+
+function redirigir(){
+    url = './turnos.php'
+    document.location.href = url;
+};
