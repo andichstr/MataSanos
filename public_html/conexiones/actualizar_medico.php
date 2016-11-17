@@ -18,7 +18,7 @@ function actualizarMedico() {
         $matricula = $_POST['matricula'];
         $con = new Conexion();
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = $con->prepare("UPDATE " . tabla_medicos . " SET (nombre=:nombre, apellido=:apellido, dni=:dni, genero=:genero, fecha_nacimiento=:fecha_nacimiento, mail=:mail, localidad=:localidad, direccion=:direccion, telefono=:telefono, numero_matricula=:matricula) WHERE (id_medico=:id)");
+        $query = $con->prepare("UPDATE " . tabla_medicos . " SET nombre=:nombre, apellido=:apellido, dni=:dni, genero=:genero, fecha_nacimiento=:fecha_nacimiento, mail=:mail, localidad=:localidad, direccion=:direccion, telefono=:telefono, numero_matricula=:matricula WHERE (id_medico=:id)");
         $query->bindParam(':id', $id_medico);
         $query->bindParam(':nombre', $nombre);
         $query->bindParam(':apellido', $apellido);
