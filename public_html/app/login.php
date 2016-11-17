@@ -1,6 +1,6 @@
 <?php
 define('__ROOT__', dirname(dirname(__FILE__)));
-require_once(__ROOT__.'\conexiones\sesion.php');
+require_once(__ROOT__.'/conexiones/sesion.php');
 
 //Session Structure:
 //Se mantiene la sesion con Session ID: hash en md5 de $password + $email + (texto).
