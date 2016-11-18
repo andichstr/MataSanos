@@ -49,13 +49,27 @@ function act_bloc(id){
 			if (dat=='0'){
 				$("button#"+id).removeClass('btn-danger').addClass('btn-success');
 				$('button#'+id+' span').removeClass('glyphicon-ban-circle').addClass('glyphicon-ok-circle');
+				showmodal(dat,id);
 				}
 			else{
 				$("button#"+id).removeClass('btn-success').addClass('btn-danger');
 				$('button#'+id+' span').removeClass('glyphicon-ok-circle').addClass('glyphicon-ban-circle');
+				showmodal(dat,id);
 				}
 			}
 		});
+}
+
+function showmodal(dat,id){
+	if (dat==0){
+		msj = "El afiliado Nº: "+id+" fue bloqueado exitosamente.";
+		}else{
+		msj = "El afiliado Nº: "+id+" ahora se encuentra activo.";
+		}
+	$('p#pmsj1').text(msj);	
+	$('#divInforme').modal()       
+	$('#divInforme').modal({ keyboard: false })
+	$('#divInforme').modal('show')  
 }
 
 function printres(dat){
