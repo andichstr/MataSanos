@@ -79,8 +79,8 @@ $(document).ready(function () {
             str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><label>Horario de Fin:</label></div>';
             str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><label>Duracion del turno en minutos:</label></div></div>';
             str += '<div class="row" style="padding-bottom: 4px"><div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><select class="form-control" name="selDias' + texto + '0" id="selDias' + texto + '0"><option value="Lunes">Lunes</option><option value="Martes">Martes</option><option value="Miercoles">Miercoles</option><option value="Jueves">Jueves</option><option value="Viernes">Viernes</option><option value="Sabado">Sábado</option><option value="Domingo">Domingo</option></select></div>';
-            str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="time" class="form-control" name="HoraInicio' + texto + '0" id="HoraInicio' + texto + '0"/></div>';
-            str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="time" class="form-control" name="HoraFin' + texto + '0" id="HoraFin' + texto + '0"/></div>';
+            str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="time" class="form-control" placeholder="hhmmss" name="HoraInicio' + texto + '0" id="HoraInicio' + texto + '0"/></div>';
+            str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="time" class="form-control" placeholder="hhmmss" name="HoraFin' + texto + '0" id="HoraFin' + texto + '0"/></div>';
             str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="number" class="form-control" placeholder="Duracion en minutos" id="duracionTurno' + texto + '0" name="duracionTurno' + texto + '"/></div></div></div>';
             str += '<div class="row"><div class="col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 4px"><input id="btnAgregarDia' + texto + '" type="button" value="Agregar otro día" class="btn btn-success btn-sm" onclick="agregarDia(' + texto + ');"></div></div>';
         });

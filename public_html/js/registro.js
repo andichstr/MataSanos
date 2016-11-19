@@ -30,7 +30,8 @@ function completarRegistro() {
                 $('#divNotif').modal({
                     backdrop:"static"
                 });
-                $('#for')
+                
+                document.getElementById('formRegistro').reset();
                 //setTimeout(redirigir(),10000);
             }else{
                 
