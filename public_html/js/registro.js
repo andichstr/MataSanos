@@ -1,11 +1,14 @@
 $(document).ready(function () {
 
     $("#btnRegistrar").click(function () {
-        console.log("entró al registro de pass");
-        completarRegistro();
-    }); 
-
+        if (validar_pass()){
+            completarRegistro();
+        }else{
+            console.log("contraseña incompleta.")
+        }
         
+    }); 
+      
 });
 
 
@@ -27,6 +30,7 @@ function completarRegistro() {
                 $('#divNotif').modal({
                     backdrop:"static"
                 });
+                $('#for')
                 //setTimeout(redirigir(),10000);
             }else{
                 
@@ -52,7 +56,7 @@ function gup( name ){
 }
 
 function validar_pass() {
-    if ($("#txtPass") === $("#txtPass2")) {
+    if ($('#txtPass').val() !=='' && $("#txtPass").val() === $("#txtPass2").val()) {
         return true;
     } else {
         return false;

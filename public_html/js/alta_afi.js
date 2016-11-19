@@ -33,15 +33,24 @@ $(document).ready(function () {
                 success: function (response) {
                     var respuesta = Number(response);
                     if (!(isNaN(respuesta)) && respuesta > 0) {
+                        $('#divNotif div.modal-body').html("<p>Afiliado Dado de Alta Satisfactoriamente! </p>");
+                        $('#divNotif').modal({
+                            backdrop: "static"
+                        });
                         console.log("Usuario Registrado con id:" + respuesta);
+                        document.getElementById('form_afiliado').reset();
 
                     } else {
+                        $('#divNotif div.modal-body').html("<p>ERROR al dar de alta cliente.</p>");
+                        $('#divNotif').modal({
+                            backdrop: "static"
+                        });
                         console.log(respuesta);
                     }
                 }
             });
 
-        } else{
+        } else {
             console.log("Formulario No validado");
         }
 
@@ -50,8 +59,6 @@ $(document).ready(function () {
 
 
 });
-
-
 
 function cargar_obras() { //cargar Obras Sociales en el select correspondiente
     $.ajax({
