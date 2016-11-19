@@ -1,0 +1,810 @@
+-- phpMyAdmin SQL Dump
+-- version 4.4.14
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1:3306
+-- Generation Time: Nov 19, 2016 at 06:30 AM
+-- Server version: 5.5.45
+-- PHP Version: 5.4.45
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `matasanos`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `afiliados`
+--
+
+CREATE TABLE `afiliados` (
+  `id_usuario` int(9) NOT NULL,
+  `dni` int(9) NOT NULL,
+  `genero` varchar(1) COLLATE utf8_bin NOT NULL,
+  `fecha_nacimiento` date NOT NULL,
+  `id_obra_social` int(3) NOT NULL,
+  `numero_afiliado` varchar(50) COLLATE utf8_bin NOT NULL,
+  `direccion` varchar(50) COLLATE utf8_bin NOT NULL,
+  `localidad` varchar(50) COLLATE utf8_bin NOT NULL,
+  `telefono` int(20) NOT NULL,
+  `celular` int(20) DEFAULT NULL,
+  `comentarios` varchar(2000) COLLATE utf8_bin DEFAULT NULL,
+  `activo` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `afiliados`
+--
+
+INSERT INTO `afiliados` (`id_usuario`, `dni`, `genero`, `fecha_nacimiento`, `id_obra_social`, `numero_afiliado`, `direccion`, `localidad`, `telefono`, `celular`, `comentarios`, `activo`) VALUES
+(1, 73697221, 'M', '2006-07-20', 151, '1', 'P.O. Box 632, 6381 Orci Road', 'Metropolitana de Santiago', 1145490848, 2147483647, NULL, 1),
+(2, 32384829, 'M', '2012-02-25', 148, '2', 'P.O. Box 379, 1160 Et Rd.', 'Biobío', 1148644785, 2147483647, NULL, 0),
+(3, 60576561, 'M', '1985-10-12', 124, '3', '930 Scelerisque St.', 'Valparaíso', 1142387625, 2147483647, NULL, 1),
+(4, 29955267, 'F', '2012-03-14', 10, '4', '798-8442 Tempus Rd.', 'Araucanía', 1147585207, 2147483647, NULL, 1),
+(5, 85790363, 'M', '2009-10-18', 118, '5', '590-3502 Nostra, Avenue', 'IV', 1145560521, 2147483647, NULL, 1),
+(6, 41272574, 'F', '1977-08-16', 115, '6', '138-9124 Elit. Rd.', 'RM', 1142769366, 2147483647, NULL, 1),
+(7, 88115053, 'F', '1975-07-07', 136, '7', '867-3011 Est. Av.', 'VII', 1149230326, 2147483647, NULL, 1),
+(8, 79180459, 'M', '1972-08-08', 135, '8', '599-3064 Taciti Rd.', 'Metropolitana de Santiago', 1146585150, 2147483647, NULL, 1),
+(9, 68056681, 'M', '1985-04-03', 97, '9', 'Ap #286-3366 Justo Av.', 'RM', 1146557003, 2147483647, NULL, 0),
+(10, 18012024, 'M', '2012-10-09', 79, '10', '9876 Sit St.', 'Metropolitana de Santiago', 1148515763, 2147483647, NULL, 0),
+(11, 19834694, 'M', '1975-08-04', 141, '11', '8183 Ultrices St.', 'II', 1141635963, 2147483647, NULL, 1),
+(12, 99948899, 'F', '1987-11-18', 121, '12', 'Ap #425-5335 Aliquet, Rd.', 'Coquimbo', 1147428509, 2147483647, NULL, 1),
+(13, 91162468, 'F', '1990-12-15', 64, '13', 'Ap #837-267 Nibh Street', 'Valparaíso', 1141320454, 2147483647, NULL, 1),
+(14, 37445609, 'F', '1977-03-22', 64, '14', '8111 Facilisis Avenue', 'V', 1146164383, 2147483647, NULL, 1),
+(15, 49364168, 'F', '1971-10-13', 88, '15', 'P.O. Box 771, 8902 Non Rd.', 'VII', 1146911090, 2147483647, NULL, 1),
+(16, 54666193, 'M', '2000-01-04', 82, '16', '259-5285 Dolor, Ave', 'Metropolitana de Santiago', 1146185180, 2147483647, NULL, 0),
+(17, 13732614, 'F', '1977-01-28', 117, '17', 'P.O. Box 675, 7950 Arcu Rd.', 'RM', 1143346941, 2147483647, NULL, 0),
+(18, 83719462, 'F', '1988-03-16', 37, '18', '4758 Dolor. Av.', 'IX', 1145522262, 2147483647, NULL, 1),
+(19, 61591466, 'M', '1968-09-22', 117, '19', 'Ap #642-692 Mauris Rd.', 'Biobío', 1147796108, 2147483647, NULL, 0),
+(20, 31584685, 'M', '2006-07-03', 143, '20', '738-8830 Nullam Av.', 'I', 1145773268, 2147483647, NULL, 0),
+(21, 88853728, 'M', '1953-12-25', 20, '21', '326-5066 Nec Road', 'RM', 1141141821, 2147483647, NULL, 1),
+(22, 44545372, 'M', '2015-05-25', 124, '22', '6615 Nec, Street', 'Metropolitana de Santiago', 1141701483, 2147483647, NULL, 0),
+(23, 51273662, 'M', '1953-12-21', 11, '23', '666-8173 Quisque Road', 'Valparaíso', 1140927409, 2147483647, NULL, 1),
+(24, 82488747, 'M', '1991-03-17', 1, '24', '5677 Sed Avenue', 'RM', 1142777296, 2147483647, NULL, 0),
+(25, 19619075, 'F', '1955-03-11', 75, '25', '846-1933 Consequat, Street', 'Metropolitana de Santiago', 1143512131, 2147483647, NULL, 0),
+(26, 19349498, 'F', '1964-01-17', 59, '26', '1265 Sodales Avenue', 'Metropolitana de Santiago', 1144749547, 2147483647, NULL, 0),
+(27, 77657606, 'M', '1965-08-18', 12, '27', '487-3823 Ligula St.', 'Biobío', 1148238076, 2147483647, NULL, 1),
+(28, 48087831, 'M', '2000-07-25', 147, '28', 'Ap #463-4489 Blandit St.', 'VII', 1149946562, 2147483647, NULL, 1),
+(29, 28730109, 'M', '1962-02-22', 131, '29', '320-5167 Curabitur Rd.', 'X', 1149481668, 2147483647, NULL, 1),
+(30, 28672628, 'F', '1972-04-08', 40, '30', '679-2438 Sed, Rd.', 'RM', 1146016451, 2147483647, NULL, 1),
+(31, 20258646, 'M', '2014-04-15', 102, '31', 'Ap #317-3278 Porttitor Road', 'Metropolitana de Santiago', 1149534251, 2147483647, NULL, 0),
+(32, 58356200, 'M', '1961-03-31', 96, '32', '245-2710 Risus. St.', 'VII', 1144824052, 2147483647, NULL, 0),
+(33, 20810267, 'F', '1990-02-02', 69, '33', '723-8791 Sed St.', 'I', 1145798492, 2147483647, NULL, 1),
+(34, 17837123, 'M', '1954-08-22', 135, '34', '5069 Nec Rd.', 'VII', 1142224826, 2147483647, NULL, 0),
+(35, 63949821, 'M', '1982-05-11', 46, '35', 'Ap #971-9360 Ligula St.', 'RM', 1145346579, 2147483647, NULL, 1),
+(36, 56936832, 'F', '1959-08-13', 134, '36', '293-4791 Dictum Rd.', 'VI', 1143823100, 2147483647, NULL, 0),
+(37, 20936496, 'F', '1968-07-16', 20, '37', '857 Eget St.', 'Los Ríos', 1148505705, 2147483647, NULL, 0),
+(38, 77435462, 'M', '1952-04-11', 130, '38', 'Ap #714-9772 Mauris, Rd.', 'Araucanía', 1145260297, 2147483647, NULL, 1),
+(39, 41820944, 'M', '1992-11-17', 50, '39', '1023 Pede. Road', 'RM', 1147434824, 2147483647, NULL, 1),
+(40, 74679085, 'M', '2015-08-01', 11, '40', 'P.O. Box 126, 6236 Adipiscing St.', 'RM', 1141570275, 2147483647, NULL, 1),
+(41, 62829014, 'F', '1982-05-02', 37, '41', '115-7175 Ac Avenue', 'RM', 1140424991, 2147483647, NULL, 1),
+(42, 51067339, 'F', '1958-12-02', 74, '42', '3691 Euismod St.', 'Metropolitana de Santiago', 1143048098, 2147483647, NULL, 1),
+(43, 20954965, 'F', '1950-01-20', 46, '43', 'Ap #387-9438 Suspendisse Rd.', 'VII', 1143112381, 2147483647, NULL, 1),
+(44, 88795600, 'M', '1966-03-06', 70, '44', 'Ap #614-3258 Maecenas Ave', 'Valparaíso', 1146552247, 2147483647, NULL, 1),
+(45, 93824766, 'F', '2005-02-24', 44, '45', 'P.O. Box 306, 8306 Amet, Avenue', 'V', 1147401707, 2147483647, NULL, 0),
+(46, 72555280, 'F', '1976-06-16', 76, '46', '398-7881 Purus Street', 'Biobío', 1147350796, 2147483647, NULL, 1),
+(47, 87789622, 'F', '2015-02-14', 8, '47', 'P.O. Box 332, 2394 Elit, St.', 'Coquimbo', 1147597578, 2147483647, NULL, 1),
+(48, 92941187, 'F', '2017-03-03', 126, '48', '1943 Vel St.', 'IV', 1141278050, 2147483647, NULL, 0),
+(49, 55163773, 'M', '2009-11-16', 97, '49', '4168 Id Road', 'VII', 1143879945, 2147483647, NULL, 0),
+(50, 18385394, 'F', '1972-11-06', 74, '50', '529-5022 Lectus Street', 'Metropolitana de Santiago', 1143164838, 2147483647, NULL, 1),
+(51, 12725614, 'F', '1971-04-22', 22, '51', '422-5385 Sed Rd.', 'O''Higgins', 1144265787, 2147483647, NULL, 0),
+(52, 94761327, 'F', '1989-06-18', 120, '52', 'P.O. Box 751, 2548 Imperdiet Ave', 'X', 1146801805, 2147483647, NULL, 1),
+(53, 89135522, 'M', '1996-01-17', 29, '53', 'Ap #782-2269 Nostra, Road', 'VII', 1146199434, 2147483647, NULL, 1),
+(54, 47788053, 'F', '1958-09-28', 117, '54', '867-9277 Mauris Rd.', 'VI', 1141778166, 2147483647, NULL, 1),
+(55, 19725132, 'M', '2017-03-20', 131, '55', '788-7101 Dictum Rd.', 'X', 1145405725, 2147483647, NULL, 1),
+(56, 14965467, 'F', '1993-07-24', 79, '56', '2069 Libero Avenue', 'Biobío', 1144224950, 2147483647, NULL, 0),
+(57, 66067720, 'F', '2000-02-16', 136, '57', '1794 Integer St.', 'IV', 1147583581, 2147483647, NULL, 1),
+(58, 38509205, 'F', '2006-10-15', 26, '58', '4602 Eros. Road', 'IV', 1148579328, 2147483647, NULL, 1),
+(59, 92272845, 'M', '1982-07-11', 78, '59', '344-2757 Etiam Road', 'Metropolitana de Santiago', 1144320381, 2147483647, NULL, 0),
+(60, 45957377, 'F', '1968-11-01', 11, '60', 'Ap #999-9815 Ut, Rd.', 'II', 1144806232, 2147483647, NULL, 1),
+(61, 63643765, 'F', '2012-05-15', 83, '61', 'P.O. Box 905, 3136 Feugiat St.', 'Araucanía', 1144219606, 2147483647, NULL, 0),
+(62, 60888334, 'M', '1968-10-04', 48, '62', '2752 Vehicula Av.', 'Valparaíso', 1149569000, 2147483647, NULL, 1),
+(63, 88618658, 'F', '1997-08-15', 128, '63', '2293 Eu Rd.', 'VII', 1142138957, 2147483647, NULL, 1),
+(64, 10586763, 'F', '1966-10-13', 85, '64', '494 Dictum Ave', 'RM', 1146965622, 2147483647, NULL, 1),
+(65, 11462846, 'M', '1956-04-07', 39, '65', '861-5493 Placerat Road', 'VII', 1141812480, 2147483647, NULL, 1),
+(66, 62536765, 'F', '1979-12-07', 29, '66', 'P.O. Box 990, 6115 Semper Avenue', 'Metropolitana de Santiago', 1141529893, 2147483647, NULL, 0),
+(67, 31162001, 'F', '1959-09-30', 140, '67', 'P.O. Box 295, 5686 Tempor Avenue', 'VI', 1141511779, 2147483647, NULL, 0),
+(68, 43033702, 'M', '1994-12-11', 63, '68', '287-4971 Sit St.', 'Valparaíso', 1141363013, 2147483647, NULL, 0),
+(69, 59491875, 'F', '1961-11-29', 25, '69', '217-2986 Lorem Rd.', 'Biobío', 1148631710, 2147483647, NULL, 0),
+(70, 20838052, 'M', '1977-07-16', 87, '70', 'Ap #796-7119 Justo St.', 'Biobío', 1142984178, 2147483647, NULL, 0),
+(71, 11352702, 'F', '1997-01-15', 62, '71', '152-530 Risus. Rd.', 'Biobío', 1140855882, 2147483647, NULL, 1),
+(72, 96275484, 'F', '2001-06-25', 43, '72', 'Ap #264-4384 Ultrices, Rd.', 'XIV', 1145983004, 2147483647, NULL, 0),
+(73, 97987467, 'M', '1982-01-07', 122, '73', 'P.O. Box 490, 9395 Imperdiet Avenue', 'Maule', 1147145712, 2147483647, NULL, 1),
+(74, 40044882, 'F', '1973-06-22', 33, '74', 'Ap #716-1800 Dictum. St.', 'VII', 1147018375, 2147483647, NULL, 1),
+(75, 90614170, 'F', '2009-07-04', 68, '75', '106 Quis Avenue', 'Metropolitana de Santiago', 1144255316, 2147483647, NULL, 1),
+(76, 66121199, 'M', '1955-12-21', 141, '76', '5984 Et, Road', 'VII', 1140496357, 2147483647, NULL, 1),
+(77, 67576395, 'M', '2006-10-03', 9, '77', '479-705 Turpis. Rd.', 'V', 1144594422, 2147483647, NULL, 0),
+(78, 36401914, 'M', '1959-02-12', 15, '78', 'P.O. Box 339, 1629 Integer Road', 'RM', 1146623028, 2147483647, NULL, 1),
+(79, 32064070, 'M', '1963-07-31', 119, '79', '7944 Erat Rd.', 'Biobío', 1141996647, 2147483647, NULL, 0),
+(80, 42915710, 'F', '1973-04-24', 4, '80', '3865 Enim. Road', 'Los Lagos', 1144193454, 2147483647, NULL, 1),
+(81, 97795848, 'F', '2007-05-22', 14, '81', '884-5808 Massa. Street', 'RM', 1145973607, 2147483647, NULL, 1),
+(82, 36014163, 'F', '1967-04-23', 88, '82', 'Ap #135-989 Tempus Av.', 'V', 1144975660, 2147483647, NULL, 0),
+(83, 89057157, 'F', '1997-09-22', 145, '83', 'P.O. Box 984, 1544 Curabitur Rd.', 'Biobío', 1143100693, 2147483647, NULL, 1),
+(84, 76512976, 'F', '1953-02-23', 116, '84', '626-6078 Integer Rd.', 'RM', 1146817827, 2147483647, NULL, 0),
+(85, 18531380, 'F', '2006-10-01', 145, '85', '687-5884 Nunc Avenue', 'RM', 1140574307, 2147483647, NULL, 1),
+(86, 19625117, 'M', '1967-04-07', 152, '86', 'P.O. Box 280, 2735 Pellentesque Rd.', 'Metropolitana de Santiago', 1144269721, 2147483647, NULL, 0),
+(87, 73912327, 'F', '1985-12-27', 131, '87', '1573 Sem St.', 'Los Lagos', 1140483405, 2147483647, NULL, 0),
+(88, 96790614, 'F', '1956-04-07', 34, '88', '235-2509 Aliquet Street', 'VII', 1148459982, 2147483647, NULL, 0),
+(89, 22548888, 'M', '2013-02-08', 37, '89', 'Ap #522-9914 Et, St.', 'RM', 1144970553, 2147483647, NULL, 1),
+(90, 92603535, 'M', '1978-01-14', 82, '90', 'P.O. Box 197, 2712 Enim Rd.', 'RM', 1142396274, 2147483647, NULL, 1),
+(91, 88519023, 'F', '2004-10-07', 128, '91', '803-704 Eu St.', 'RM', 1148505105, 2147483647, NULL, 1),
+(92, 45009525, 'F', '1964-01-01', 142, '92', 'Ap #991-2126 Pellentesque Road', 'IV', 1142333588, 2147483647, NULL, 1),
+(93, 72652934, 'M', '2011-07-01', 87, '93', '700-4967 Lorem Av.', 'RM', 1140330139, 2147483647, NULL, 1),
+(94, 29621453, 'F', '2012-08-12', 82, '94', '987-144 Sed Av.', 'Atacama', 1147423227, 2147483647, NULL, 0),
+(95, 25376310, 'F', '1956-07-27', 69, '95', 'Ap #186-9981 Aliquam Rd.', 'VII', 1143942757, 2147483647, NULL, 0),
+(96, 22255916, 'M', '1956-12-16', 138, '96', '9656 Dolor. St.', 'XV', 1143801773, 2147483647, NULL, 0),
+(97, 22249087, 'F', '1988-04-19', 17, '97', '176-4540 Eu St.', 'VII', 1141154638, 2147483647, NULL, 0),
+(98, 15860509, 'F', '1952-10-22', 146, '98', '141-8339 Ipsum. Ave', 'RM', 1147142264, 2147483647, NULL, 0),
+(99, 66329012, 'M', '2007-12-07', 92, '99', '7078 Lobortis Rd.', 'X', 1149601855, 2147483647, NULL, 0),
+(100, 83946504, 'F', '2003-04-03', 62, '100', 'Ap #319-8552 Orci Av.', 'Biobío', 1149934586, 2147483647, NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `especialidades`
+--
+
+CREATE TABLE `especialidades` (
+  `id_especialidad` int(3) NOT NULL,
+  `descripcion` varchar(50) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `especialidades`
+--
+
+INSERT INTO `especialidades` (`id_especialidad`, `descripcion`) VALUES
+(1, 'DERMATOLOGIA'),
+(2, 'DERMATOSIFILOGRAFIA'),
+(3, 'DIAGNOSTICO POR IMAGENES'),
+(4, 'ENDOCRINOLOGIA'),
+(5, 'ENDOSCOPIA DIGESTIVA'),
+(6, 'EPIDEMIOLOGIA'),
+(7, 'FARMACOLOGIA'),
+(8, 'FISITRIA'),
+(9, 'GASTROENTEROLOGIA'),
+(10, 'GENETICA MEDICA'),
+(11, 'GERIATRIA'),
+(12, 'GINECOLOGIA'),
+(13, 'HEMATOLOGIA'),
+(14, 'HEMOTERAPIA E INMUNOHEMATOLOGIA'),
+(15, 'HEMOTERAPIA'),
+(16, 'HIGIENE INDUSTRIAL'),
+(17, 'HIGIENE Y MEDICINA PREVENTIVA'),
+(18, 'INMUNOLOGIA'),
+(19, 'LEPROLOGIA'),
+(20, 'MASTOLOGIA'),
+(21, 'MEDICINA LEGAL'),
+(22, 'MEDICINA NUCLEAR'),
+(23, 'MEDICINA SANITARIA'),
+(24, 'MEDICINA DEL TRABAJO'),
+(25, 'MEDICINA FAMILIAR'),
+(26, 'MEDICINA AERONAUTICA Y ESPACIAL'),
+(27, 'MEDICINA DEL DEPORTE'),
+(28, 'NEFROLOGIA'),
+(29, 'NEONATOLOGIA'),
+(30, 'NEUMONOLOGIA'),
+(31, 'NEUROCIRUGIA'),
+(32, 'NEUROLOGIA INFANTIL'),
+(33, 'NEUROLOGIA'),
+(34, 'NUTRICION'),
+(35, 'OBSTETRICIA'),
+(36, 'OFTALMOLOGIA'),
+(37, 'ONCOLOGIA'),
+(38, 'ORTOPEDIA Y TRAUMATOLOGIA'),
+(39, 'OTORRINOLARINGOLOGIA'),
+(40, 'PEDIATRIA'),
+(41, 'PROCTOLOGIA'),
+(42, 'PSICOLOGIA MEDICA'),
+(43, 'PSIQUIATRIA'),
+(44, 'PSIQUIATRIA INFANTIL'),
+(45, 'QUEMADOS'),
+(46, 'RADIOLOGIA'),
+(47, 'RADIOTERAPIA'),
+(48, 'REUMATOLOGIA'),
+(49, 'SALUD PUBLICA'),
+(50, 'TERAPIA INTENSIVA'),
+(51, 'TISIOLOGIA'),
+(52, 'TISIONEUMONOLOGIA'),
+(53, 'TOCOGINECOLOGIA'),
+(54, 'TOXICOLOGIA'),
+(55, 'UROLOGIA');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `horarios_turnos_medicos`
+--
+
+CREATE TABLE `horarios_turnos_medicos` (
+  `id_horarios_turnos_medicos` int(9) NOT NULL,
+  `id_medico` int(9) NOT NULL,
+  `dia` date NOT NULL,
+  `horario_inicio` time NOT NULL,
+  `horario_fin` time NOT NULL,
+  `duracion_turno_minutos` int(2) NOT NULL,
+  `id_especialidad` int(3) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `horarios_turnos_medicos`
+--
+
+INSERT INTO `horarios_turnos_medicos` (`id_horarios_turnos_medicos`, `id_medico`, `dia`, `horario_inicio`, `horario_fin`, `duracion_turno_minutos`, `id_especialidad`) VALUES
+(2, 2, '2016-11-01', '15:00:00', '17:00:00', 15, 2),
+(3, 3, '2016-11-02', '09:00:00', '13:00:00', 30, 3),
+(4, 4, '2016-11-08', '09:00:00', '14:00:00', 30, 1),
+(5, 4, '2016-11-11', '13:00:00', '18:00:00', 0, 1),
+(6, 4, '2016-11-08', '09:00:00', '14:00:00', 30, 1),
+(7, 4, '2016-11-11', '13:00:00', '18:00:00', 30, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `medicos`
+--
+
+CREATE TABLE `medicos` (
+  `id_medico` int(9) NOT NULL,
+  `nombre` varchar(50) COLLATE utf8_bin NOT NULL,
+  `apellido` varchar(50) COLLATE utf8_bin NOT NULL,
+  `dni` int(9) NOT NULL,
+  `genero` varchar(1) COLLATE utf8_bin NOT NULL,
+  `fecha_nacimiento` date NOT NULL,
+  `mail` varchar(50) COLLATE utf8_bin NOT NULL,
+  `direccion` varchar(50) COLLATE utf8_bin NOT NULL,
+  `localidad` varchar(50) COLLATE utf8_bin NOT NULL,
+  `telefono` int(20) NOT NULL,
+  `numero_matricula` int(9) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `medicos`
+--
+
+INSERT INTO `medicos` (`id_medico`, `nombre`, `apellido`, `dni`, `genero`, `fecha_nacimiento`, `mail`, `direccion`, `localidad`, `telefono`, `numero_matricula`) VALUES
+(2, 'ABEL', 'RAMIREZ', 22334466, 'm', '1980-06-05', 'example@example.com', 'CHORROARIN 2908', 'TABLADA', 44420989, 88992),
+(3, 'ALEJANDRA', 'PEREZ', 99772255, 'f', '1970-04-12', 'example@example.com', 'Moldes 3377', 'San Justo', 44412345, 88292),
+(4, 'MARIO', 'MARTINEZ', 66778822, 'M', '1956-09-29', 'example@example.com', 'ALBERDI 27000', 'CABA', 4992823, 234543),
+(5, 'MARCELO', 'CONTRERAS', 66773399, 'm', '1980-04-20', 'example@example.com', 'Moldes 3377', 'San Justo', 2345433, 2345654),
+(6, 'ABIGAIL', 'ROSAS', 23446789, 'F', '1990-09-30', 'example@example.com', 'FRANCE 2390', 'L DEL MIRADOR', 33445522, 3456543),
+(7, 'MIRIAM', 'PONCE', 33556677, 'F', '1990-09-07', 'example@example.com', 'ALCORTA 2334', 'LOCALIDAD', 345676543, 234545676);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `medicos_especialidades`
+--
+
+CREATE TABLE `medicos_especialidades` (
+  `id_medico` int(9) NOT NULL,
+  `id_especialidad` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `medicos_especialidades`
+--
+
+INSERT INTO `medicos_especialidades` (`id_medico`, `id_especialidad`) VALUES
+(2, 1),
+(4, 1),
+(2, 2),
+(3, 2),
+(7, 2),
+(3, 3),
+(3, 4),
+(5, 5),
+(6, 6),
+(6, 7),
+(7, 7);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `obras_sociales`
+--
+
+CREATE TABLE `obras_sociales` (
+  `id_obra_social` int(3) NOT NULL,
+  `descripcion` varchar(100) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `obras_sociales`
+--
+
+INSERT INTO `obras_sociales` (`id_obra_social`, `descripcion`) VALUES
+(1, 'OS-ASE OBRA SOCIAL ACCION SOCIAL DE EMPRESARIOS'),
+(2, 'OS-OSAPYEA OBRA SOCIAL ACEROS PARANA'),
+(3, 'OS-APDIS OBRA SOCIAL ASOCIACION DEL PERSONAL DE DIRECCION DE LA INDUSTRIA SIDERURGICA'),
+(4, 'OS-APSOT OBRA SOCIAL ASOCIACION DEL PERSONAL SUPERIOR DE LA ORGANIZACION TECHINT'),
+(5, 'OS-OSBA OBRA SOCIAL BANCARIA ARGENTINA'),
+(6, 'OS-OSEIV OBRA SOCIAL DE EMPLEADOS DE LA INDUSTRIA DEL VIDRIO'),
+(7, 'OS-OSADEF OBRA SOCIAL DE LAS ASOCIACIONES DE EMPLEADOS DE FARMACIA'),
+(8, 'OS-OSAC OBRA SOCIAL DE ACTORES'),
+(9, 'OS-OSA OBRA SOCIAL DE AERONAVEGANTES'),
+(10, 'OS-OSALARA OBRA SOCIAL DE AGENTES DE LOTERIAS Y AFINES DE LA REPUBLICA ARGENTINA'),
+(11, 'OS-OSAPM OBRA SOCIAL DE AGENTES DE PROPAGANDA MEDICA DE LA REPUBLICA ARGENTINA'),
+(12, 'OS-OSADRA OBRA SOCIAL DE ARBITROS DEPORTIVOS DE LA REPUBLICA ARGENTINA'),
+(13, 'OS-OSCEP OBRA SOCIAL DE CAPATACES ESTIBADORES PORTUARIOS'),
+(14, 'OS-OSCOMM OBRA SOCIAL DE CAPITANES DE ULTRAMAR Y OFICIALES DE LA MARINA MERCANTE'),
+(15, 'OS-OSCE OBRA SOCIAL DE CERAMISTAS'),
+(16, 'OS-OSCHOCA OBRA SOCIAL DE CHOFERES DE CAMIONES'),
+(17, 'OS-OSCAMGLYP OBRA SOCIAL DE COLOCADORES DE AZULEJOS, MOSAICOS, GRANITEROS, LUSTRADORES Y PORCELANERO'),
+(18, 'OS-OSCN OBRA SOCIAL DE COMISARIOS NAVALES'),
+(19, 'OS-OSCCPTAC OBRA SOCIAL DE CONDUCTORES CAMIONEROS Y PERSONAL DEL TRANSPORTE AUTOMOTOR DE CARGAS'),
+(20, 'OS-OSCRAIA OBRA SOCIAL DE CONDUCTORES DE REMISES Y AUTOS AL INSTANTE Y AFINES'),
+(21, 'OS-CTCP OBRA SOCIAL DE CONDUCTORES DE TRANSPORTE COLECTIVO DE PASAJEROS'),
+(22, 'OS-OSCONARA OBRA SOCIAL DE CONDUCTORES NAVALES'),
+(23, 'OS-OSDO OBRA SOCIAL DE DIRECCION OSDO'),
+(24, 'OS-WITCEL OBRA SOCIAL DE DIRECCIÓN WITCEL'),
+(25, 'OS-OSDOP OBRA SOCIAL DE DOCENTES PARTICULARES'),
+(26, 'OS-OSEDA OBRA SOCIAL DE EMPLEADOS DE DESPACHANTES DE ADUANA'),
+(27, 'OS-OSEMM OBRA SOCIAL DE EMPLEADOS DE LA MARINA MERCANTE'),
+(28, 'OS-OSETRA OBRA SOCIAL DE EMPLEADOS DEL TABACO DE LA REPUBLICA ARGENTINA'),
+(29, 'OS-OSETYA OBRA SOCIAL DE EMPLEADOS TEXTILES Y AFINES'),
+(30, 'OS-OSEAM OBRA SOCIAL DE ENCARGADOS APUNTADORES MARITIMOS'),
+(31, 'OS-OSFOT OBRA SOCIAL DE FOTOGRAFOS'),
+(32, 'OS-OSGMGM OBRA SOCIAL DE GUINCHEROS Y MAQUINISTAS DE GRUAS MOVILES'),
+(33, 'OS-OSJPVYF OBRA SOCIAL DE JARDINEROS, PARQUISTAS, VIVERISTAS Y FLORICULTORES DE LA REPUBLICA ARGENTI'),
+(34, 'OS-OSJOMN OBRA SOCIAL DE JEFES Y OFICIALES MAQUINISTAS NAVALES'),
+(35, 'OS-OSSEG OBRA SOCIAL DE LA ACTIVIDAD DE SEGUROS, REASEGUROS, CAPITALIZACION Y AHORRO Y PRESTAMO PARA'),
+(36, 'OS-OSAM OBRA SOCIAL DE LA ACTIVIDAD MINERA'),
+(37, 'OS-OSFATUN OBRA SOCIAL DE LA FEDERACION ARGENTINA DEL TRABAJADOR DE LAS UNIVERSIDADES NACIONALES'),
+(38, 'OS-FEDECAMARAS OBRA SOCIAL DE LA FEDERACION DE CAMARAS Y CENTROS COMERCIALES ZONALES DE LA REPUBLICA'),
+(39, 'OS-OSFGPICD OBRA SOCIAL DE LA FEDERACION GREMIAL DE LA INDUSTRIA DE LA CARNE Y SUS DERIVADOS'),
+(40, 'OS-OSIPA OBRA SOCIAL DE LA INDUSTRIA DE PASTAS ALIMENTICIAS'),
+(41, 'OS-OSUOMRA OBRA SOCIAL DE LA UNION OBRERA METALURGICA DE LA REPUBLICA ARGENTINA'),
+(42, 'OS-OSDEL OBRA SOCIAL DE LOCUTORES'),
+(43, 'OS-OSSIMRA OBRA SOCIAL DE LOS SUPERVISORES DE LA INDUSTRIA METALMECANICA DE LA REPUBLICA ARGENTINA'),
+(44, 'OS-OSUCI OBRA SOCIAL DE LOS CORTADORES DE LA INDUMENTARIA'),
+(45, 'OS-OSECAC OBRA SOCIAL DE LOS EMPLEADOS DE COMERCIO Y ACTIVIDADES CIVILES'),
+(46, 'OS-OSPUAYE OBRA SOCIAL DE LOS PROFESIONALES UNIVERSITARIOS DEL AGUA Y LA ENERGIA ELECTRICA'),
+(47, 'OS-OSTEE OBRA SOCIAL DE LOS TRABAJADORES DE LAS EMPRESAS DE ELECTRICIDAD'),
+(48, 'OS-OSMTT OBRA SOCIAL DE MAQUINISTAS DE TEATRO Y TELEVISION'),
+(49, 'OS-OSDEM OBRA SOCIAL DE MUSICOS'),
+(50, 'OS-OSOEFRNN OBRA SOCIAL DE OBREROS EMPACADORES DE FRUTA DE RIO NEGRO Y NEUQUEN'),
+(51, 'OS-OSOETSYLARA OBRA SOCIAL DE OBREROS Y EMPLEADOS TINTOREROS SOMBREREROS Y LAVADEROS DE LA REPUBLICA'),
+(52, 'OS-OSPCRP OBRA SOCIAL DE PATRONES DE CABOTAJE DE RIOS Y PUERTOS'),
+(53, 'OS-OSPETAX OBRA SOCIAL DE PEONES DE TAXIS DE LA CAPITAL FEDERAL'),
+(54, 'OS-OSPET OBRA SOCIAL DE PETROLEROS'),
+(55, 'OS-OSPAR OBRA SOCIAL DE PORTUARIOS ARGENTINOS'),
+(56, 'OS-OSRJA OBRA SOCIAL DE RELOJEROS Y JOYEROS'),
+(57, 'OS-OSSB OBRA SOCIAL DE SERENOS DE BUQUES'),
+(58, 'OS-OSTECF OBRA SOCIAL DE TECNICOS DE FUTBOL'),
+(59, 'OS-OSTVLA OBRA SOCIAL DE TECNICOS DE VUELO DE LINEAS AEREAS'),
+(60, 'OS-OSTIG OBRA SOCIAL DE TRABAJADORES DE LA INDUSTRIA DEL GAS'),
+(61, 'OS-OSTRAC OBRA SOCIAL DE TRABAJADORES DE LAS COMUNICACIONES'),
+(62, 'OS-OSTPBA OBRA SOCIAL DE TRABAJADORES DE PRENSA DE BUENOS AIRES'),
+(63, 'OS-OSV OBRA SOCIAL DE VAREADORES'),
+(64, 'OS-OSVARA OBRA SOCIAL DE VENDEDORES AMBULANTES DE LA REPUBLICA ARGENTINA'),
+(65, 'OS-OSVVRA OBRA SOCIAL DE VIAJANTES VENDEDORES DE LA REPUBLICA ARGENTINA. (ANDAR)'),
+(66, 'OS-OSYC OBRA SOCIAL DE YACIMIENTOS CARBONIFEROS'),
+(67, 'OS-OSPATCA OBRA SOCIAL DEL PERSONAL ADMINISTRATIVO Y TECNICO DE LA CONSTRUCCION Y AFINES'),
+(68, 'OS-OSPA OBRA SOCIAL DEL PERSONAL AERONAUTICO'),
+(69, 'OS-OSPACP OBRA SOCIAL DEL PERSONAL AUXILIAR DE CASAS PARTICULARES'),
+(70, 'OS-OSPADEP OBRA SOCIAL DEL PERSONAL DE AERONAVEGACION DE ENTES PRIVADOS'),
+(71, 'OS-OSPAGA OBRA SOCIAL DEL PERSONAL DE AGUAS GASEOSAS Y AFINES'),
+(72, 'OS-OSPBLCA OBRA SOCIAL DEL PERSONAL DE BARRACAS DE LANAS, CUEROS Y ANEXOS'),
+(73, 'OS-OSPCYD OBRA SOCIAL DEL PERSONAL DE CARGA Y DESCARGA'),
+(74, 'OS-OSIM OBRA SOCIAL DEL PERSONAL DE DIRECCION DE LA INDUSTRIA METALURGICA Y DEMAS ACTIVIDADES EMPRES'),
+(75, 'OS-OSDIPP OBRA SOCIAL DEL PERSONAL DE DIRECCION DE LA INDUSTRIA PRIVADA DEL PETROLEO'),
+(76, 'OS-OSLPASTEUR OBRA SOCIAL DEL PERSONAL DE DIRECCION DE LA SANIDAD LUIS PASTEUR'),
+(77, 'OS-OPDEA OBRA SOCIAL DEL PERSONAL DE DIRECCION DE LAS EMPRESAS DE LA ALIMENTACION Y DEMAS ACTIVIDADE'),
+(78, 'OS-FRUTOS OBRA SOCIAL DEL PERSONAL DE DIRECCION DE LAS EMPRESAS QUE ACTUAN EN FRUTOS DEL PAIS'),
+(79, 'OS-WHOPE OBRA SOCIAL DEL PERSONAL DE DIRECCION DE PERFUMERIA E.W. HOPE'),
+(80, 'OS-OSPERYHRA OBRA SOCIAL DEL PERSONAL DE EDIFICIOS DE RENTA Y HORIZONTAL DE LA REPUBLICA ARGENTINA'),
+(81, 'OS-OSPEFYEPCA OBRA SOCIAL DEL PERSONAL DE EMPRESAS FIAT Y EMPRESAS PEUGEOT CITROEN ARGENTINA'),
+(82, 'OS-OSPEDYC OBRA SOCIAL DEL PERSONAL DE ENTIDADES DEPORTIVAS Y CIVILES'),
+(83, 'OS-OSPE OBRA SOCIAL DEL PERSONAL DE ESCRIBANOS'),
+(84, 'OS-OSPESGYPE OBRA SOCIAL DEL PERSONAL DE ESTACIONES DE SERVICIO, GARAGES, PLAYAS DE ESTACIONAMIENTO '),
+(85, 'OS-UPFPARA OBRA SOCIAL DEL PERSONAL DE FABRICAS DE PINTURA'),
+(86, 'OS-OSPF OBRA SOCIAL DEL PERSONAL DE FARMACIA'),
+(87, 'OS-OSPIDA OBRA SOCIAL DEL PERSONAL DE IMPRENTA, DIARIOS Y AFINES'),
+(88, 'OS-OSPIQYP OBRA SOCIAL DEL PERSONAL DE INDUSTRIAS QUIMICAS Y PETROQUIMICAS'),
+(89, 'OS-OSPIS OBRA SOCIAL DEL PERSONAL DE INSTALACIONES SANITARIAS'),
+(90, 'OS-OSPEJ OBRA SOCIAL DEL PERSONAL DE JABONEROS'),
+(91, 'OS-OSPACA OBRA SOCIAL DEL PERSONAL DE LA ACTIVIDAD CERVECERA Y AFINES'),
+(92, 'OS-OSPAT OBRA SOCIAL DEL PERSONAL DE LA ACTIVIDAD DEL TURF'),
+(93, 'OS-OSPAP OBRA SOCIAL DEL PERSONAL DE LA ACTIVIDAD PERFUMISTA'),
+(94, 'OS-OSPAV OBRA SOCIAL DEL PERSONAL DE LA ACTIVIDAD VITIVINICOLA'),
+(95, 'OS-OSPECON OBRA SOCIAL DEL PERSONAL DE LA CONSTRUCCION'),
+(96, 'OS-OSPEC OBRA SOCIAL DEL PERSONAL DE LA EMPRESA NACIONAL DE CORREOS Y TELEGRAFOS S.A. Y DE LAS COMUN'),
+(97, 'OS-OSPEP OBRA SOCIAL DEL PERSONAL DE LA ENSEÑANZA PRIVADA'),
+(98, 'OS-OSPIA OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA DE LA ALIMENTACION'),
+(99, 'OS-OSPICAL OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA DEL CALZADO'),
+(100, 'OS-OSPIC OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA DEL CAUCHO'),
+(101, 'OS-OSPICHA OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA DEL CHACINADO Y AFINES'),
+(102, 'OS-OSPICA OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA DEL CUERO Y AFINES'),
+(103, 'OS-OSPIHMP OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA DEL HIELO Y MERCADOS PARTICULARES'),
+(104, 'OS-OSPIP OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA DEL PLASTICO'),
+(105, 'OS-OSPIV OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA DEL VESTIDO'),
+(106, 'OS-OSPIVE OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA DEL VIDRIO'),
+(107, 'OS-OSPILM OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA LADRILLERA A MAQUINA'),
+(108, 'OS-OSPIL OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA LECHERA'),
+(109, 'OS-OSPIM OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA MADERERA'),
+(110, 'OS-OSPIMO OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA MOLINERA'),
+(111, 'OS-OSPIT OBRA SOCIAL DEL PERSONAL DE LA INDUSTRIA TEXTIL'),
+(112, 'OS-OSPP OBRA SOCIAL DEL PERSONAL DE LA PUBLICIDAD'),
+(113, 'OS-OSPSA OBRA SOCIAL DEL PERSONAL DE LA SANIDAD ARGENTINA'),
+(114, 'OS-OSTEL OBRA SOCIAL DEL PERSONAL DE LAS TELECOMUNICACIONES DE LA REPUBLICA ARGENTINA'),
+(115, 'OS-OSLYF OBRA SOCIAL DEL PERSONAL DE LUZ Y FUERZA DE CORDOBA'),
+(116, 'OS-OSPM OBRA SOCIAL DEL PERSONAL DE MAESTRANZA'),
+(117, 'OS-OSPEPA OBRA SOCIAL DEL PERSONAL DE PANADERIAS'),
+(118, 'OS-OSPPEA OBRA SOCIAL DEL PERSONAL DE PELUQUERIAS, ESTETICAS Y AFINES'),
+(119, 'OS-OSPPRA OBRA SOCIAL DEL PERSONAL DE PRENSA DE LA REPUBLICA ARGENTINA'),
+(120, 'OS-OSPSIP OBRA SOCIAL DEL PERSONAL DE SEGURIDAD COMERCIAL, INDUSTRIAL E INVESTIGACIONES PRIVADAS'),
+(121, 'OS-OSPESA OBRA SOCIAL DEL PERSONAL DE SOCIEDADES DE AUTORES Y AFINES'),
+(122, 'OS-OSPTV OBRA SOCIAL DEL PERSONAL DE TELEVISION'),
+(123, 'OS-OSPACLA OBRA SOCIAL DEL PERSONAL DEL AUTOMOVIL CLUB ARGENTINO'),
+(124, 'OS-OSPECA OBRA SOCIAL DEL PERSONAL DEL CAUCHO'),
+(125, 'OS-OSPEPU OBRA SOCIAL DEL PERSONAL DEL ESPECTACULO PUBLICO'),
+(126, 'OS-OSPOCE OBRA SOCIAL DEL PERSONAL DEL ORGANISMO DE CONTROL EXTERNO'),
+(127, 'OS-OSPPCYQ OBRA SOCIAL DEL PERSONAL DEL PAPEL, CARTON Y QUIMICOS'),
+(128, 'OS-OSUTHGRA OBRA SOCIAL DEL PERSONAL DEL TURISMO, HOTELERO Y GASTRONOMICO DE LA UNION DE TRABAJADORE'),
+(129, 'OS-OSDIC OBRA SOCIAL DEL PERSONAL DIRECTIVO DE LA INDUSTRIA DE LA CONSTRUCCION'),
+(130, 'OS-OSPG OBRA SOCIAL DEL PERSONAL GRAFICO'),
+(131, 'OS-OSJERA OBRA SOCIAL DEL PERSONAL JERARQUICO DE LA REPUBLICA ARGENTINA PARA EL PERSONAL JERARQUICO '),
+(132, 'OS-OSPMA OBRA SOCIAL DEL PERSONAL MARITIMO'),
+(133, 'OS-OSPMJCHPSI OBRA SOCIAL DEL PERSONAL MENSUALIZADO DEL JOCKEY CLUB DE BUENOS AIRES Y LOS HIPODROMOS'),
+(134, 'OS-OSPRERA OBRA SOCIAL DEL PERSONAL RURAL Y ESTIBADORES DE LA REPUBLICA ARGENTINA'),
+(135, 'OS-OSSHELL OBRA SOCIAL DEL PERSONAL SHELL-CAPSA'),
+(136, 'OS-OSPEA OBRA SOCIAL DEL PERSONAL SUPERIOR Y PROFESIONAL DE EMPRESAS AEROCOMERCIALES'),
+(137, 'OS-OSPTA OBRA SOCIAL DEL PERSONAL TECNICO AERONAUTICO'),
+(138, 'OS-OSPEGAP OBRA SOCIAL DEL PETROLEO Y GAS PRIVADO'),
+(139, 'OS-OSMATA OBRA SOCIAL DEL SINDICATO DE MECANICOS Y AFINES DEL TRANSPORTE AUTOMOTOR'),
+(140, 'OS-OSFE OBRA SOCIAL FERROVIARIA'),
+(141, 'OS-OSMA OBRA SOCIAL MODELOS ARGENTINOS'),
+(142, 'OS-MITA OBRA SOCIAL MUTUALIDAD INDUSTRIAL TEXTIL ARGENTINA'),
+(143, 'OS-OSPELMM OBRA SOCIAL PARA EL PERSONAL DE EMPRESAS DE LIMPIEZA, SERVICIOS Y MAESTRANZA DE MENDOZA'),
+(144, 'OS-OSEDEIV OBRA SOCIAL PARA EL PERSONAL DE DIRECCION DE LA INDUSTRIA VITIVINICOLA Y AFINES'),
+(145, 'OS-OSIAD OBRA SOCIAL PARA EL PERSONAL DE LA INDUSTRIA ACEITERA, DESMOTADORA Y AFINES'),
+(146, 'OS-OSOSS OBRA SOCIAL PARA EL PERSONAL DE OBRAS Y SERVICIOS SANITARIOS'),
+(147, 'OS-OSPLAD OBRA SOCIAL PARA LA ACTIVIDAD DOCENTE'),
+(148, 'OS-OSTEP OBRA SOCIAL PARA LOS TRABAJADORES DE LA EDUCACION PRIVADA'),
+(149, 'OS-OSPLA OBRA SOCIAL PARA PILOTOS DE LINEAS AEREAS COMERCIALES Y REGULARES'),
+(150, 'OS-OSTPCHPYARA OBRA SOCIAL TRABAJADORES PASTELEROS, CONFITEROS, PIZZEROS, HELADEROS Y ALFAJOREROS DE'),
+(151, 'OS-OSPCN OBRA SOCIAL UNION PERSONAL DE LA UNION DEL PERSONAL CIVIL DE LA NACION'),
+(152, 'OS-OSYPF OBRA SOCIAL YPF'),
+(153, 'OS-OSDE OSDE ORGANIZACION DE SERVICIOS DIRECTOS EMPRESARIOS');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tipo_usuarios`
+--
+
+CREATE TABLE `tipo_usuarios` (
+  `id_tipo_usuario` int(1) NOT NULL,
+  `tipo` varchar(3) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `tipo_usuarios`
+--
+
+INSERT INTO `tipo_usuarios` (`id_tipo_usuario`, `tipo`) VALUES
+(1, 'afi'),
+(2, 'ope'),
+(3, 'adm');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `turnos`
+--
+
+CREATE TABLE `turnos` (
+  `id_turno` int(13) NOT NULL,
+  `id_afiliado` int(9) DEFAULT NULL,
+  `horario` time NOT NULL,
+  `fecha` date NOT NULL,
+  `id_medico` int(9) NOT NULL,
+  `id_especialidad` int(3) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `turnos`
+--
+
+INSERT INTO `turnos` (`id_turno`, `id_afiliado`, `horario`, `fecha`, `id_medico`, `id_especialidad`) VALUES
+(2, NULL, '15:00:00', '2016-11-01', 2, 2),
+(3, NULL, '15:15:00', '2016-11-01', 2, 2),
+(4, NULL, '09:00:00', '2016-11-02', 3, 3),
+(5, NULL, '09:30:00', '2016-11-02', 3, 3),
+(6, NULL, '10:00:00', '2016-11-02', 3, 3),
+(7, NULL, '10:30:00', '2016-11-02', 3, 3),
+(8, NULL, '13:00:00', '2016-11-11', 5, 4),
+(9, NULL, '13:30:00', '2016-11-11', 5, 4),
+(10, NULL, '09:00:00', '2016-11-08', 4, 4),
+(11, NULL, '09:30:00', '2016-11-08', 4, 4),
+(12, NULL, '10:00:00', '2016-11-08', 4, 4),
+(13, NULL, '10:30:00', '2016-11-08', 4, 4),
+(14, NULL, '14:00:00', '2016-11-08', 4, 1),
+(15, NULL, '14:30:00', '2016-11-08', 4, 1),
+(16, NULL, '14:00:00', '2016-11-09', 4, 1),
+(17, NULL, '14:30:00', '2016-11-09', 4, 1),
+(23, NULL, '09:00:00', '2016-11-10', 7, 7),
+(24, NULL, '15:00:00', '2016-11-08', 7, 2),
+(25, NULL, '15:30:00', '2016-11-08', 7, 2),
+(26, NULL, '14:00:00', '2016-11-08', 7, 2),
+(27, NULL, '15:00:00', '2016-11-09', 6, 7);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id_usuario` int(9) NOT NULL,
+  `nombre` varchar(50) COLLATE utf8_bin NOT NULL,
+  `apellido` varchar(50) COLLATE utf8_bin NOT NULL,
+  `mail` varchar(50) COLLATE utf8_bin NOT NULL,
+  `password` varchar(50) COLLATE utf8_bin NOT NULL,
+  `id_tipo_usuario` int(1) NOT NULL,
+  `token` varchar(32) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido`, `mail`, `password`, `id_tipo_usuario`, `token`) VALUES
+(1, 'Tonka', 'Cortés', 'Vestibulum.ante.ipsum@quisurna.com', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(2, 'Edward', 'Álvarez', 'dictum.placerat@malesuadaut.com', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(3, 'Damaris', 'Paredes', 'tristique.neque@iaculisquispede.edu', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(4, 'Gonzalo', 'Leiva', 'varius.Nam.porttitor@felis.edu', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(5, 'Hellen', 'Araya', 'rutrum.lorem@mollisduiin.ca', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(6, 'Ihan', 'Carrasco', 'dolor.nonummy@nulla.edu', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(7, 'Andrea', 'Lagos', 'iaculis.nec@lacusvariuset.ca', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(8, 'Kenneth', 'Romero', 'id@Curabitur.edu', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(9, 'Clemente', 'Bustamante', 'Nunc@euismodet.edu', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(10, 'Flavio', 'Gallardo', 'non@sed.net', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(11, 'Anastacia', 'Sanhueza', 'dui@vitaemauris.net', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(12, 'Misael', 'Sáez', 'nunc.Quisque.ornare@Vestibulum.co.uk', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(13, 'Yanara', 'Olivares', 'et.pede@euismod.edu', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(14, 'Patricio', 'Toro', 'sociosqu.ad.litora@ipsumDonec.net', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(15, 'Jovany', 'Jiménez', 'ad.litora.torquent@eget.edu', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(16, 'Massiel', 'Díaz', 'ultrices@ultrices.com', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(17, 'Dario', 'Bustamante', 'egestas@nectempusscelerisque.com', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(18, 'Daniella', 'Araya', 'ac.ipsum.Phasellus@quis.net', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(19, 'Derek', 'Carrasco', 'tincidunt@elitpharetra.com', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(20, 'Daniella', 'Molina', 'pretium.neque@pharetraQuisqueac.co.uk', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(21, 'Yanira', 'Sandoval', 'suscipit@ipsumprimisin.ca', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(22, 'Amélie', 'Zúñiga', 'dictum.eu.eleifend@inhendrerit.org', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(23, 'Yonatan', 'Soto', 'tempus@scelerisquenequeNullam.co.uk', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(24, 'Natasha', 'Donoso', 'sem.eget.massa@etmagnis.com', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(25, 'Abrahan', 'Espinoza', 'dolor@diamnunc.org', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(26, 'Madeleyn', 'Torres', 'ligula.eu.enim@Aliquamrutrum.net', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(27, 'Cristhofer', 'Alvarado', 'mi.Duis@Etiam.net', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(28, 'Raffaella', 'Godoy', 'Morbi.metus.Vivamus@tristiquepharetraQuisque.com', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(29, 'Christian', 'Lagos', 'vel.mauris@quisdiam.org', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(30, 'Boris', 'Farías', 'quis.pede@Fuscedolorquam.org', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(31, 'Asunción', 'Bustos', 'mauris.rhoncus.id@In.net', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(32, 'Miley', 'Álvarez', 'in@primis.co.uk', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(33, 'Violeta', 'Leiva', 'aliquam@risusvarius.edu', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(34, 'Ana', 'García', 'elit.fermentum.risus@velquamdignissim.org', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(35, 'Ronal', 'Palma', 'euismod@ametdapibusid.edu', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(36, 'Roy', 'Silva', 'amet@Nuncacsem.net', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(37, 'Isamar', 'Salazar', 'Fusce.aliquet.magna@etmagnisdis.com', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(38, 'Gorka', 'Ruiz', 'leo.in.lobortis@Mauris.edu', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(39, 'Renzo', 'Vargas', 'Fusce.diam.nunc@malesuadaaugue.edu', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(40, 'Camila', 'Valdés', 'enim.nec.tempus@ipsumnon.edu', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(41, 'Cinthya', 'Henríquez', 'nec@ut.com', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(42, 'Dastyn', 'Cárdenas', 'elementum.lorem@vitaesemper.org', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(43, 'Patricia', 'Carvajal', 'varius.orci@ipsum.ca', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(44, 'León', 'Salinas', 'Nam@enimnon.co.uk', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(45, 'Yair', 'Ortiz', 'ipsum@loremloremluctus.co.uk', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(46, 'Chriss', 'Rivera', 'mattis.Integer.eu@Nullam.edu', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(47, 'Abby', 'Farías', 'mus.Aenean.eget@mifringillami.com', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(48, 'Junior', 'Silva', 'per@lobortisquis.org', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(49, 'Gladys', 'Hernández', 'nec.ligula.consectetuer@orciluctuset.org', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(50, 'Ignacio', 'Guzmán', 'mattis.semper@eu.co.uk', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(51, 'Santino', 'Campos', 'sit.amet@sem.ca', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(52, 'Yoel', 'López', 'ultricies.adipiscing@lectusasollicitudin.edu', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(53, 'Erwin', 'Rodríguez', 'Cras@Utsagittislobortis.edu', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(54, 'Yeremy', 'Gutiérrez', 'elit.Etiam.laoreet@Maurisvelturpis.net', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(55, 'Kristopher', 'Lagos', 'ipsum@euturpis.org', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(56, 'Giovanni', 'Martínez', 'Vivamus.nisi.Mauris@tempus.com', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(57, 'Matilde', 'Cáceres', 'varius@placerataugueSed.edu', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(58, 'Polet', 'Morales', 'metus.urna@egestasrhoncus.com', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(59, 'Lucas', 'Ortega', 'magna.nec.quam@hendreritid.com', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(60, 'Jastin', 'Parra', 'Donec.luctus@laciniaorci.edu', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(61, 'Stefania', 'Palma', 'Quisque@uterat.com', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(62, 'Benjamyn', 'Reyes', 'malesuada.fames.ac@AliquamnislNulla.ca', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(63, 'Octavio', 'Escobar', 'nibh.enim@Phasellus.net', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(64, 'Daniela', 'Sáez', 'augue.id@sollicitudin.com', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(65, 'Amy', 'Gómez', 'et@enimcondimentumeget.edu', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(66, 'Analía', 'Sandoval', 'parturient@laoreet.org', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(67, 'Leonidas', 'Gallardo', 'id.blandit@vulputate.com', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(68, 'Nahir', 'Ramírez', 'molestie@eu.edu', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(69, 'Joseph', 'Maldonado', 'scelerisque.mollis@estvitaesodales.co.uk', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(70, 'Darlin', 'Salinas', 'ipsum@euismod.com', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(71, 'Rosita', 'Soto', 'nec@lacusvestibulum.com', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(72, 'Romeo', 'Medina', 'ridiculus.mus.Proin@volutpat.ca', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(73, 'Darinka', 'Hernández', 'malesuada.malesuada@nonsollicitudin.edu', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(74, 'Alfredo', 'Palma', 'eget@ipsumdolor.net', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(75, 'Masiel', 'Jara', 'id@acnullaIn.co.uk', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(76, 'Allyson', 'González', 'orci.luctus@massarutrum.net', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(77, 'Aníbal', 'Figueroa', 'aliquet.molestie.tellus@sapien.org', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(78, 'Sofía', 'Torres', 'non.lorem@ipsumcursusvestibulum.com', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(79, 'Augusto', 'Soto', 'ut.odio.vel@auguescelerisquemollis.net', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(80, 'Isamar', 'Valdés', 'Sed@neque.com', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(81, 'Jesús', 'Silva', 'parturient@ametultriciessem.ca', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(82, 'Pascal', 'Ramírez', 'orci@sem.ca', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(83, 'Ancel', 'Medina', 'elit.Nulla@odioauctorvitae.edu', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(84, 'Marta', 'Godoy', 'Sed@dictum.ca', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(85, 'Elián', 'Hernández', 'mauris.rhoncus@variusultrices.edu', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(86, 'Aron38', 'Silva', 'elit.Nulla.facilisi@veliteget.edu', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(87, 'Junior', 'Aguilera', 'tincidunt@cursusdiam.net', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(88, 'Nicolas', 'Moreno', 'taciti.sociosqu.ad@dictumeu.com', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(89, 'Yoel', 'San Martín', 'Nulla.tincidunt.neque@faucibus.ca', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(90, 'Jerson', 'Farías', 'ante.blandit@quisaccumsan.net', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(91, 'Augustin', 'Vargas', 'senectus.et.netus@nisidictumaugue.com', '19248027984cd1181ea2c3b5ca6158a0', 1, ''),
+(92, 'Billy', 'Navarro', 'netus.et.malesuada@Suspendissecommodotincidunt.co.', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(93, 'Bernardo', 'Soto', 'facilisis.eget@at.edu', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(94, 'Alaniz', 'López', 'velit.Quisque.varius@SuspendisseeleifendCras.ca', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(95, 'Yastin', 'Navarrete', 'urna.convallis@acorciUt.co.uk', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(96, 'Jhoan', 'Ramírez', 'auctor.non@aliquamiaculislacus.edu', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(97, 'Leon', 'López', 'rhoncus.Proin.nisl@et.com', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(98, 'Jordán', 'Jiménez', 'Fusce.aliquam@pellentesque.com', '19248027984cd1181ea2c3b5ca6158a0', 2, ''),
+(99, 'Mattias', 'Castillo', 'lectus.convallis@dolor.org', '19248027984cd1181ea2c3b5ca6158a0', 3, ''),
+(100, 'Rafael', 'Moreno', 'Mauris.molestie@nec.ca', '19248027984cd1181ea2c3b5ca6158a0', 1, '');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `afiliados`
+--
+ALTER TABLE `afiliados`
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD KEY `id_obra_social` (`id_obra_social`);
+
+--
+-- Indexes for table `especialidades`
+--
+ALTER TABLE `especialidades`
+  ADD PRIMARY KEY (`id_especialidad`);
+
+--
+-- Indexes for table `horarios_turnos_medicos`
+--
+ALTER TABLE `horarios_turnos_medicos`
+  ADD PRIMARY KEY (`id_horarios_turnos_medicos`),
+  ADD KEY `id_medico` (`id_medico`),
+  ADD KEY `id_especialidad` (`id_especialidad`);
+
+--
+-- Indexes for table `medicos`
+--
+ALTER TABLE `medicos`
+  ADD PRIMARY KEY (`id_medico`);
+
+--
+-- Indexes for table `medicos_especialidades`
+--
+ALTER TABLE `medicos_especialidades`
+  ADD PRIMARY KEY (`id_medico`,`id_especialidad`),
+  ADD KEY `id_especialidad` (`id_especialidad`);
+
+--
+-- Indexes for table `obras_sociales`
+--
+ALTER TABLE `obras_sociales`
+  ADD PRIMARY KEY (`id_obra_social`);
+
+--
+-- Indexes for table `tipo_usuarios`
+--
+ALTER TABLE `tipo_usuarios`
+  ADD PRIMARY KEY (`id_tipo_usuario`);
+
+--
+-- Indexes for table `turnos`
+--
+ALTER TABLE `turnos`
+  ADD PRIMARY KEY (`id_turno`),
+  ADD KEY `id_afiliado` (`id_afiliado`),
+  ADD KEY `id_especialidad` (`id_especialidad`),
+  ADD KEY `id_medico` (`id_medico`);
+
+--
+-- Indexes for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_usuario`),
+  ADD KEY `id_tipo_usuario` (`id_tipo_usuario`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `especialidades`
+--
+ALTER TABLE `especialidades`
+  MODIFY `id_especialidad` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=56;
+--
+-- AUTO_INCREMENT for table `horarios_turnos_medicos`
+--
+ALTER TABLE `horarios_turnos_medicos`
+  MODIFY `id_horarios_turnos_medicos` int(9) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `medicos`
+--
+ALTER TABLE `medicos`
+  MODIFY `id_medico` int(9) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+--
+-- AUTO_INCREMENT for table `obras_sociales`
+--
+ALTER TABLE `obras_sociales`
+  MODIFY `id_obra_social` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=154;
+--
+-- AUTO_INCREMENT for table `tipo_usuarios`
+--
+ALTER TABLE `tipo_usuarios`
+  MODIFY `id_tipo_usuario` int(1) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `turnos`
+--
+ALTER TABLE `turnos`
+  MODIFY `id_turno` int(13) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(9) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=247;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `afiliados`
+--
+ALTER TABLE `afiliados`
+  ADD CONSTRAINT `afiliados_ibfk_3` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `afiliados_ibfk_2` FOREIGN KEY (`id_obra_social`) REFERENCES `obras_sociales` (`id_obra_social`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `horarios_turnos_medicos`
+--
+ALTER TABLE `horarios_turnos_medicos`
+  ADD CONSTRAINT `horarios_turnos_medicos_ibfk_1` FOREIGN KEY (`id_medico`) REFERENCES `medicos` (`id_medico`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `horarios_turnos_medicos_ibfk_2` FOREIGN KEY (`id_especialidad`) REFERENCES `especialidades` (`id_especialidad`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `medicos_especialidades`
+--
+ALTER TABLE `medicos_especialidades`
+  ADD CONSTRAINT `medicos_especialidades_ibfk_1` FOREIGN KEY (`id_medico`) REFERENCES `medicos` (`id_medico`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `medicos_especialidades_ibfk_2` FOREIGN KEY (`id_especialidad`) REFERENCES `especialidades` (`id_especialidad`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `turnos`
+--
+ALTER TABLE `turnos`
+  ADD CONSTRAINT `turnos_ibfk_4` FOREIGN KEY (`id_afiliado`) REFERENCES `afiliados` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `turnos_ibfk_2` FOREIGN KEY (`id_medico`) REFERENCES `medicos` (`id_medico`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `turnos_ibfk_3` FOREIGN KEY (`id_especialidad`) REFERENCES `especialidades` (`id_especialidad`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_tipo_usuario`) REFERENCES `tipo_usuarios` (`id_tipo_usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
