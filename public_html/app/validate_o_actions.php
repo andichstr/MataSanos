@@ -3,6 +3,7 @@
 //la funcion validar_o() devuelve False si no esta la variable que guarda el id del afiliado ó el que accede no es un operador. 
 // de lo contrario devuelte el id del afiliado para usarlo en donde corresponda.
 // Si el que ingresa es un afiliado devuelve el id del mismo.
+session_start();
 
 function validar_o(){
 	if (isset($_SESSION['id_afiliado']) && ($_SESSION['roleuser'] == 2) {
@@ -16,3 +17,4 @@ function validar_o(){
 	}
 	}else{return False;}
 }
+?>
