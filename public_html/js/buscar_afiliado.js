@@ -51,6 +51,9 @@ function act_bloc(id){
 				$('button#'+id+' span').removeClass('glyphicon-ban-circle').addClass('glyphicon-ok-circle');
 				showmodal(dat,id);
 				}
+			else if (dat=='Denegado'){
+				showmodal("Denegado",id);
+				}
 			else{
 				$("button#"+id).removeClass('btn-success').addClass('btn-danger');
 				$('button#'+id+' span').removeClass('glyphicon-ok-circle').addClass('glyphicon-ban-circle');
@@ -63,13 +66,18 @@ function act_bloc(id){
 function showmodal(dat,id){
 	if (dat==0){
 		msj = "El afiliado Nº: "+id+" fue bloqueado exitosamente.";
+		msj2= "";
+		}
 	else if (dat==1){
 		msj = "El afiliado Nº: "+id+" ahora se encuentra activo.";
+		msj2= "";
 		}
 	else if (dat=="Denegado"){
-		msj = "No tienes acceso a esta funcion.\nNo has iniciado sesión o no tienes los privilegios necesarios para esta operación."
+		msj = "No tienes acceso a esta funcion:";
+		msj2 = "No has iniciado sesión o no tienes los privilegios necesarios para esta operación.";
 		}
-	$('p#pmsj1').text(msj);	
+	$('p#pmsj1').text(msj);
+	$('p#pmsj2').text(msj2);
 	$('#divInforme').modal()       
 	$('#divInforme').modal({ keyboard: false })
 	$('#divInforme').modal('show')  
@@ -85,7 +93,7 @@ function printres(dat){
 		}else{
 			btnAB = '<button id = '+id+' class="btn btn-success btn-sm" onclick="act_bloc('+id+');"><span class="glyphicon glyphicon glyphicon-ok-circle"></span></button>';
 		}
-		document.getElementById("bodyres").insertRow(0).innerHTML = '<tr><td>'+id+'</td><td>'+afiliado['nombre']+'</td><td>'+afiliado['dni']+'</td><td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></p></td><td><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span></button><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-th-list"></span></button></p></td><td>'+btnAB+'</td></tr>';
+		document.getElementById("bodyres").insertRow(0).innerHTML = '<tr><td>'+id+'</td><td>'+afiliado['nombre']+'</td><td>'+afiliado['dni']+'</td><td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></p></td><td><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span></button><button class="btn btn-primary btn-sm" onclick="verturnos('+id+')"><span class="glyphicon glyphicon-th-list"></span></button></p></td><td>'+btnAB+'</td></tr>';
 	});
 }
 

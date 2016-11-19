@@ -14,7 +14,7 @@ function eliminar_sesion()
 		echo json_encode('Deslogeado');
 	}
 	else{
-		echo json_decode('Que onda? No estas logeado!');
+		echo json_decode('Deslogeado');
 	}
 }
 eliminar_sesion();

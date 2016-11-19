@@ -4,12 +4,15 @@ function verturnos(id){
     };
     $.ajax({
         data: params,
-        url: './app/consulta_turno_afi.php',
+        url: './app/iniciar_consulta_afi.php',
         type: "POST",
         success: function (dat) {
-			dat = jQuery.parseJSON(data);
-			if (dat==True){
-				
+			dat = jQuery.parseJSON(dat);
+			if (dat==true){
+				window.location.href = "turnos.php";
+				}
+			else{
+				showmodal("Denegado",id);
 				}
 			
 		}
