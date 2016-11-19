@@ -1,6 +1,6 @@
 <?php
-
-include_once 'templates/navbar.html';
+require_once 'app/chkuser.php';
+require_once 'templates/header.php';
 include_once 'templates/alta_turno_afiliado.html';
 ?>
 

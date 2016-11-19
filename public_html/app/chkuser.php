@@ -5,9 +5,7 @@ session_start();
 
 //Configuracion de roles (accesos a paginas)
 $afiliado = ['turnos.php','solicitar_turno.php','modificar_afiliado.php'];
-$operador = ['alta_afiliado.php','alta_turno_afiliado.php','buscar_afiliado.php','modificar_afiliado.php',
-//    'solicitar_turno.php',
-    'turnos.php'];
+$operador = ['alta_afiliado.php','alta_turno_afiliado.php','buscar_afiliado.php','modificar_afiliado.php','turnos.php'];
 $administrativo = ['buscar_medico.php','buscar_afiliado.php','modificar_medico.php','alta_medico.php','alta_operador.php'];
 $roles = [$afiliado,$operador,$administrativo];
 

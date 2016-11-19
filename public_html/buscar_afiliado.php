@@ -1,5 +1,5 @@
 <?php
-//require_once 'app/chkuser.php';
-include_once 'templates/navbar.html';
+require_once 'app/chkuser.php';
+require_once 'templates/header.php';
 include_once 'templates/buscar_afiliado.html';
 ?>
