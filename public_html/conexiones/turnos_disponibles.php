@@ -30,7 +30,7 @@ function consultarturnos($id_afiliado){
                     echo '<td><button class="btn btn-danger btn-sm" onclick="cancelarTurno(' . $row['id_turno'] . ');"><span class="glyphicon glyphicon-ban-circle"></span></button></td>';
                 }
             } else {
-                echo 'No';
+                echo 'No'.$id_afiliado;
             }
         }
         $con = null;

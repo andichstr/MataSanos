@@ -88,12 +88,13 @@ function printres(dat){
 	$.each(dat, function(index, afiliado) {
 		console.log(afiliado);
 		id = afiliado['numAfi'];
+		iduser = afiliado['id_afi'];
 		if (afiliado['activo'] == 1){		
 			btnAB = '<button id = '+id+' class="btn btn-danger btn-sm" onclick="act_bloc('+id+');"><span class="glyphicon glyphicon-ban-circle"></span></button>';
 		}else{
 			btnAB = '<button id = '+id+' class="btn btn-success btn-sm" onclick="act_bloc('+id+');"><span class="glyphicon glyphicon glyphicon-ok-circle"></span></button>';
 		}
-		document.getElementById("bodyres").insertRow(0).innerHTML = '<tr><td>'+id+'</td><td>'+afiliado['nombre']+'</td><td>'+afiliado['dni']+'</td><td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></p></td><td><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span></button><button class="btn btn-primary btn-sm" onclick="verturnos('+id+')"><span class="glyphicon glyphicon-th-list"></span></button></p></td><td>'+btnAB+'</td></tr>';
+		document.getElementById("bodyres").insertRow(0).innerHTML = '<tr><td>'+id+'</td><td>'+afiliado['nombre']+'</td><td>'+afiliado['dni']+'</td><td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-pencil"></span></button></p></td><td><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span></button><button class="btn btn-primary btn-sm" onclick="verturnos('+iduser+')"><span class="glyphicon glyphicon-th-list"></span></button></p></td><td>'+btnAB+'</td></tr>';
 	});
 }
 
