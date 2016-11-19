@@ -4,9 +4,10 @@ include_once 'configure.php';
 include_once 'conexion.php';
 
 function buscarHorarios() {
-    if (isset($_POST['dia']) && isset($_POST['id_medico']) && isset($_POST['id_especialidad'])){
+    if (isset($_POST['dia']) && isset($_POST['id_medico']) && isset($_POST['especialidad'])){
+        echo 'entro';
         $id_medico = $_POST['id_medico'];
-        $id_especialidad = $_POST['id_especialidad'];
+        $id_especialidad = $_POST['especialidad'];
         $dia = $_POST['dia'];
         $con = new Conexion();
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -17,7 +18,7 @@ function buscarHorarios() {
         if ($query->execute()){
             $result = $query->fetchAll();
             if (isset($result) && (count($result) != 0)) {
-                foreach ($result as $row) {
+                foreach ($result as $row) { 
                     echo '<option value=' . $row['horario'] . '>' . $row['horario'] . '</option>';
                 }
             } else {

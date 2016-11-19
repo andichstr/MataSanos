@@ -15,4 +15,6 @@ define('tabla_obras_sociales', 'obras_sociales');
 define('tabla_usuarios', 'usuarios');
 define('key', 'dIifPmNOzV6pIYl8684fjfqckAwjxk9a');
 define('key2', '8HjPYTImY96oO3l65TPz7F7TQJHUSR9y');
+define('user_mail','');
+define('pass_mail','');
 ?>

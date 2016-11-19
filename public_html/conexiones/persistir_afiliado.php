@@ -99,12 +99,12 @@ function enviar_mail($email, $name, $token){
     $mail->Host = 'smtp.gmail.com';
 //        'smtp1.example.com;smtp2.example.com';  // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
-    $mail->Username = 'cuenta@gmail.com';                 // SMTP username
-    $mail->Password = 'pass';                           // SMTP password
+    $mail->Username = user_mail;                 // SMTP username
+    $mail->Password = pass_mail;                           // SMTP password
     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 587;                                    // TCP port to connect to
 
-    $mail->setFrom('cuenta@gmail.com', 'Clínica MataSanos S.A.');
+    $mail->setFrom(user_mail, 'Clínica MataSanos S.A.');
     $mail->addAddress($email);     // Add a recipient
 //$mail->addAddress('gustidaniel@hotmail.com', 'Joe User');     // Add a recipient
 //$mail->addAddress('ellen@example.com');               // Name is optional
