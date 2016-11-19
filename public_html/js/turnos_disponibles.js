@@ -1,20 +1,27 @@
 $(document).ready(function () {
-    $.ajax({
+	showturnos();
+});
+
+function showturnos(){
+	$.ajax({
         url: './conexiones/turnos_disponibles.php',
         type: "POST",
         success: function (response) {
             console.log(response);
-            if (response != 'No' || response != "") {
+            if (response != false) {
                 $("#descTabla").html(response);
-            } else {
-                $("#modalTitle").html("No tiene ningún turno reservado actualmente");
-                $("#modalDesc").html("Presione el botón cerrar, o haga click fuera de esta ventana para salir.");
+            }else {
+				$("#descTabla").empty();
+                $("#modalTitle").html("Información:");
+                $("#modalDesc").html("<p class='text-center'>No tiene ningún turno reservado actualmente.</p><p class='text-center'>A continuación podras solicitar un turno.</p>");
                 $("#divModal").modal('show');
+                $("#divModal").on("hidden.bs.modal", function () {
+					document.location.href = 'solicitar_turno.php';
+                });
             }
         }
     });
-});
-
+} 
 function cancelarTurno(id_turno){
     params = {
         "id_turno": id_turno
@@ -25,12 +32,16 @@ function cancelarTurno(id_turno){
         type: "POST",
         success: function (response) {
             if (response != '0' || response != "") {
-                $("#modalTitle").html("El turno fue cancelado exitosamente!");
-                $("#modalDesc").html("Presione el botón cerrar, o haga click fuera de esta ventana para salir.");
+                $("#modalTitle").html("Información:");
+                $("#modalDesc").html("El turno fue cancelado exitosamente!");
                 $("#divModal").modal('show');
+                $("#divModal").on("hidden.bs.modal", function () {
+                showturnos();
+                });
             } else {
-                $("#modalTitle").html("El turno no pudo ser cancelado.");
-                $("#modalDesc").html("Por favor, intente nuevamente, o llame al número 011-4545-4545.");
+				modal = 'usando';
+                $("#modalTitle").html("Atención!");
+                $("#modalDesc").html("El turno no pudo ser cancelado. Por favor, intente nuevamente, o llame al número 011-4545-4545.");
                 $("#divModal").modal('show');
             }
         }

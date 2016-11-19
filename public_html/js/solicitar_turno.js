@@ -109,16 +109,16 @@ function reservarTurno(){
         success: function(response) {
             if (response!=0){
                 console.log(response);
-                $("#modalTitle").html("El turno fue reservado satisfactoriamente!");
-                $("#modalDesc").html("Presione el botón cerrar, o haga click fuera de esta ventana para salir.");
+                $("#modalTitle").html("Información:");
+                $("#modalDesc").html("El turno fue reservado satisfactoriamente!");
                 $("#divModal").modal('show');
                 $("#divModal").on("hidden.bs.modal", function () {
-                    redirigir()
+                redirigir();
                 });
             } else {
                 console.log(response);
-                $("#modalTitle").html("El turno no pudo ser reservado");
-                $("#modalDesc").html("Por favor, intente nuevamente, o llame telefónicamente al número 011-4545-4545.");
+                $("#modalTitle").html("Atención!");
+                $("#modalDesc").html("El turno no pudo ser reservado. Por favor, intente nuevamente, o llame telefónicamente al número 011-4545-4545.");
                 $("#divModal").modal('show');
             }
         }
