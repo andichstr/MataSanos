@@ -1,4 +1,4 @@
-function verturno(id){
+function verturnos(id){
 	params = {
         "id": id
     };
@@ -7,9 +7,11 @@ function verturno(id){
         url: './app/consulta_turno_afi.php',
         type: "POST",
         success: function (dat) {
-			if (dat=="Denegado"){
-				showmodal();
+			dat = jQuery.parseJSON(data);
+			if (dat==True){
+				
 				}
-			}
+			
+		}
     });
 }

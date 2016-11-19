@@ -3,11 +3,20 @@
 include_once 'configure.php';
 include_once 'conexion.php';
 
-session_start();
+define('__ROOT__', dirname(dirname(__FILE__)));
+require_once(__ROOT__.'\app\validate_o_actions.php');
+
 
 function cargarTurnos() {
-    if (isset($_SESSION['userid'])) {
-        $id_afiliado = $_SESSION['userid'];
+	$resultado = validar_o();
+    if ($resultado != False){
+        $id_afiliado = $restultado;
+	}
+	else {
+		echo 'No';
+	}
+}
+function consultarturnos($_id_afiliado){
         $con = new Conexion();
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $query = $con->prepare("SELECT t.id_turno, t.fecha, m.nombre, m.apellido, t.horario FROM " . tabla_turnos . " t INNER JOIN " . tabla_medicos . " m ON t.id_medico=m.id_medico WHERE (id_afiliado=:id_afiliado)");
@@ -23,9 +32,8 @@ function cargarTurnos() {
                 echo 'No';
             }
         }
-    }
-    $con = null;
+        $con = null;
 }
-
+    
 cargarTurnos();
 ?>

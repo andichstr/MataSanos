@@ -6,15 +6,18 @@
 session_start();
 
 function validar_o(){
-	if (isset($_SESSION['id_afiliado']) && ($_SESSION['roleuser'] == 2) {
+	if (isset($_SESSION['id_afiliado']) && $_SESSION['roleuser'] == 2) {
 		//me guardo el id_afiliado
 		$id_afi = $_SESSION['id_afiliado'];
 		return $id_afi;
-	elseif (isset($_SESSION['userid'])) && ($_SESSION['roleuser'] == 1) {
+	}
+	elseif (isset($_SESSION['userid']) && $_SESSION['roleuser'] == 1) {
 		//me guardo el id_afiliado
 		$id_afi = $_SESSION['userid'];
 		return $id_afi;	
 	}
-	}else{return False;}
+	else{
+		return False;
+		}
 }
 ?>
