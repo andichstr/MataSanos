@@ -63,8 +63,11 @@ function act_bloc(id){
 function showmodal(dat,id){
 	if (dat==0){
 		msj = "El afiliado Nº: "+id+" fue bloqueado exitosamente.";
-		}else{
+	else if (dat==1){
 		msj = "El afiliado Nº: "+id+" ahora se encuentra activo.";
+		}
+	else if (dat=="Denegado"){
+		msj = "No tienes acceso a esta funcion.\nNo has iniciado sesión o no tienes los privilegios necesarios para esta operación."
 		}
 	$('p#pmsj1').text(msj);	
 	$('#divInforme').modal()       
