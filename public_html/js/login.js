@@ -15,14 +15,12 @@ $(document).ready(function() {
 				 'email' : $('#txtMail').val(),
 				 'pass' : $('#txtPass').val(),
 			 };
-			 console.log(data);
 			 $.ajax({
                 type: 'post',
                 url: 'app/login.php',
                 data: data,
                 success: function(data){
-					dat = jQuery.parseJSON(data)
-					console.log(dat);
+					dat = jQuery.parseJSON(data);
 					redirect(dat);
 					}
 				});
