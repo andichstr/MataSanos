@@ -40,8 +40,7 @@ function persistirUsuario($nombre, $apellido, $mail) {
 
     if ($query->execute()) {
         $id = $con->lastInsertId();
-        enviar_mail($mail,$nombre,$token);
-//        echo "usuario persistido con id:" . $id . "<br>";
+
         return $id;
     } else {
         echo '0';
@@ -53,8 +52,8 @@ function persistirAfiliado($id, $dni, $genero, $fecha, $id_obra, $num_afi, $dire
     $con = new Conexion();
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $query = $con->prepare("INSERT INTO " . tabla_afiliados . " (id_usuario, dni, genero, fecha_nacimiento, id_obra_social, "
-            . "numero_afiliado, direccion, localidad, telefono, celular, comentarios) "
-            . "VALUES (:id, :dni, :genero, :fecha_nacimiento, :id_obra, :num_afi, :direccion, :localidad, :telefono, :celular, :comentarios)");
+            . "numero_afiliado, direccion, localidad, telefono, celular, comentarios, activo) "
+            . "VALUES (:id, :dni, :genero, :fecha_nacimiento, :id_obra, :num_afi, :direccion, :localidad, :telefono, :celular, :comentarios,1)");
     $query->bindParam(':id', $id);
     $query->bindParam(':dni', $dni);
     $query->bindParam(':genero', $genero);
@@ -68,8 +67,8 @@ function persistirAfiliado($id, $dni, $genero, $fecha, $id_obra, $num_afi, $dire
     $query->bindParam(':comentarios', $comentarios);
 
     if ($query->execute()) {
+        enviar_mail($mail, $nombre, $token);
 
-//        echo '<br><b>Afiliado Persistido con id: ' . $id . '</b>';
         return $id;
     } else {
         echo '0';
@@ -90,7 +89,7 @@ if ($id_usuario) { //si se persistio el usuario..
     echo $id_usuario;
 }
 
-function enviar_mail($email, $name, $token){
+function enviar_mail($email, $name, $token) {
     $link = 'http://localhost/MataSanosVistas/public_html/registro.php?token=' . $token;
     $mail = new PHPMailer;
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
@@ -120,7 +119,7 @@ function enviar_mail($email, $name, $token){
             . '<h1>Hola ' . $name . '!</h1><p>Haz sido dada/o de alta en el sistema de Gestión de Turnos de la Clínica MataSanos S.A.</p>'
             . '<p>Para poder iniciar sesión y comenzar a utilizar tu cuenta deberás completar el registro ingresando en la siguiente dirección.<p>'
             . '<p><a href="' . $link . '">' . $link . '</a></p>';
-    
+
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients. Clínica MataSanos';
     $mail->CharSet = 'UTF-8';
     if (!$mail->send()) {

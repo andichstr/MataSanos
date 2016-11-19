@@ -3,7 +3,7 @@
 define('host', 'localhost');
 define('database', 'matasanos');
 define('user', 'root');
-define('password', 'root');
+define('password', '');
 define('tabla_afiliados', 'afiliados');
 define('tabla_medicos', 'medicos');
 define('tabla_turnos', 'turnos');
