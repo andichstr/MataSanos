@@ -1,0 +1,2 @@
+ErrorDocument 404 /MataSanos/public_html/templates/error/error.html
+ErrorDocument 500 /MataSanos/public_html/templates/error/error.html
