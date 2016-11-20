@@ -17,7 +17,7 @@ function main(){
 			}
 			
 			$cn = new Conexion();
-			$query = $cn->prepare("UPDATE afiliados SET activo = ? WHERE (numero_afiliado=?)");
+			$query = $cn->prepare("UPDATE afiliados SET activo = ? WHERE (id_usuario=?)");
 			$query->execute(array($activo,$id));
 			$datos = $query->rowCount();
 			$cn = NULL;
@@ -32,7 +32,7 @@ function main(){
 
 function consultar_estado($id){
 	$con = new Conexion();
-	$query = $con->prepare("Select activo from afiliados WHERE (numero_afiliado=?)");
+	$query = $con->prepare("Select activo from afiliados WHERE (id_usuario=?)");
 	$query->execute(array($id));
 	$datos = $query->fetch();
 	$con = NULL;

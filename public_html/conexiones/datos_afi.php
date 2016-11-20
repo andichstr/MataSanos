@@ -16,9 +16,12 @@ function buscarAfiliado() {
         $query->execute();
         $result = $query->fetchAll();
         if (isset($result) && (count($result) != 0)) {
-            $json = json_encode($result[0]);
-            echo $json;
-        
+			$json = $result[0];
+			if ($_SESSION['roleuser']==2){
+				$mail = mail_is_modificable($id);
+				$_SESSION['mail_m'] = $mail;
+				echo json_encode([$json,$mail]);
+			}else{echo json_encode($json);}
         } else {
             echo '0';
         }
@@ -29,6 +32,15 @@ function buscarAfiliado() {
 		}
 
 }
+function mail_is_modificable($id){
+	$con2 = new Conexion();
+	$query = $con2->prepare("SELECT password FROM usuarios WHERE id_usuario=?");
+	$query->execute(array($id));
+	$datos = $query->fetch();
+	if ($datos['password'] == ''){return True;}else{return False;}
+}
+
+
 buscarAfiliado();
 
 
