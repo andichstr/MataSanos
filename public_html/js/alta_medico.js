@@ -20,38 +20,48 @@ $(document).ready(function () {
             success: function (response) {
                 console.log(response);
                 var especialidades = [];
+                var especialidades_txt=[];
                 $("#selEspecial option:selected").each(function () {
                     especialidades.push($(this).val());
+                    especialidades_txt.push($(this).html());
                 });
+
+
                 var datos = {
                     "id_medico": response,
-                    "especialidades": especialidades
+                    "especialidades": especialidades,
                 };
+                
                 $.ajax({
                     data: datos,
                     url: "./conexiones/persistir_medico_especialidad.php",
                     type: "POST",
                     success: function (respuesta) {
-                        console.log(respuesta);
-                        if (respuesta = 'Si') {
+                        if (respuesta.localeCompare("Si")==0) {
+                            console.log("persistido medico con especialidad.")
                             var turnos = [];
-                            turnos = llenarTurnos(turnos, especialidades);
+                            turnos = llenarTurnos(turnos, especialidades_txt);
+                            
                             var horarios_turnos = {
                                 "id_medico": response,
                                 "especialidades": especialidades,
                                 "horarios": turnos
                             };
+                            
+                            
                             $.ajax({
                                 data: horarios_turnos,
                                 url: "./conexiones/persistir_horarios_turnos_medicos.php",
                                 type: "POST",
-                                success: function (valor){
-                                    console.log(valor);
+                                success: function (valor) {
+                                   
                                     $("#modalTitle").html("El médico fue dado de alta satisfactoriamente!");
                                     $("#modalDesc").html("Presione el botón cerrar, o haga click fuera de esta ventana para salir.");
                                     $("#divModal").modal('show');
                                 }
                             });
+                        }else{
+                            console.log("algo paso con la repuesta de m-e");
                         }
 
                     }
@@ -59,6 +69,8 @@ $(document).ready(function () {
             }
         });
     });
+    
+    
     $.ajax({
         url: './conexiones/cargar_especialidades.php',
         type: "POST",
@@ -66,6 +78,8 @@ $(document).ready(function () {
             $("#selEspecial").html(response);
         }
     });
+    
+    
     $("#selEspecial").change(function () {
         var str = "";
         $("#selEspecial option:selected").each(function () {
@@ -99,32 +113,41 @@ function agregarDia(txt) {
         str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><label>Horario de Inicio:</label></div>';
         str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><label>Horario de Fin:</label></div>';
         str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><label>Duracion del turno en minutos:</label></div></div>';
-        str += '<div class="row" style="padding-bottom: 4px"><div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><select class="form-control" name="selDias' + texto + i + '0" id="selDias' + texto + i + '0"><option value="Lunes">Lunes</option><option value="Martes">Martes</option><option value="Miercoles">Miercoles</option><option value="Jueves">Jueves</option><option value="Viernes">Viernes</option><option value="Sabado">Sábado</option><option value="Domingo">Domingo</option></select></div>';
-        str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="time" class="form-control" name="HoraInicio' + texto + i + '0" id="HoraInicio' + texto + i + '0"/></div>';
-        str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="time" class="form-control" name="HoraFin' + texto + i + '0" id="HoraFin' + texto + i + '0"/></div>';
-        str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="number" class="form-control" placeholder="Duracion en minutos" id="duracionTurno' + texto + i + '0" name="duracionTurno' + texto + i + '"/></div></div></div>';
+        str += '<div class="row" style="padding-bottom: 4px"><div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><select class="form-control" name="selDias' + texto + i + '0" id="selDias' + texto + i + '"><option value="Lunes">Lunes</option><option value="Martes">Martes</option><option value="Miercoles">Miercoles</option><option value="Jueves">Jueves</option><option value="Viernes">Viernes</option><option value="Sabado">Sábado</option><option value="Domingo">Domingo</option></select></div>';
+        str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="time" class="form-control" name="HoraInicio' + texto + i + '0" id="HoraInicio' + texto + i + '"/></div>';
+        str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="time" class="form-control" name="HoraFin' + texto + i + '0" id="HoraFin' + texto + i + '"/></div>';
+        str += '<div class="form-group col-lg-3 col-md-3 col-sm-3 col-xs-3"><input type="number" class="form-control" placeholder="Duracion en minutos" id="duracionTurno' + texto + i + '" name="duracionTurno' + texto + i + '"/></div></div></div>';
         $(txt).append(str);
-    };
-};
+    }
+    ;
+}
+;
 
 function llenarTurnos(arrTurnos, arrEspecialidades) {
-    var a, b = 0;
+    var a=0, b = 0;
     var fin = false;
     while (!fin) {
-        var dia = $("#selDias" + arrEspecialidades[b] + a + "option:selected").val();
+        var dia = $("#selDias" + arrEspecialidades[b] + a + " option:selected").val();
         var horarioInicio = $("#HoraInicio" + arrEspecialidades[b] + a).val();
         var horarioFin = $("#HoraFin" + arrEspecialidades[b] + a).val();
         var duracion = $("#duracionTurno" + arrEspecialidades[b] + a).val();
         arrTurnos.push({'dia': dia, 'horarioInicio': horarioInicio, 'horarioFin': horarioFin, 'duracion': duracion});
+//        console.log("first recorride");
+//        console.log(arrEspecialidades[b] + a );
+
         a++;
-        console.log($("#HoraInicio" + arrEspecialidades[b] + a).val());
-        if ($("#HoraInicio" + arrEspecialidades[b] + a).val() == undefined || $("#HoraInicio" + arrEspecialidades[b] + a).val() == null){
-            if (b >= arrEspecialidades.length){
+        if ($("#HoraInicio" + arrEspecialidades[b] + a).val() == undefined || $("#HoraInicio" + arrEspecialidades[b] + a).val() == null) {
+//            console.log("entro en el if");
+            if (b >= arrEspecialidades.length-1) {//preguto si llegue al limite de especialidades
+//                console.log("b mayor o igual");
                 fin = true;
             } else {
                 b++
             }
+        }else{
+            
         }
     }
     return arrTurnos;
-};
+}
+;

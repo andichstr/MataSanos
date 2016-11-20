@@ -41,11 +41,14 @@ $(document).ready(function () {
                         document.getElementById('form_afiliado').reset();
 
                     } else {
-                        $('#divNotif div.modal-body').html("<p>ERROR al dar de alta cliente.</p>");
-                        $('#divNotif').modal({
-                            backdrop: "static"
-                        });
-                        console.log(respuesta);
+                        if ((response.indexOf("Satisfactoria"))!=-1 && (response.indexOf("Error al enviar"))!=-1 ){
+                            $('#divNotif div.modal-body').html("<p>Alta de Afiliado Correcta.</p><p>Sin embargo no se ha podido enviar mail</p>");
+                            $('#divNotif').modal({
+                                backdrop: "static"
+                            });
+                            console.log(respuesta);
+                        }
+
                     }
                 }
             });

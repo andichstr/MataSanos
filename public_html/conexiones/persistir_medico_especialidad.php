@@ -1,5 +1,4 @@
 <?php
-
 include_once 'configure.php';
 include_once 'conexion.php';
 
@@ -15,6 +14,7 @@ function persistirMedicoEspecialidades() {
             $query->bindParam(':id_especialidad', $especialidades[$i]);
             if ($query->execute()) {
                 $resp = 'Si';
+               
             } else {
                 $resp = 'No';
             }
@@ -24,7 +24,6 @@ function persistirMedicoEspecialidades() {
         echo 'Campos no seteados';
     }
 }
-
 persistirMedicoEspecialidades();
-?>
+
 

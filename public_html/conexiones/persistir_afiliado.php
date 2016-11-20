@@ -28,6 +28,16 @@ if (isset($_REQUEST['nombre']) && isset($_REQUEST['apellido']) &&
     return false;
 }
 
+$id_usuario = persistirUsuario($nombre, $apellido, $mail);
+
+if ($id_usuario) { //si se persistio el usuario..
+    persistirAfiliado($id_usuario, $dni, $genero, $fecha_nacimiento, $os, $numAfi, $direccion, $localidad, $telefono, $celular, $comentarios);
+    echo $id_usuario;
+}
+
+
+//FUNCIONES:
+
 function persistirUsuario($nombre, $apellido, $mail) {
     $token = generar_token();
     $con = new Conexion();
@@ -67,7 +77,12 @@ function persistirAfiliado($id, $dni, $genero, $fecha, $id_obra, $num_afi, $dire
     $query->bindParam(':comentarios', $comentarios);
 
     if ($query->execute()) {
-        enviar_mail($mail, $nombre, $token);
+        echo 'Alta de Afiliado Satisfactoria';
+        if(enviar_mail($mail, $nombre, $token)===1){
+            echo 'Mail de invitacion Enviado correctamente.';
+        }else{
+            echo 'Error al enviar mail de invitacion';
+        }
 
         return $id;
     } else {
@@ -80,13 +95,6 @@ function generar_token() {
     $micro = microtime();
     $token = md5($micro);
     return $token;
-}
-
-$id_usuario = persistirUsuario($nombre, $apellido, $mail);
-
-if ($id_usuario) { //si se persistio el usuario..
-    persistirAfiliado($id_usuario, $dni, $genero, $fecha_nacimiento, $os, $numAfi, $direccion, $localidad, $telefono, $celular, $comentarios);
-    echo $id_usuario;
 }
 
 function enviar_mail($email, $name, $token) {
