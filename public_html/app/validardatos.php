@@ -48,11 +48,17 @@ if (Validate::number($numero,array('decimal' => '', 'min' => 0, 'max' => 9999999
 	else {return false;}
 }
 
+//Validar DNI
+function validar_dni($dni){
+if (Validate::number($dni,array('decimal' => '', 'min' => 1000000, 'max' => 99999999 ))) {return true;}
+	else {return false;}
+}
+
 //Validar campos alfanumericos
 //Solo se admiten numeros y letras. No espacios, No simbolos. No tildes.
 function validar_alfanumerico($alfanumerico){
-	if (Validate::string($alfanumerico, array('format' => VALIDATE_NUM . VALIDATE_ALPHA_UPPER . VALIDATE_ALPHA_LOWER))) {echo 'Valid!';}
-	else {echo 'Invalid!';}
+	if (Validate::string($alfanumerico, array('format' => VALIDATE_NUM . VALIDATE_ALPHA_UPPER . VALIDATE_ALPHA_LOWER))) {return True;}
+	else {return False;}
 }
 
 ?>
