@@ -4,7 +4,7 @@ include_once 'configure.php';
 include_once 'conexion.php';
 
 define('__ROOT__', dirname(dirname(__FILE__)));
-require_once(__ROOT__.'\app\validate_o_actions.php');
+require_once(__ROOT__.'/app/validate_o_actions.php');
 
 function cargarTurnos() {
 	$resultado = validar_o();
