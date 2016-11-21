@@ -52,8 +52,8 @@ function main(){
 				persistirAfiliado($AFILIADO,$id_usuario,$dni,$genero,$fecha_n,$os,$numAfi,$direccion,$localidad,$telefono,$celular,$comentarios);
 				
 			}else{echo 'Ha ocurrido un error al intentar modificar los datos.';}
-		}else{echo 'Se estan ingresando datos no validos. No tienes acceso.';}		
-	}else{echo 'No tienes acceso';}
+		}else{echo 'Se estan ingresando datos no validos. No ingreses caracteres especiales. Revisa el formulario.';}		
+	}else{echo '¡¡¡No tienes acceso a modificar los datos!!!';}
 }
 
 function persistirUsuario($AFILIADO,$nombre, $apellido, $mail, $pass, $id,$mail_m) {
