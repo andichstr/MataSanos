@@ -1,0 +1,1 @@
+C:\xampp\php\php.exe -f C:\xampp\htdocs\MataSanos\public_html\cron\recordatorio_7dias.php
