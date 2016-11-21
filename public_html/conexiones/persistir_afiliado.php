@@ -28,11 +28,11 @@ if (isset($_REQUEST['nombre']) && isset($_REQUEST['apellido']) &&
     return false;
 }
 
-$id_usuario = persistirUsuario($nombre, $apellido, $mail);
+$usuario = persistirUsuario($nombre, $apellido, $mail);
 
-if ($id_usuario) { //si se persistio el usuario..
-    persistirAfiliado($id_usuario, $dni, $genero, $fecha_nacimiento, $os, $numAfi, $direccion, $localidad, $telefono, $celular, $comentarios);
-    echo $id_usuario;
+if ($usuario['id']) { //si se persistio el usuario..
+    persistirAfiliado($usuario['id'], $dni, $genero, $fecha_nacimiento, $os, $numAfi, $direccion, $localidad, $telefono, $celular, $comentarios, $nombre, $mail,$usuario['token']);
+    echo $usuario['id'];
 }
 
 
@@ -50,15 +50,16 @@ function persistirUsuario($nombre, $apellido, $mail) {
 
     if ($query->execute()) {
         $id = $con->lastInsertId();
-
-        return $id;
+        $result['id']=$id;
+        $result['token']=$token;
+        return $result;
     } else {
         echo '0';
         return false;
     }
 }
 
-function persistirAfiliado($id, $dni, $genero, $fecha, $id_obra, $num_afi, $direccion, $localidad, $telefono, $celular, $comentarios) {
+function persistirAfiliado($id, $dni, $genero, $fecha, $id_obra, $num_afi, $direccion, $localidad, $telefono, $celular, $comentarios, $nombre, $mail, $token) {
     $con = new Conexion();
     $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $query = $con->prepare("INSERT INTO " . tabla_afiliados . " (id_usuario, dni, genero, fecha_nacimiento, id_obra_social, "
@@ -78,6 +79,7 @@ function persistirAfiliado($id, $dni, $genero, $fecha, $id_obra, $num_afi, $dire
 
     if ($query->execute()) {
         echo 'Alta de Afiliado Satisfactoria';
+        
         if(enviar_mail($mail, $nombre, $token)===1){
             echo 'Mail de invitacion Enviado correctamente.';
         }else{
@@ -100,7 +102,7 @@ function generar_token() {
 function enviar_mail($email, $name, $token) {
     $link = 'http://localhost/MataSanosVistas/public_html/registro.php?token=' . $token;
     $mail = new PHPMailer;
-//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+//    $mail->SMTPDebug = 3;                               // Enable verbose debug output
 
     $mail->isSMTP();                                      // Set mailer to use SMTP
     $mail->Host = 'smtp.gmail.com';
@@ -134,7 +136,7 @@ function enviar_mail($email, $name, $token) {
         echo 'Message could not be sent.';
         echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
-        echo 1;
+        return 1;
     }
 }
 ?>
