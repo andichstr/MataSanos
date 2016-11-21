@@ -27,7 +27,6 @@ function recordatorio1dia() {
 }
 
 function enviar_mail($email, $nombre, $apellido, $horario) {
-    $link = 'http://localhost/MataSanosVistas/public_html/registro.php?token=' . $token;
     $mail = new PHPMailer;
     $mail->SMTPDebug = 3;                               // Enable verbose debug output
 
@@ -60,7 +59,7 @@ function enviar_mail($email, $nombre, $apellido, $horario) {
 
     $mail->Subject = 'Recordatorio, 1 día para tu turno médico!';
     $mail->Body = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />'
-            . '<h1>Hola!</h1><p>Hola ' . $nombre . ' ' . $apellido . ', desde la Clínica MataSanos S.A., queríamos avisarle que no se olvide de su turno de mañana, a las' . $horario . 'hs. </p>'
+            . '<h1>Hola!</h1><p>Hola ' . $nombre . ' ' . $apellido . ', desde la Clínica MataSanos S.A., queríamos avisarle que no se olvide de su turno de mañana, a las ' . $horario . ' hs. </p>'
             . '<p>No olvide que puede cancelar su turno y/o solicitar uno nuevo en nuestra <a href="http://www.matasanos.com.ar/">Página Web</a>, o simplemente llamándo telefónicamente, al número 011-4545-4545.<p>'
             . '<p>Muchas gracias por elegirnos, y estamos a su entera dispocisión!</p>';
 
