@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	$("div.comentarios").hide();
 	$("p.nota").text('NOTA: Al modificar sus datos deberá introducir una nueva contraseña.');
     cargar_obras();
     cargar_datos();
@@ -12,8 +13,8 @@ $(document).ready(function () {
                 "genero": $("#selGenero").val(),
                 "fecha_nacimiento": $("#dateNac").val(),
                 "mail": $("#txtMail").val(),
-                "numAfi": $("#numAfiliado").val(),
                 "password": $("#txtPass").val(),
+                "password2": $("#txtPass2").val(),
             };
             $.ajax({
                 data: parametros,
@@ -105,7 +106,7 @@ function validar() {
             numTelefono: { number: true, required: true, minlength: 8 },
             numCelular: { number: true, minlength: 10 },
             txtPass: { minlength: 6, required: true },
-            txtPass2: { minlength: 6, required: true },
+            txtPass2: { minlength: 6, required: true, equalTo:".txtPass" },
         },
         messages: {
             numAfiliado: "No puedes modificar este campo",
