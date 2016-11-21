@@ -5,7 +5,7 @@ require_once('conexion.php');
 session_start();
 
 function main(){
-	if (isset($_SESSION['ssid']) && $_SESSION['roleuser'] == 2){
+	if ((isset($_SESSION['ssid']) && $_SESSION['roleuser'] == 2) or (isset($_SESSION['ssid']) && $_SESSION['roleuser'] == 3)){
 		if (isset($_POST['id'])){
 			$id = $_POST['id'];
 			$estado = consultar_estado($id);
