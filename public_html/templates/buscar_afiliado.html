@@ -93,9 +93,15 @@
         <script src="js/jquery.tablesorter.widgets.js"></script>
         <link rel="stylesheet" href="addons/pager/jquery.tablesorter.pager.css">
 		<script src="addons/pager/jquery.tablesorter.pager.js"></script>
-        <script src="js/buscar_afiliado.js"></script>
-        <script src="js/ver_turno_afi.js"></script>
-        <script src="js/add_turno_afi.js"></script>
-        <script src="js/edit_afi.js"></script>
+		<?php
+		if ($_SESSION['roleuser']==2){
+        echo '<script src="js/buscar_afiliado.js"></script>';
+        echo '<script src="js/ver_turno_afi.js"></script>';
+        echo '<script src="js/add_turno_afi.js"></script>';
+        echo '<script src="js/edit_afi.js"></script>';}
+        else {
+			echo '<script src="js/buscar_afiliado-adm.js"></script>';
+			echo '<script src="js/hide_col_adm.js"></script>';}
+        ?>
     </body>
 </html>

@@ -4,6 +4,8 @@ include_once 'configure.php';
 include_once 'conexion.php';
 define('__ROOT__', dirname(dirname(__FILE__)));
 include_once(__ROOT__.'.\app\validate_o_actions.php');
+include_once(__ROOT__.'.\app\convertir_pass.php');
+include_once(__ROOT__.'.\app\validardatos.php');
 
 function main(){
 	$respuesta = validar_o();
@@ -101,32 +103,6 @@ function persistirAfiliado($AFILIADO, $id, $dni, $genero, $fecha, $id_obra, $num
     echo 'Ha ocurrido un error. Intente mas tarde.';
 	}
 }
-
-function validar_dat_afi(){
-	if (isset($_POST['os']) || isset($_POST['direccion']) || isset($_POST['localidad']) || isset($_POST['telefono']) || isset($_POST['celular']) || isset($_POST['comentarios'])){
-		return False;
-	}
-	else if(isset($_POST['nombre']) or isset($_POST['apellido']) or isset($_POST['mail']) or isset($_POST['password']) or isset($_POST['dni']) or isset($_POST['genero']) or isset($_POST['fecha_nacimiento'])){
-		return True;
-	}else{return False;}
-}
-
-function validar_dat_ope(){
-	if (isset($_POST['password'])){
-		return False;
-		}
-	else{
-		return True;
-		}
-}
-
-
-function convert_pass($pass){
-	$key =  'dIifPmNOzV6pIYl8684fjfqckAwjxk9a';
-	$key2 = '8HjPYTImY96oO3l65TPz7F7TQJHUSR9y';
-	$passhashed = md5($key.$pass.$key2);
-	return $passhashed;
-};
 
 main();
 ?>
