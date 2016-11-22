@@ -3,8 +3,6 @@
 include_once 'configure.php';
 include_once 'conexion.php';
 
-//print_r($_POST['especialidades']);
-//print_r($_POST['horarios'][0]['duracion']);
 
 $turnos_persistir=persistirTurnosMedicosHorarios();
 

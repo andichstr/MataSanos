@@ -3,10 +3,10 @@
 include_once 'configure.php';
 include_once 'conexion.php';
 define('__ROOT__', dirname(dirname(__FILE__)));
-include_once(__ROOT__.'.\app\validate_o_actions.php');
-include_once(__ROOT__.'.\app\convertir_pass.php');
-include_once(__ROOT__.'.\app\validardatos.php');
-require_once(__ROOT__.'.\app\Validate.php');
+include_once(__ROOT__.'/app/validate_o_actions.php');
+include_once(__ROOT__.'/app/convertir_pass.php');
+include_once(__ROOT__.'/app/validardatos.php');
+require_once(__ROOT__.'/app/Validate.php');
 
 function main(){
 	$respuesta = validar_o();

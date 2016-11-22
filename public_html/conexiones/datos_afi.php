@@ -3,7 +3,7 @@
 include_once 'configure.php';
 include_once 'conexion.php';
 define('__ROOT__', dirname(dirname(__FILE__)));
-include_once(__ROOT__.'.\app\validate_o_actions.php');
+include_once(__ROOT__.'/app/validate_o_actions.php');
 
 function buscarAfiliado() {
 	$respuesta = validar_o();
@@ -17,6 +17,9 @@ function buscarAfiliado() {
         $result = $query->fetchAll();
         if (isset($result) && (count($result) != 0)) {
 			$json = $result[0];
+//                        $json=utf8_encode($json);
+//                        print_r($json);
+//                        return;
 			if ($_SESSION['roleuser']==2){
 				$mail = mail_is_modificable($id);
 				$_SESSION['mail_m'] = $mail;

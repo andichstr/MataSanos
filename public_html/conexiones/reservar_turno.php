@@ -5,11 +5,11 @@ include_once 'conexion.php';
 
 
 define('__ROOT__', dirname(dirname(__FILE__)));
-require_once(__ROOT__ . '\app\validate_o_actions.php');
-require_once(__ROOT__ . '\app\validardatos.php');
+require_once(__ROOT__ . '/app/validate_o_actions.php');
+require_once(__ROOT__ . '/app/validardatos.php');
 
 
-session_start();
+//session_start();
 
 function reservarTurno() {
     $resultado = validar_o();
