@@ -16,7 +16,7 @@ function reservarTurno() {
     if ($resultado != False) {
         $id_afiliado = $resultado;
         if (isset($_POST['id_medico']) && isset($_POST['especialidad']) && isset($_POST['dia']) && isset($_POST['horario'])) {
-            if (validar_numero($_POST['id_medico']) && validar_numero($_POST['id_especialidad']) && validar_string($_POST['dia'])) {
+            if (validar_numero($_POST['id_medico']) && validar_numero($_POST['especialidad'])) {
                 $id_medico = $_POST['id_medico'];
                 $id_especialidad = $_POST['especialidad'];
                 $dia = $_POST['dia'];

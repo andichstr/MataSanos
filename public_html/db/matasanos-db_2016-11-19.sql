@@ -39,7 +39,7 @@ CREATE TABLE `afiliados` (
   `celular` int(20) DEFAULT NULL,
   `comentarios` varchar(2000) COLLATE utf8_bin DEFAULT NULL,
   `activo` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Dumping data for table `afiliados`
@@ -156,7 +156,7 @@ INSERT INTO `afiliados` (`id_usuario`, `dni`, `genero`, `fecha_nacimiento`, `id_
 CREATE TABLE `especialidades` (
   `id_especialidad` int(3) NOT NULL,
   `descripcion` varchar(50) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Dumping data for table `especialidades`
@@ -233,7 +233,7 @@ CREATE TABLE `horarios_turnos_medicos` (
   `horario_fin` time NOT NULL,
   `duracion_turno_minutos` int(2) NOT NULL,
   `id_especialidad` int(3) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Dumping data for table `horarios_turnos_medicos`
@@ -265,7 +265,7 @@ CREATE TABLE `medicos` (
   `localidad` varchar(50) COLLATE utf8_bin NOT NULL,
   `telefono` int(20) NOT NULL,
   `numero_matricula` int(9) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Dumping data for table `medicos`
@@ -288,7 +288,7 @@ INSERT INTO `medicos` (`id_medico`, `nombre`, `apellido`, `dni`, `genero`, `fech
 CREATE TABLE `medicos_especialidades` (
   `id_medico` int(9) NOT NULL,
   `id_especialidad` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Dumping data for table `medicos_especialidades`
@@ -316,7 +316,7 @@ INSERT INTO `medicos_especialidades` (`id_medico`, `id_especialidad`) VALUES
 CREATE TABLE `obras_sociales` (
   `id_obra_social` int(3) NOT NULL,
   `descripcion` varchar(100) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=154 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Dumping data for table `obras_sociales`
@@ -486,7 +486,7 @@ INSERT INTO `obras_sociales` (`id_obra_social`, `descripcion`) VALUES
 CREATE TABLE `tipo_usuarios` (
   `id_tipo_usuario` int(1) NOT NULL,
   `tipo` varchar(3) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Dumping data for table `tipo_usuarios`
@@ -510,7 +510,7 @@ CREATE TABLE `turnos` (
   `fecha` date NOT NULL,
   `id_medico` int(9) NOT NULL,
   `id_especialidad` int(3) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Dumping data for table `turnos`
@@ -553,7 +553,7 @@ CREATE TABLE `usuarios` (
   `password` varchar(50) COLLATE utf8_bin NOT NULL,
   `id_tipo_usuario` int(1) NOT NULL,
   `token` varchar(32) COLLATE utf8_bin NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Dumping data for table `usuarios`
