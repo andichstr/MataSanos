@@ -228,7 +228,7 @@ INSERT INTO `especialidades` (`id_especialidad`, `descripcion`) VALUES
 CREATE TABLE `horarios_turnos_medicos` (
   `id_horarios_turnos_medicos` int(9) NOT NULL,
   `id_medico` int(9) NOT NULL,
-  `dia` date NOT NULL,
+  `dia` varchar(10) NOT NULL,
   `horario_inicio` time NOT NULL,
   `horario_fin` time NOT NULL,
   `duracion_turno_minutos` int(2) NOT NULL,
