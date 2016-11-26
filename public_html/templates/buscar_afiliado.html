@@ -1,3 +1,8 @@
+         <ul class="breadcrumb">
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Acciones</a></li>
+				<li class="active">Buscar Afiliado</li>
+		</ul>
         <div class="container theme-showcase" role="main">
             <div class="page-header">
                 <h1>Buscar Afiliado</h1>
@@ -59,17 +64,16 @@
             <table class="table table-striped tablesorter" id="tbres">
                 <thead>
                     <tr>
-                        <th>Nº</th>
-                        <th>Nombre</th>
+                        <th class='hidden-xs'>Nº</th>
+                        <th class='hidden-sm hidden-xs'>Nombre</th>
                         <th>DNI</th>
-                        <th>Modificar</th>
+                        <th>Editar</th>
                         <th>Turno</th>
                         <th>Activo</th>
                     </tr>
                 </thead>
                 <tbody id="bodyres">
                 </tbody>
-                
             </table>
             <div id="msj1" class="text-center">
 				<h4>Realice una búsqueda para mostrar resultados.</h4>
@@ -78,11 +82,11 @@
 				<h4>No se encontraron resultados.</h4>
             </div>
             <div class="row">
-	            <div class="pager center-block btn-default">
-					<ul class="pagination">
-						<li class="first glyphicon glyphicon-fast-backward" alt="First"> </li>
+	            <div class="pager">
+					<ul class="pagination btn bg-primary">
+						<li class="first glyphicon glyphicon-fast-backward" alt="First">  </li>
 						<li class="glyphicon glyphicon-backward prev" alt="Prev"> </li>
-						<li class="pagedisplay"></li>
+						<li class="pagedisplay"> </li>
 						<li class="glyphicon glyphicon-forward next" alt="Next"> </li>
 						<li class="glyphicon glyphicon-fast-forward last" alt="Last"> </li>
 					</ul>
