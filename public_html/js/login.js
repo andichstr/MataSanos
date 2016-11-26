@@ -5,9 +5,7 @@ $(document).ready(function() {
 			//Detengo el submit
 			event.preventDefault();
 			//Mostrar divErrores
-			$('#divErrores').modal()                      // initialized with defaults
-			$('#divErrores').modal({ keyboard: false })   // initialized with no keyboard
-			$('#divErrores').modal('show')                // initializes and invokes show immediately
+			showmodal('Has ingresado un mail o contraseña inválidos. Revisa el formulario.');
 		}else{
 			event.preventDefault();
 			//Enviar formulario
@@ -39,12 +37,16 @@ function redirect(dat){
 		window.location.href = './buscar_medico.php'
 		}
 	else{
-		$('#divErrores').modal()                      // initialized with defaults
-		$('#divErrores').modal({ keyboard: false })   // initialized with no keyboard
-		$('#divErrores').modal('show')                // initializes and invokes show immediately
-		}
+		showmodal(dat);
+	}
 }
 
+function showmodal(dat){
+	$('p.pmsj').text(dat);
+	$('#divInforme').modal()       
+	$('#divInforme').modal({ keyboard: false })
+	$('#divInforme').modal('show')  
+}
 
 function validarForm()
 {
@@ -65,4 +67,3 @@ function validarForm()
      return validator.form();
 
 }
-

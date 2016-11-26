@@ -14,13 +14,16 @@ session_start();
 //Logearse
 function login($data){
 	$resultado = iniciar_sesion($data);
-	if ($resultado['mail']>""){
-		savesession($resultado);
-		$role = $_SESSION['roleuser'];
-		return $role;
-	}else{
-		return False;
-	}
+	if ($resultado != False){
+		if ($resultado['mail']>"" and $resultado['password']>""){
+			savesession($resultado);
+			$role = $_SESSION['roleuser'];
+			return $role;
+		}else{
+			echo json_encode('Has ingresado un email o contraseña incorrectos.');
+			return False;
+		}
+	}else{echo json_encode('Has ingresado un email o contraseña incorrectos.');return false;}
 }
 
 //Guardar Session
@@ -68,7 +71,7 @@ function main(){
 		if ($login != False){
 			echo json_encode($login);
 			}else{
-				echo json_encode('No');
+				
 			}
 		}	
 }	
