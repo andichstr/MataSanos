@@ -49,7 +49,7 @@ function persistir_turnos($turnos) {//le paso un array con las id de los turnos 
     for ($a = 0; $a < count($turnos); $a++) { //por cada turno nuevo para persistir..
         $query->bindParam(':id', $turnos[$a]);
         if ($query->execute()) {
-            $turno = $query->fetchAll()[0];
+            $turno = $query->fetchAll()[0];//tengo los datos del turno a persistir 
             
             $fechas = calcular_fecha($turno['dia']);
             $con2 = new Conexion();
@@ -69,7 +69,7 @@ function persistir_turnos($turnos) {//le paso un array con las id de los turnos 
                 for ($m = 0; $m < count($horarios); $m++) {
                     $query2->bindParam(':horario', $horarios[$m]);
                     if ($query2->execute()) {
-                        echo"Turno persistido";
+                        echo $turno['dia']."Turno persistido".$fechas[$i];
                     } else{
                         echo "<br>Problema al persistir horario.";
                     }
@@ -81,7 +81,7 @@ function persistir_turnos($turnos) {//le paso un array con las id de los turnos 
     }
 }
 
-function calcular_fecha($dia) {//retorna array con las cuatro fechas siguientes que coincidan con el dia (pasado por parametro)
+function calcular_fecha($dia) {//retorna array con las cinco fechas siguientes que coincidan con el dia (pasado por parametro)
     if ($dia == 'Lunes') {
         $dia = "MONDAY";
     } elseif ($dia == 'Martes') {
