@@ -1,4 +1,9 @@
-        <div class="container" role="main">
+<style>
+    .error{
+        color:red;
+    }
+</style>        
+<div class="container" role="main">
             <div class="page-header">
                 <h1>Alta de Médico</h1>
             </div>
@@ -80,7 +85,7 @@
                         <label for="selEspecial">Especialidades que atiende</label>
                     </div>
                     <div class="form-group col-lg-12 col-md-12 col-sm-12">
-                        <select class="form-control" id="selEspecial" multiple>
+                        <select class="form-control" id="selEspecial" name="selEsp" multiple>
                         </select>
                     </div>
                 </div>
@@ -109,8 +114,9 @@
                 </div>
             </div>
         </div>
-
-
+        
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+        <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
         <script src="js/alta_medico.js"></script>
     </body>
 
