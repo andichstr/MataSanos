@@ -36,8 +36,12 @@ function redirect($page,$roles){
 function main($roles){
 	$page = basename($_SERVER['PHP_SELF']);
 	$checkl = checkislogin();
-	if ($page != 'index.php' && $checkl == False){
-		header('Location: ./index.php');
+	if ($page != 'index.php' && $checkl == False){ //si no hay usuario logueado 
+            if($page=='registro.php'){ // y si la pagina actual es la de registro..
+                return true;
+            }else{
+                header('Location: ./index.php');
+            }
 	}
 	elseif ($page=='index.php' && $checkl==False){
 		return True;

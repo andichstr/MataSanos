@@ -1,5 +1,5 @@
 <?php
-//require_once 'app/chkuser.php';
+require_once 'app/chkuser.php';
 require_once 'conexiones/configure.php';
 require_once 'conexiones/conexion.php';
 
