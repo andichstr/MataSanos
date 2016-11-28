@@ -14,9 +14,14 @@ function buscarMedico() {
         $result = $query->fetchAll();
         if (isset($result) && (count($result) != 0)) {
             foreach ($result as $row) {
+                $estado = consultar_estado($row['id_medico']);
                 echo '<tr><td>' . $row['nombre'] . ' ' . $row['apellido']. '</td><td>' . $row['numero_matricula'] . '</td>';
                 echo '<td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm" onclick="modificarMedico(' . $row['id_medico'] . ');"><span class="glyphicon glyphicon-pencil"></span></button></p></td>';
-                echo '<td><a href="#"><button class="btn btn-danger btn-sm" onclick="confirmarEliminarMedico(' . $row['id_medico'] . ');"><span class="glyphicon glyphicon-ban-circle"></span></button></a></td>';
+                if ($estado==0){
+                    echo '<td><a href="#"><button id="' . $row['id_medico'] . '" class="btn btn-success btn-sm" onclick="confirmarHabilitarMedico(' . $row['id_medico'] . ');"><span class="glyphicon glyphicon-ok-circle"></span></button></a></td>';
+                } elseif ($estado==1){
+                    echo '<td><a href="#"><button id="' . $row['id_medico'] . '" class="btn btn-danger btn-sm" onclick="confirmarEliminarMedico(' . $row['id_medico'] . ');"><span class="glyphicon glyphicon-ban-circle"></span></button></a></td>';
+                }
             }
         } else {
             echo '0';
@@ -24,6 +29,16 @@ function buscarMedico() {
         $con = null;
     }
 
+}
+
+function consultar_estado($id) {
+    $con = new Conexion();
+    $query = $con->prepare("SELECT activo FROM " . tabla_medicos . " WHERE (id_medico=:id_medico)");
+    $query->bindParam(':id_medico', $id);
+    $query->execute();
+    $datos = $query->fetch();
+    $con = NULL;
+    return $datos['activo'];
 }
 
 buscarMedico();
