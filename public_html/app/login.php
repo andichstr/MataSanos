@@ -14,7 +14,7 @@ session_start();
 //Logearse
 function login($data){
 	$resultado = iniciar_sesion($data);
-	if ($resultado != False){
+	if ($resultado != False && $resultado != 'Inactivo'){
 		if ($resultado['mail']>"" and $resultado['password']>""){
 			savesession($resultado);
 			$role = $_SESSION['roleuser'];
@@ -23,7 +23,12 @@ function login($data){
 			echo json_encode('Has ingresado un email o contraseña incorrectos.');
 			return False;
 		}
-	}else{echo json_encode('Has ingresado un email o contraseña incorrectos.');return false;}
+	}elseif ($resultado == 'Inactivo'){
+		echo json_encode('No se puede iniciar sesión porque no estas activo.');
+		return false;
+	}else{
+		echo json_encode('Has ingresado un email o contraseña incorrectos.');
+		return False;}
 }
 
 //Guardar Session
@@ -31,7 +36,7 @@ function savesession($datos_sesion){
 	$_SESSION['ssid'] = md5(key.$datos_sesion['password'].key2);
 	$_SESSION['userid'] = $datos_sesion['id_usuario'];
 	$_SESSION['mail'] = $datos_sesion['mail'];
-	$_SESSION['nombre'] = $datos_sesion['nombre'];
+	$_SESSION['nombre'] = $datos_sesion['nombre'].' '.$datos_sesion['apellido'];
 	$_SESSION['roleuser'] = $datos_sesion['id_tipo_usuario'];
 }
 

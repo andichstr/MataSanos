@@ -12,7 +12,7 @@ function iniciar_sesion($data){
 		if (verificar_activo($datos['id_usuario'])){
 			return $datos;
 			}
-		else{echo json_encode('No se puede iniciar sesión porque no estas activo.');return false;}
+		else{return 'Inactivo';}
 	}
 	else if ($datos['id_tipo_usuario'] == 2 or $datos['id_tipo_usuario'] == 3){return $datos;}
 	else{return False;}
