@@ -9,7 +9,7 @@ function editar_datos(id){
         success: function (dat) {
 			dat = jQuery.parseJSON(dat);
 			if (dat==true){
-				window.location.href = "modificar_afiliado.php";
+				window.location.href = "editar_datos.php";
 				}
 			else{
 				showmodal("Denegado",id);

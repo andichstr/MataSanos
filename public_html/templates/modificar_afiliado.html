@@ -5,8 +5,7 @@
         </style>           
         <div class="container theme-showcase" role="main">
             <div class="page-header">
-                <h1>Modificar datos de Afiliado</h1>
-
+                <h1 class="title"></h1>
             </div>
             <!-- Modal -->
 			<div class="modal fade" id="divInforme" role="dialog">
@@ -28,8 +27,8 @@
 				</div>
 			</div>
             <div class="container-fluid">
-				<div class="nota">
-					<p class="lead text-center nota"></p>
+				<div id="info" class="panel-default alert alert-success" role="alert" hidden>
+					<p class="lead text-center nota"><strong></strong></p>
 				</div>
                 <form class="form-inline" action="conexiones/persistir_afi_modif.php" method="POST" id="form_afiliado">
 					<div class="form-group col-lg-3 col-md-3 col-sm-6">

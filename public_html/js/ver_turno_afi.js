@@ -1,6 +1,9 @@
 function verturnos(id){
+	name = $( 'td:contains('+id+')' ).parent().children('td')[1].innerHTML;
+	console.log(name);
 	params = {
-        "id": id
+        "id": id,
+        "nombre_afi" : name
     };
     $.ajax({
         data: params,

@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	$('h1').text('Modificar datos de afiliado');
 	form();
     cargar_obras();
     cargar_datos();
@@ -82,7 +83,7 @@ function cargar_datos() { //Carga datos que actualmente estan guardados del clie
             $("#numTelefono").val(datos[0].telefono);
             $("#numCelular").val(datos[0].celular);
             $("#txtComentarios").text(datos[0].comentarios);
-            $("p.nota").text('Modificando datos de: '+datos[0].nombre+' '+datos[0].apellido);
+            $("p.nota strong").text('Modificando datos de: '+datos[0].nombre+' '+datos[0].apellido);
             if (datos[1]==false){
 				$("input#txtMail").attr('disabled',true);
 			}
@@ -102,6 +103,7 @@ function form(){
 	$("div.pass").hide();
 	$("input.ope").removeAttr('disabled');
 	$("select.ope").removeAttr('disabled');
+	$("div#info").removeAttr('hidden');
 }
 
 function validar() {

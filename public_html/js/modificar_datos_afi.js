@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	$('h1').text('Modificar mis datos');
 	$("div.comentarios").hide();
 	$("p.nota").text('NOTA: Al modificar sus datos deberá introducir una nueva contraseña.');
     cargar_obras();

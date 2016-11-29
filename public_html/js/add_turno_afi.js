@@ -1,6 +1,8 @@
 function asignarturno(id){
+	name = $( 'td:contains('+id+')' ).parent().children('td')[1].innerHTML;
 	params = {
-        "id": id
+        "id": id,
+        "nombre_afi" : name
     };
     $.ajax({
         data: params,

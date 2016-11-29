@@ -99,7 +99,7 @@ function printres(dat){
 		}else{
 			btnAB = '<button id = '+id+' class="btn btn-success btn-sm" onclick="act_bloc('+iduser+');"><span class="glyphicon glyphicon glyphicon-ok-circle"></span></button>';
 		}
-		document.getElementById("bodyres").insertRow(0).innerHTML = '<tr><td class="hidden-xs">'+id+'</td><td class="hidden-sm hidden-xs">'+afiliado['nombre']+'</td><td>'+afiliado['dni']+'</td><td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm" onclick=editar_datos('+iduser+')><span class="glyphicon glyphicon-pencil"></span></button></p></td><td><button class="btn btn-success btn-sm" onclick=asignarturno('+iduser+')><span class="glyphicon glyphicon-plus"></span></button><button class="btn btn-info btn-sm" onclick="verturnos('+iduser+')"><span class="glyphicon glyphicon-th-list"></span></button></p></td><td>'+btnAB+'</td></tr>';
+		document.getElementById("bodyres").insertRow(0).innerHTML = '<tr asr='+iduser+'><td class="hidden-xs">'+id+'</td><td class="hidden-sm hidden-xs">'+afiliado['nombre']+'</td><td>'+afiliado['dni']+'</td><td><p data-placement="top" data-toggle="tooltip" title="modificar datos"><button class="btn btn-primary btn-sm" onclick=editar_datos('+iduser+')><span class="glyphicon glyphicon-pencil"></span></button></p></td><td><button class="btn btn-success btn-sm" onclick=asignarturno('+iduser+')><span class="glyphicon glyphicon-plus"></span></button><button class="btn btn-info btn-sm" onclick="verturnos('+iduser+')"><span class="glyphicon glyphicon-th-list"></span></button></p></td><td>'+btnAB+'</td></tr>';
 	});
 }
 

@@ -2,6 +2,9 @@
             <div class="page-header">
                 <h1>Turnos Reservados</h1>
             </div>
+            <div id="info" class="panel-default alert alert-success" role="alert" hidden>
+				<?php if (isset($_SESSION['roleuser']) && isset($_SESSION['nombre_afi'])){echo '<p class="lead nota text-center"><strong>Turnos de: '.$_SESSION['nombre_afi'].'</strong></p>';}?>	
+			</div>           
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -32,5 +35,6 @@
             </div>
         </div>
         <script src="./js/turnos_disponibles.js"></script>
+        <?php if($_SESSION['roleuser']==2){echo '<script>$("div#info").removeAttr("hidden");</script>';}?>
     </body>
 </html>

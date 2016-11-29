@@ -2,6 +2,9 @@
             <div class="page-header">
                 <h2>Solicitar Turno</h2>
             </div>
+            <div id="info" class="panel-default alert alert-success" role="alert" hidden>
+				<?php if (isset($_SESSION['roleuser']) && isset($_SESSION['nombre_afi'])){echo '<p class="lead nota text-center"><strong>Reservando turno para: '.$_SESSION['nombre_afi'].'</strong></p>';}?>	
+			</div>
             <form class="form-inline" id="reservarTurnoForm" action="./conexiones/reservar_turno.php" method="POST">
                 <div class="container-fluid">
                         <div class="form-group col-lg-2">
@@ -62,5 +65,6 @@
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <script src="./js/solicitar_turno.js"></script>
+        <?php if($_SESSION['roleuser']==2){echo '<script>$("div#info").removeAttr("hidden");</script>';}?>
     </body>
 </html>

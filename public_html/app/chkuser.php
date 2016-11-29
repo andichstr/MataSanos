@@ -4,8 +4,8 @@ session_start();
 // Chekear si esta logeado (antes que inicie sesion)
 
 //Configuracion de roles (accesos a paginas)
-$afiliado = ['turnos.php','solicitar_turno.php','modificar_afiliado.php'];
-$operador = ['alta_afiliado.php','solicitar_turno.php','buscar_afiliado.php','modificar_afiliado.php','turnos.php'];
+$afiliado = ['turnos.php','solicitar_turno.php','editar_datos.php'];
+$operador = ['alta_afiliado.php','solicitar_turno.php','buscar_afiliado.php','editar_datos.php','turnos.php'];
 $administrativo = ['buscar_medico.php','buscar_afiliado.php','modificar_medico.php','alta_medico.php','alta_operador.php'];
 $roles = [$afiliado,$operador,$administrativo];
 
