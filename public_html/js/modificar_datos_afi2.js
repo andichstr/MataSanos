@@ -104,50 +104,63 @@ function form() {
     $("input.ope").removeAttr('disabled');
     $("select.ope").removeAttr('disabled');
     $("div#info").removeAttr('hidden');
+    $("div.comentarios").removeAttr('style');
 }
 
 function validar() {
     jQuery.validator.setDefaults({
         debug: true,
-        success: "valid"
+        success: "valid",
+        highlight: function (element, errorClass, validClass) {
+        if (element.type === "radio") {
+				this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+			} else {
+				$(element).closest('.form-group').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+				$(element).closest('.form-group').find('span.glyphicon').remove();
+				$(element).closest('.form-group').append('<span class="glyphicon glyphicon-remove form-control-feedback hidden-xs" aria-hidden="true" style="padding-right: 50px;"></span>');
+			}
+		},
+		unhighlight: function (element, errorClass, validClass) {
+        if (element.type === "radio") {
+				this.findByName(element.name).removeClass(errorClass).addClass(validClass);
+			} else {
+				$(element).closest('.form-group').removeClass('has-error has-feedback').addClass('has-success has-feedback');
+				$(element).closest('.form-group').find('span.glyphicon').remove();
+				$(element).closest('.form-group').append('<span class="glyphicon glyphicon-ok form-control-feedback hidden-xs" aria-hidden="true" style="padding-right: 50px;"></span>');
+			}
+		}
     });
     var validator = $("#form_afiliado").validate({
         rules: {
-            numAfiliado: {required: true, minlength: 1},
+            numAfiliado: {required: true, maxlength: 8},
             numDNI: {required: true, minlength: 6, maxlength: 10, number: true},
-            txtNombre: {required: true, lettersonly: true, minlength: 3},
-            txtApellido: {required: true, lettersonly: true, minlength: 3},
+            txtNombre: {required: true, lettersonly: true, minlength: 3, maxlength: 20},
+            txtApellido: {required: true, lettersonly: true, minlength: 3, maxlength: 20},
             selGenero: {required: true},
             dateNac: {required: true},
-            txtMail: {required: true, email: true},
+            txtMail: {required: true, email: true, maxlength: 25},
             selObraSocial: {required: true},
-            txtLocalidad: {required: true},
-            txtDireccion: {required: true},
-            numTelefono: {number: true, minlength: 8},
-            numCelular: {number: true, minlength: 10},
+            txtLocalidad: {required: true, maxlength: 15},
+            txtDireccion: {required: true, maxlength: 30},
+            numTelefono: {number: true, minlength: 8, maxlength: 12},
+            numCelular: {number: true, minlength: 10, maxlength: 12},
+            txtComentarios: {maxlength: 200},
         },
         messages: {
-            numAfiliado: "Ingresa un dato valido.",
-            numDNI: "Ingresa un dni válido",
-            txtNombre: "Ingresa un nombre válido",
-            txtApellido: "Ingresa un apellido válido",
+            numAfiliado: {required: "Completa el numero de afiliado.", maxlength: "Ingresa como máximo {0} caracteres"},
+            numDNI: {required: "Completa el numero de DNI.", maxlength: "Ingresa como máximo {0} caracteres"},
+            txtNombre: {required: "Completa el nombre.", maxlength: "Ingresa como máximo {0} caracteres",  lettersonly: "Solo se admiten letras."},
+            txtApellido: {required: "Completa el apellido.", maxlength: "Ingresa como máximo {0} caracteres", lettersonly: "Solo se admiten letras."},
             selGenero: "Seleccione su genero",
             dateNac: "Seleccione la fecha de nacimiento",
-            txtMail: "Debe ingresar un email",
+            txtMail: {required: "Completa el mail.", maxlength: "Ingresa como máximo {0} caracteres", email: "Ingresa un email válido"},
             selObraSocial: "Selecciona una obra social.",
-            txtLocalidad: "Ingresa una localidad válida.",
-            txtDireccion: "Ingresa una direccion válida",
-            numTelefono: "Ingresa un telefono válido",
-            numCelular: "No puedes modificar este campo",
+            txtLocalidad: {required: "Completa la localidad.", maxlength: "Ingresa como máximo {0} caracteres"},
+            txtDireccion: {required: "Completa la dirección.", maxlength: "Ingresa como máximo {0} caracteres"},
+            numTelefono: {required: "Completa el teléfono.", maxlength: "Ingresa como máximo {0} caracteres", minlength: "Ingresa {0} caracteres como mínimo", number: "Solo se admiten numeros."},
+            numCelular: {maxlength: "Ingresa como máximo {0} caracteres", minlength: "Ingresa {0} caracteres como mínimo", number: "Solo se admiten numeros."},
+            txtComentarios: {maxlength: "Ingresa como máximo {0} caracteres"}
         },
-        errorPlacement: function (error, element) {
-            element.attr('oninvalid', 'setCustomValidity(' + error.html() + ');');
-            if (error.html() != "") {
-                element.attr('style', 'color: #FF0000');
-            } else {
-                element.attr('style', 'color: #000000');
-            }
-        }
     });
     return validator.form();
 }

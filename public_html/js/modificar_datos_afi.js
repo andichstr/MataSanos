@@ -79,6 +79,11 @@ function cargar_datos() { //Carga datos que actualmente estan guardados del clie
             $("#txtDireccion").val(datos.direccion);
             $("#numTelefono").val(datos.telefono);
             $("#numCelular").val(datos.celular);
+            $("#form_afiliado :input").each(function () {
+                $(this).keyup(function (event) {
+                    validar();
+                });
+            });
         }
     });
 }
@@ -92,11 +97,28 @@ function cargar_obras() { //cargar Obras Sociales en el select correspondiente
     });
 }
 
-
 function validar() {
     jQuery.validator.setDefaults({
         debug: true,
-        success: "valid"
+        success: "valid",
+        highlight: function (element, errorClass, validClass) {
+        if (element.type === "radio") {
+				this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+			} else {
+				$(element).closest('.form-group').removeClass('has-success has-feedback').addClass('has-error has-feedback');
+				$(element).closest('.form-group').find('span.glyphicon').remove();
+				$(element).closest('.form-group').append('<span class="glyphicon glyphicon-remove form-control-feedback hidden-xs" aria-hidden="true" style="padding-right: 50px;"></span>');
+			}
+		},
+		unhighlight: function (element, errorClass, validClass) {
+        if (element.type === "radio") {
+				this.findByName(element.name).removeClass(errorClass).addClass(validClass);
+			} else {
+				$(element).closest('.form-group').removeClass('has-error has-feedback').addClass('has-success has-feedback');
+				$(element).closest('.form-group').find('span.glyphicon').remove();
+				$(element).closest('.form-group').append('<span class="glyphicon glyphicon-ok form-control-feedback hidden-xs" aria-hidden="true" style="padding-right: 50px;"></span>');
+			}
+		}
     });
     var validator = $("#form_afiliado").validate({
         rules: {

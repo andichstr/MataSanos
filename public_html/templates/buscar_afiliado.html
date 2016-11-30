@@ -59,8 +59,8 @@
             <table class="table table-striped tablesorter" id="tbres">
                 <thead>
                     <tr>
-                        <th class='hidden-xs'>Nº</th>
-                        <th class='hidden-sm hidden-xs'>Nombre</th>
+                        <th <?php if ($_SESSION['roleuser']==2){echo "class='hidden-xs'";}?>>Nº</th>
+                        <th <?php if ($_SESSION['roleuser']==2){echo "class='hidden-sm hidden-xs'";}?>>Nombre</th>
                         <th>DNI</th>
                         <th>Editar</th>
                         <th>Turno</th>
