@@ -16,5 +16,11 @@ $dia="MONDAY";
     }
     
     print_r($fechas);
+    
+    
+    $fvar=2345;
+    if(strlen($fvar)>4){
+        echo "aleluya";
+    }
 //        echo $str_fecha.'<br>';
     

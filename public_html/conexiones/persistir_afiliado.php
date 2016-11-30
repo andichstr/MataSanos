@@ -74,7 +74,7 @@ function persistirAfiliado($id, $dni, $genero, $fecha, $id_obra, $num_afi, $dire
     $query->bindParam(':direccion', $direccion);
     $query->bindParam(':localidad', $localidad);
     $query->bindParam(':telefono', $telefono);
-    $query->bindParam(':celular', $celular);
+    $query->bindParam(':celular', validar_cel($celular));
     $query->bindParam(':comentarios', $comentarios);
 
     if ($query->execute()) {
@@ -137,6 +137,18 @@ function enviar_mail($email, $name, $token) {
         echo 'Mailer Error: ' . $mail->ErrorInfo;
     } else {
         return 1;
+    }
+}
+
+function validar_cel($tel){
+    if (strlen($tel)>=8){
+        return $tel;
+    }else{
+        if ($tel==''){
+            return NULL;
+        }else{
+            return false;
+        }
     }
 }
 ?>

@@ -1,143 +1,147 @@
-        <style>
-            .form-inline .form-control{
-                width: 100%;
-            }
-        </style>           
-        <div class="container theme-showcase" role="main">
-            <div class="page-header">
-                <h1 class="title"></h1>
+<style>
+    .form-inline .form-control{
+        width: 100%;
+    }
+</style>           
+<div class="container theme-showcase" role="main">
+    <div class="page-header">
+        <h1 class="title"></h1>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="divInforme" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Informe:</h4>
+                </div>
+                <div class="modal-body">
+                    <p id="pmsj1"></p>
+                    <p id="pmsj2"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
             </div>
-            <!-- Modal -->
-			<div class="modal fade" id="divInforme" role="dialog">
-				<div class="modal-dialog">
-				  <!-- Modal content-->
-				  <div class="modal-content">
-					<div class="modal-header">
-					  <button type="button" class="close" data-dismiss="modal">&times;</button>
-					  <h4 class="modal-title">Informe:</h4>
-					</div>
-					<div class="modal-body">
-					  <p id="pmsj1"></p>
-					  <p id="pmsj2"></p>
-					</div>
-					<div class="modal-footer">
-					  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-					</div>
-				  </div>
-				</div>
-			</div>
-            <div class="container-fluid">
-				<div id="info" class="panel-default alert alert-success" role="alert" hidden>
-					<p class="lead text-center nota"><strong></strong></p>
-				</div>
-                <form class="form-inline" action="conexiones/persistir_afi_modif.php" method="POST" id="form_afiliado">
-					<div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="numAfiliado">Número de Afiliado: </label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control ope" type="number" placeholder="Número de Afiliado" name="numAfiliado" id="numAfiliado" required disabled />
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="numDNI">DNI: </label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control ope" type="number" placeholder="DNI" name="numDNI" id="numDNI" required disabled />
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="txtNombre">Nombre: </label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="text" placeholder="Nombre" name="txtNombre" id="txtNombre" required />
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="txtApellido">Apellido: </label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="text" placeholder="Apellido" name="txtApellido" id="txtApellido" required />
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="selGenero">Género: </label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <select class="form-control" name="selGenero" id="selGenero" required>
-                            <option value="M">Masculino</option>
-                            <option value="F">Femenino</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="dateNac">Fecha de Nacimiento: </label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="date" name="dateNac" placeholder="AAAA-MM-DD" id="dateNac" required />
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="txtMail">Mail: </label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control" type="email" placeholder="Mail" name="txtMail" id="txtMail" required />
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="selObraSocial">Obra Social: </label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <select class="form-control ope" name="selObraSocial" id="selObraSocial" required disabled>
-                            <option value="0">Obras</option>
-                            <option value="1">Sociales</option>
-                            <option value="2">Disponibles</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="txtLocalidad">Localidad: </label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control ope" type="text" placeholder="Localidad" name="txtLocalidad" id="txtLocalidad" required disabled />
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="txtDireccion">Dirección: </label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control ope" type="text" placeholder="Dirección" name="txtDireccion" id="txtDireccion" required disabled />
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="numTelefono">Número de Teléfono: </label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control ope" type="number" placeholder="Teléfono" name="numTelefono" id="numTelefono" required disabled />
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <label for="numCelular">Celular (Opcional): </label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6">
-                        <input class="form-control ope" type="number" placeholder="Teléfono Celular" name="numCelular" id="numCelular" disabled />
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6 comentarios">
-                        <label for="txtComentarios">Comentarios:</label>
-                    </div>
-                    <div class="form-group col-sm-12 comentarios">
-                        <textarea name="txtComentarios" id="txtComentarios" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6 pass">
-                        <label for="txtPass">Contraseña: </label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6 pass">
-                        <input class="form-control" type="password" placeholder="Password" name="txtPass" id="txtPass"/>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6 pass">
-                        <label for="txtPass2">Repita la Contraseña: </label>
-                    </div>
-                    <div class="form-group col-lg-3 col-md-3 col-sm-6 pass">
-                        <input class="form-control" type="password" placeholder="Password" name="txtPass" id="txtPass2"/>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6">
-                        <input type="button" name="btncancelar" class="btn btn-default" value="Cancelar" id="cancelBtn"/>
-                        <input type="submit" class="btn btn-primary" value="Modificar Datos"/>
-                    </div>
-                </form>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div id="info" class="panel-default alert alert-success" role="alert" hidden>
+            <p class="lead text-center nota"><strong></strong></p>
+        </div>
+        <form class="form-inline" action="conexiones/persistir_afi_modif.php" method="POST" id="form_afiliado">
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <label for="numAfiliado">Número de Afiliado: </label>
             </div>
-        </div><!--CONTAINER -->
-        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
-        <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
-        <?php if(isset($_SESSION['ssid'])){if ($_SESSION['roleuser'] == 1){echo"<script src='js/modificar_datos_afi.js'></script>";}
-			else if ($_SESSION['roleuser']== 2){echo "<script src='js/modificar_datos_afi2.js'></script>";}}?>
-    </body>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <input class="form-control ope" type="number" placeholder="Número de Afiliado" name="numAfiliado" id="numAfiliado" required disabled />
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <label for="numDNI">DNI: </label>
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <input class="form-control ope" type="number" placeholder="DNI" name="numDNI" id="numDNI" required disabled />
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <label for="txtNombre">Nombre: </label>
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <input class="form-control" type="text" placeholder="Nombre" name="txtNombre" id="txtNombre" required />
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <label for="txtApellido">Apellido: </label>
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <input class="form-control" type="text" placeholder="Apellido" name="txtApellido" id="txtApellido" required />
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <label for="selGenero">Género: </label>
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <select class="form-control" name="selGenero" id="selGenero" required>
+                    <option value="M">Masculino</option>
+                    <option value="F">Femenino</option>
+                </select>
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <label for="dateNac">Fecha de Nacimiento: </label>
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <input class="form-control" type="date" name="dateNac" placeholder="AAAA-MM-DD" id="dateNac" required />
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <label for="txtMail">Mail: </label>
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <input class="form-control" type="email" placeholder="Mail" name="txtMail" id="txtMail" required />
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <label for="selObraSocial">Obra Social: </label>
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <select class="form-control ope" name="selObraSocial" id="selObraSocial" required disabled>
+                    <option value="0">Obras</option>
+                    <option value="1">Sociales</option>
+                    <option value="2">Disponibles</option>
+                </select>
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <label for="txtLocalidad">Localidad: </label>
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <input class="form-control ope" type="text" placeholder="Localidad" name="txtLocalidad" id="txtLocalidad" required disabled />
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <label for="txtDireccion">Dirección: </label>
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <input class="form-control ope" type="text" placeholder="Dirección" name="txtDireccion" id="txtDireccion" required disabled />
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <label for="numTelefono">Número de Teléfono: </label>
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <input class="form-control ope" type="number" placeholder="Teléfono" name="numTelefono" id="numTelefono" required disabled />
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <label for="numCelular">Celular (Opcional): </label>
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6">
+                <input class="form-control ope" type="number" placeholder="Teléfono Celular" name="numCelular" id="numCelular" disabled />
+            </div>
+            <div class="form-group col-lg-3 col-md-3 col-sm-6 comentarios" style="display:none">
+                <label for="txtComentarios">Comentarios:</label>
+            </div>
+            <div class="form-group col-sm-12 comentarios" style="display:none">
+                <textarea name="txtComentarios" id="txtComentarios" class="form-control"></textarea>
+            </div>
+            <div id="passwords" style="display:none">
+                <div class="form-group col-lg-3 col-md-3 col-sm-6 pass">
+                    <label for="txtPass">Contraseña: </label>
+                </div>
+                <div class="form-group col-lg-3 col-md-3 col-sm-6 pass">
+                    <input class="form-control" type="password" placeholder="Password" name="txtPass" id="txtPass"/>
+                </div>
+                <div class="form-group col-lg-3 col-md-3 col-sm-6 pass">
+                    <label for="txtPass2">Repita la Contraseña: </label>
+                </div>
+                <div class="form-group col-lg-3 col-md-3 col-sm-6 pass">
+                    <input class="form-control" type="password" placeholder="Password" name="txtPass" id="txtPass2"/>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <input type="button" name="btnChangePass" class="btn btn-default" value="Modif. Contraseña" id="ChangePass"/>
+                <input type="submit" class="btn btn-primary" value="Modificar Datos"/>
+            </div>
+        </form>
+    </div>
+</div><!--CONTAINER -->
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+
+<?php if(isset($_SESSION['ssid'])){if ($_SESSION['roleuser'] == 1){echo"<script src='js/modificar_datos_afi.js'></script>";}
+else if ($_SESSION['roleuser']== 2){echo "<script src='js/modificar_datos_afi2.js'></script>";}}?>
+</body>
 </html>

@@ -32,21 +32,21 @@ $(document).ready(function () {
                 type: this.method,
                 success: function (response) {
                     var respuesta = Number(response);
-                    if ((response.indexOf("Enviado"))!=-1 ) {
+                    if ((response.indexOf("Enviado")) != -1) {
                         $('#divNotif div.modal-body').html("<p>Afiliado Dado de Alta Satisfactoriamente! </p><p>Se ha enviado mail de invitación.");
                         $('#divNotif').modal({
                             backdrop: "static"
                         });
-                   
+
                         document.getElementById('form_afiliado').reset();
 
                     } else {
-                        if ((response.indexOf("Error al enviar"))!=-1 ){
+                        if ((response.indexOf("Error al enviar")) != -1) {
                             $('#divNotif div.modal-body').html("<p>Alta de Afiliado Correcta.</p><p>Sin embargo no se ha podido enviar mail</p>");
                             $('#divNotif').modal({
                                 backdrop: "static"
                             });
-                            console.log(respuesta);
+//                            console.log(respuesta);
                         }
 
                     }
@@ -81,6 +81,11 @@ function validar() {
         return false;
 
     } else {
+        if ($('#numCelular').val() == '') {
+            $('#numCelular').val(null);
+            console.log('el cel es un null');
+        }
+        
         return true;
     }
 }
