@@ -12,12 +12,12 @@ function buscarHorarios() {
         $con = new Conexion();
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $query = $con->prepare("SELECT horario FROM " . tabla_turnos . " WHERE (fecha = :dia) AND (id_medico = :id_medico) AND "
-                . "(id_especialidad = :id_especialidad) AND (id_afiliado IS NULL) AND (horario>:hora)");
+                . "(id_especialidad = :id_especialidad) AND (id_afiliado IS NULL) ");
         
         $query->bindParam(':id_medico', $id_medico);
         $query->bindParam(':id_especialidad', $id_especialidad);
         $query->bindParam(':dia', $dia);
-        $query->bindParam(':hora', $hora);
+//        $query->bindParam(':hora', $hora);
 
         if ($query->execute()){
             $result = $query->fetchAll();

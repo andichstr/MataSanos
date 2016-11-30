@@ -1,6 +1,8 @@
 $(document).ready(function () {
+    $('#ChangePass').show();
     $('#ChangePass').click(function(){
         $('#passwords').show();
+        
         $(this).hide();
     });
     

@@ -17,7 +17,7 @@ function persistirMedico() {
         $matricula = $_REQUEST['matricula'];
         $con = new Conexion();
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $query = $con->prepare("INSERT INTO " . tabla_medicos . " (nombre, apellido, dni, genero, fecha_nacimiento, mail, localidad, direccion, telefono, numero_matricula) VALUES (:nombre, :apellido, :dni, :genero, :fecha_nacimiento, :mail, :localidad, :direccion, :telefono, :matricula)");
+        $query = $con->prepare("INSERT INTO " . tabla_medicos . " (nombre, apellido, dni, genero, fecha_nacimiento, mail, localidad, direccion, telefono, numero_matricula, activo) VALUES (:nombre, :apellido, :dni, :genero, :fecha_nacimiento, :mail, :localidad, :direccion, :telefono, :matricula, 1)");
         $query->bindParam(':nombre', $nombre);
         $query->bindParam(':apellido', $apellido);
         $query->bindParam(':dni', $dni);

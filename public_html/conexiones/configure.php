@@ -1,7 +1,7 @@
 <?php
 
 define('host', 'localhost');
-define('database', 'matasanos');
+define('database', 'testing');
 define('user', 'root');
 define('password', '');
 define('tabla_afiliados', 'afiliados');

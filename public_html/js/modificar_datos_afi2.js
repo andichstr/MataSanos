@@ -1,9 +1,10 @@
 $(document).ready(function () {
     $('h1').text('Modificar datos de afiliado');
     form();
+    
     cargar_obras();
     cargar_datos();
-
+    $('.comentarios').show();
     $("#form_afiliado").on('submit', function (event) {
         event.preventDefault();
 
