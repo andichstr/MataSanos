@@ -30,6 +30,7 @@ function cargarMedicos() {
     var datos = {
         "especialidad": especialidad
     };
+    $("#selMedico").empty();
     $.ajax({
         data: datos,
         url: './conexiones/cargar_medicos.php',

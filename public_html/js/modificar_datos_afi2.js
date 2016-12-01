@@ -161,6 +161,14 @@ function validar() {
             numCelular: {maxlength: "Ingresa como máximo {0} caracteres", minlength: "Ingresa {0} caracteres como mínimo", number: "Solo se admiten numeros."},
             txtComentarios: {maxlength: "Ingresa como máximo {0} caracteres"}
         },
+        /* errorPlacement: function (error, element) {
+            element.attr('oninvalid', 'setCustomValidity(' + error.html() + ');');
+            if (error.html() != "") {
+                element.attr('style', 'color: #FF0000');
+            } else {
+                element.attr('style', 'color: #000000');
+            }
+        }*/
     });
     return validator.form();
 }

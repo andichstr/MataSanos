@@ -100,7 +100,8 @@ function generar_token() {
 }
 
 function enviar_mail($email, $name, $token) {
-    $link = 'http://localhost/MataSanosVistas/public_html/registro.php?token=' . $token;
+	$content = file_get_contents('https://api.ipify.org/');
+    $link = 'http://'.$content.'/matasanos/public_html/registro.php?token=' . $token;
     $mail = new PHPMailer;
 //    $mail->SMTPDebug = 3;                               // Enable verbose debug output
 
